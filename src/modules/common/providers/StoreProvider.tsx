@@ -43,21 +43,21 @@ export default function StoreProvider({
 	children: React.ReactNode;
 }) {
 	const storeRef = useRef<AppStore | null>(null);
-	const persistorRef = useRef<Persistor | null>(null);
+	// const persistorRef = useRef<Persistor | null>(null);
 
 	if (!storeRef.current) {
 		storeRef.current = makeStore();
-		persistorRef.current = persistStore(storeRef.current);
+		// persistorRef.current = persistStore(storeRef.current);
 	}
 
 	return (
 		<Provider store={storeRef.current}>
-			<PersistGate
+			{/* <PersistGate
 				loading={<h1 className='text-lg font-bold'>is loading</h1>}
 				persistor={persistorRef.current!}
-			>
-				{children}
-			</PersistGate>
+			> */}
+			{children}
+			{/* </PersistGate> */}
 		</Provider>
 	);
 }

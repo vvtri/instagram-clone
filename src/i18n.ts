@@ -6,7 +6,6 @@ const locales = ['en', 'vi'];
 export default getRequestConfig(async (props ) => {
   const {locale} = props
 
-  console.log('props', props)
 	if (!locales.includes(locale as any)) notFound();
 
 	return {

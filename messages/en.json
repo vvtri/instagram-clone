@@ -1,3 +1,49 @@
 {
-  "hello": "xin chao the gioi"
+  "Client": {
+    "showPassword": "show",
+    "hidePassword": "hide",
+    "or": "or"
+  },
+  "Common": {},
+  "Auth": {
+    "common": {
+      "form": {
+        "loginFbTitle": "Log in with Facebook",
+        "phoneNumberOrEmailInputLabel": "Mobile Number or Email",
+        "phoneNumberOrUsernameOrEmailInputLabel": "Mobile Number, Username or Email",
+        "fullNameInputLabel": "Full Name",
+        "usernameInputLabel": "Username",
+        "passwordInputLabel": "Password",
+        "contactUploadingWarning": "People who use our service may have uploaded your contact information to Instagram. <LearnMore>Learn more.</LearnMore>",
+        "signUpPolicy": "By signing up, you agree to our <Term>Terms</Term> , <PrivacyPolicy>Privacy Policy</PrivacyPolicy> and <CookiesPolicy>Cookies Policy</CookiesPolicy>.",
+        "getTheApp": "Get the app."
+      }
+    },
+    "signUp": {
+      "title": "Sign up to see photos and videos from your friends.",
+      "button": "Sign up",
+      "haveAccount": "Have an account? <LogIn>Log in</LogIn>"
+    },
+    "signIn": {
+      "button": "Sign in",
+      "forgetPassword": "Forget password",
+      "notHaveAccount": "Don't have an account? <Register>Register</Register>"
+    }
+  },
+  "Footer": {
+    "meta": "meta",
+    "about": "about",
+    "blog": "blog",
+    "jobs": "jobs",
+    "help": "help",
+    "API": "API",
+    "privacy": "privacy",
+    "terms": "terms",
+    "locations": "locations",
+    "instagramLite": "instagram lite",
+    "threads": "threads",
+    "contactUploadingAndNonUsers": "contact uploading & non-users",
+    "metaVerified": "meta verified",
+    "copyright": "Instagram from Meta"
+  }
 }

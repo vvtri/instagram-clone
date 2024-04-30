@@ -1,7 +1,7 @@
+import Provider from '@/modules/common/providers/Provider';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '../globals.css';
-import Provider from '@/modules/common/providers/Provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -13,17 +13,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
 	children,
+	params,
 }: Readonly<{
 	children: React.ReactNode;
+	params: { locale: string };
 }>) {
 	return (
-		<html lang='en' suppressHydrationWarning>
+		<html lang={params.locale} suppressHydrationWarning>
 			<body
 				style={{
 					fontFamily: `apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`,
 				}}
 			>
 				<Provider>{children}</Provider>
+
+				{/* <Footer /> */}
 			</body>
 		</html>
 	);
