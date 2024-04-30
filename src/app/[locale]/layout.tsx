@@ -1,9 +1,8 @@
+import Footer from '@/modules/common/components/footer/Footer';
 import Provider from '@/modules/common/providers/Provider';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import '../globals.css';
-
-const inter = Inter({ subsets: ['latin'] });
+import Script from 'next/script';
 
 export const metadata: Metadata = {
 	title: 'Instagram',
@@ -20,6 +19,8 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang={params.locale} suppressHydrationWarning>
+			<Script src='https://unpkg.com/detect-autofill@1.1.4/dist/detect-autofill.js' />
+
 			<body
 				style={{
 					fontFamily: `apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`,
@@ -27,7 +28,7 @@ export default function RootLayout({
 			>
 				<Provider>{children}</Provider>
 
-				{/* <Footer /> */}
+				<Footer />
 			</body>
 		</html>
 	);

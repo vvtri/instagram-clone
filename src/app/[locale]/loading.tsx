@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function LoadingPage() {
 	return (
-		<main className='w-screen h-screen flex justify-center items-center flex-col relative'>
+		<main className='w-screen h-screen flex justify-center items-center flex-col fixed inset-0 z-10 bg-white'>
 			<Image
 				width='80'
 				height='80'

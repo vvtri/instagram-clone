@@ -6,9 +6,8 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig = {
 	images: {
 		remotePatterns: [
-			{
-				hostname: 'static.cdninstagram.com',
-			},
+			{ hostname: 'static.cdninstagram.com' },
+			{ hostname: 'www.instagram.com' },
 		],
 	},
 };

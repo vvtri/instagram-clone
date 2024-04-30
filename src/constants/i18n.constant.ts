@@ -10,3 +10,5 @@ export const LANGUAGES = [
 		value: 'vi',
 	},
 ] as const;
+
+export type Language = (typeof LANGUAGES)[number]['value'];

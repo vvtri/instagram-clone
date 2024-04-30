@@ -1,14 +1,35 @@
-import { useTranslations } from 'next-intl';
+import { Language } from '@/constants/i18n.constant';
+import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { PropsWithChildren } from 'react';
 
 type DownloadAppProps = PropsWithChildren<{
 	className?: string;
+	// locale: Language;
+	// params: {
+	// 	locale: Language;
+	// };
 }>;
+
+const mapLocaleToGetAppIconLink: {
+	[key in Language]: { ggPlay: string; microsoft: string };
+} = {
+	en: {
+		ggPlay: 'https://static.cdninstagram.com/rsrc.php/v3/yz/r/c5Rp7Ym-Klz.png',
+		microsoft:
+			'https://static.cdninstagram.com/rsrc.php/v3/yu/r/EHY6QnZYdNX.png',
+	},
+	vi: {
+		ggPlay: 'https://static.cdninstagram.com/rsrc.php/v3/y2/r/yKDBMIG1og3.png',
+		microsoft:
+			'https://static.cdninstagram.com/rsrc.php/v3/ys/r/0evRgTlaFrn.png',
+	},
+};
 
 export default function GetTheApp({ className }: DownloadAppProps) {
 	const t = useTranslations('Auth');
+	const locale = useLocale() as Language;
 
 	return (
 		<div>
@@ -21,7 +42,7 @@ export default function GetTheApp({ className }: DownloadAppProps) {
 				>
 					<Image
 						className='block h-[40px]'
-						src='https://static.cdninstagram.com/rsrc.php/v3/yz/r/c5Rp7Ym-Klz.png'
+						src={mapLocaleToGetAppIconLink[locale].ggPlay}
 						width={135}
 						height={40}
 						alt='Download from google play'
@@ -34,8 +55,8 @@ export default function GetTheApp({ className }: DownloadAppProps) {
 				>
 					<Image
 						className='block h-[40px]'
-						src='https://static.cdninstagram.com/rsrc.php/v3/yu/r/EHY6QnZYdNX.png'
-						width={135}
+						src={mapLocaleToGetAppIconLink[locale].microsoft}
+						width={110}
 						height={40}
 						alt='Download from microsoft'
 					/>

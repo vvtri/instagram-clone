@@ -1,6 +1,3 @@
-import Image from 'next/image';
-import React from 'react';
-
 export default async function LoadingPage() {
 	await new Promise<void>((res) =>
 		setTimeout(() => {

@@ -1,22 +1,23 @@
-import React, { useTransition } from 'react';
-import AuthBoxContainer from '../BoxContainer';
 import InstaButton from '@/modules/common/components/Button';
 import InstaLink from '@/modules/common/components/InstaLink';
 import InstaIcon from '@/modules/common/components/InstagramIcon';
-import AuthLogo from '../AuthLogo';
-import GetTheApp from '../GetTheApp';
-import SignUpForm from '../sign-up/SignUpForm';
 import { useTranslations } from 'next-intl';
-import SignInForm from './SignInForm';
+import AuthLogo from '../AuthLogo';
 import AuthSeparator from '../AuthSeparator';
+import AuthBoxContainer from '../BoxContainer';
+import GetTheApp from '../GetTheApp';
+import SignInForm from './SignInForm';
 
-export default function SignInBox() {
+type SignInBoxProps = {
+	className?: string;
+};
+
+export default function SignInBox({ className }: SignInBoxProps) {
 	const authT = useTranslations('Auth');
-	const commonT = useTranslations('Common');
 
 	return (
-		<div>
-			<AuthBoxContainer className='mt-3 pt-12 pb-6 space-y-5'>
+		<div className={className}>
+			<AuthBoxContainer className='mt-3 pt-12 pb-6 space-y-5 '>
 				<AuthLogo className='mt-4' />
 
 				<SignInForm

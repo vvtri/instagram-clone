@@ -1,16 +1,16 @@
 'use client';
-
 import InstaIcon from '@/modules/common/components/InstagramIcon';
 import { useClickOutSide } from '@/modules/common/hooks/use-click-out-side.hook';
 import { cn } from '@/utilities/tailwind/cn';
 import { useTranslations } from 'next-intl';
 import React, {
 	ChangeEvent,
-	ChangeEventHandler,
-	useRef,
-	useState,
 	MouseEvent,
 	forwardRef,
+	useEffect,
+	useId,
+	useRef,
+	useState,
 } from 'react';
 
 type AuthInputProps = React.JSX.IntrinsicElements['input'] & {
@@ -35,6 +35,7 @@ const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>((props, ref) => {
 	const [isActive, setIsActive] = useState(false);
 	const [isShowPassword, setIsShowPassword] = useState(false);
 	const t = useTranslations();
+	const id = useId();
 
 	useClickOutSide(labelRef, () => {
 		if (!labelRef.current) return;
@@ -57,6 +58,14 @@ const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>((props, ref) => {
 		setIsShowPassword((prev) => !prev);
 	};
 
+	useEffect(() => {
+		const input = document.getElementById(`${id}`);
+
+		if (input?.matches(':autofill') || input?.matches(':autocompleted')) {
+			setIsActive(true);
+		}
+	}, []);
+
 	return (
 		<label
 			className={cn('relative flex items-center w-full text-xs', {
@@ -78,6 +87,7 @@ const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>((props, ref) => {
 					{ 'pb-[2px] pt-[14px]': isActive }
 				)}
 				onChange={onInputChange}
+				id={id}
 				type={isShowPassword ? 'text' : type}
 				{...rest}
 				ref={ref}
