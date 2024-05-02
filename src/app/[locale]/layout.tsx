@@ -1,8 +1,11 @@
-import Footer from '@/modules/common/components/footer/Footer';
 import Provider from '@/modules/common/providers/Provider';
 import type { Metadata } from 'next';
-import '../globals.css';
 import Script from 'next/script';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import '../globals.css';
 
 export const metadata: Metadata = {
 	title: 'Instagram',
@@ -18,17 +21,18 @@ export default function RootLayout({
 	params: { locale: string };
 }>) {
 	return (
-		<html lang={params.locale} suppressHydrationWarning>
+		<html lang={params.locale} suppressHydrationWarning className='relative'>
 			<Script src='https://unpkg.com/detect-autofill@1.1.4/dist/detect-autofill.js' />
 
 			<body
 				style={{
 					fontFamily: `apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`,
 				}}
+				className='relative'
 			>
 				<Provider>{children}</Provider>
 
-				<Footer />
+				<ToastContainer />
 			</body>
 		</html>
 	);

@@ -1,18 +1,19 @@
-import InstaButton from '@/modules/common/components/Button';
-import InstaLink from '@/modules/common/components/InstaLink';
-import InstaIcon from '@/modules/common/components/InstagramIcon';
+import InstaButton from '@/modules/common/components/utility/Button';
+import InstaImgIcon from '@/modules/common/components/icon/InstaImgIcon';
 import { useTranslations } from 'next-intl';
 import AuthLogo from '../AuthLogo';
 import AuthSeparator from '../AuthSeparator';
 import AuthBoxContainer from '../BoxContainer';
 import GetTheApp from '../GetTheApp';
 import SignInForm from './SignInForm';
+import InstaLink from '@/modules/common/components/utility/InstaLink';
 
 type SignInBoxProps = {
 	className?: string;
+	redirectUrl?: string;
 };
 
-export default function SignInBox({ className }: SignInBoxProps) {
+export default function SignInBox({ className, redirectUrl }: SignInBoxProps) {
 	const authT = useTranslations('Auth');
 
 	return (
@@ -28,12 +29,13 @@ export default function SignInBox({ className }: SignInBoxProps) {
 						),
 						signInBtn: authT('signIn.button'),
 					}}
+					redirectUrl={redirectUrl}
 				/>
 
 				<AuthSeparator />
 
 				<InstaButton variant='outline'>
-					<InstaIcon className='mr-2' backgroundPosition='-414px -259px' />
+					<InstaImgIcon className='mr-2' backgroundPosition='-414px -259px' />
 					{authT('common.form.loginFbTitle')}
 				</InstaButton>
 

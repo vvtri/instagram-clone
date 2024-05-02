@@ -25,7 +25,7 @@ const config: Config = {
 					tertiaryBtn: '#C7C7C7 ',
 					disableAction: '#A9DBFF',
 					link: 'rgb(0, 55, 107)',
-          outlineBtn: '#385185',
+					outlineBtn: '#385185',
 				},
 				btn: {
 					primary: '#0095F6',
@@ -33,6 +33,9 @@ const config: Config = {
 					secondary: '#262626',
 				},
 				separator: 'rgb(219,219,219)',
+				bg: {
+					hightLight: 'rgb(239, 239, 239)',
+				},
 			},
 		},
 	},

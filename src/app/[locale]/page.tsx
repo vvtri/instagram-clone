@@ -1,15 +1,21 @@
-import ScreenshotBox from '@/modules/auth/components/ScreenshotBox';
-import SignInBox from '@/modules/auth/components/sign-in/SignInBox';
-import Image from 'next/image';
+import AuthBoxContainer from '@/modules/auth/components/BoxContainer';
+import LoginWithScreenshot from '@/modules/auth/components/LoginWithScreenshot';
+import AuthGuard from '@/modules/auth/components/guard/AuthGuard';
+import Header from '@/modules/common/components/utility/Header';
+import ListPost from '@/modules/post/components/ListPost';
+import PostCard from '@/modules/post/components/PostCard';
+import UserStoryCard from '@/modules/user-story/components/UserStoryCard';
+import UserStorySlider from '@/modules/user-story/components/UserStorySlider';
+import Slider from 'react-slick';
 
 export default function RootPage() {
 	return (
-		<main className='pt-12 mx-auto'>
-			<div className='flex items-center justify-center'>
-				<ScreenshotBox className='hidden lg:block' />
+		<AuthGuard redirectComp={<LoginWithScreenshot />}>
+			<Header />
 
-				<SignInBox className='flex items-center flex-col' />
-			</div>
-		</main>
+			<UserStorySlider />
+
+			<ListPost />
+		</AuthGuard>
 	);
 }

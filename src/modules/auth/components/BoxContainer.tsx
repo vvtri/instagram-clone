@@ -1,6 +1,7 @@
 'use client';
 import { cn } from '@/utilities/tailwind/cn';
 import React, { PropsWithChildren } from 'react';
+import { useAuth } from '../hooks/use-auth.hook';
 
 type BoxContainerProps = PropsWithChildren<{
 	className?: string;

@@ -1,6 +1,6 @@
-import InstaButton from '@/modules/common/components/Button';
+import InstaButton from '@/modules/common/components/utility/Button';
 import InstaLink from '@/modules/common/components/InstaLink';
-import InstaIcon from '@/modules/common/components/InstagramIcon';
+import InstaImgIcon from '@/modules/common/components/icon/InstaImgIcon';
 import { useTranslations } from 'next-intl';
 import AuthLogo from '../AuthLogo';
 import AuthBoxContainer from '../BoxContainer';
@@ -24,7 +24,7 @@ export default function SignUpBox(props: SignUpBoxProps) {
 				</h2>
 
 				<InstaButton className='w-full'>
-					<InstaIcon className='mr-2' backgroundPosition='-414px -300px' />
+					<InstaImgIcon className='mr-2' backgroundPosition='-414px -300px' />
 					{authT('common.form.loginFbTitle')}
 				</InstaButton>
 

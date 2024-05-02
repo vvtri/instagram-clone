@@ -1,0 +1,26 @@
+export const users = [
+	{
+		id: 1,
+		username: 'vtri20161',
+		phoneNumber: '0342970934',
+		email: 'vtri2016@gmail.com',
+		fullName: 'vtri',
+		postAmount: 0,
+		followerAmount: 0,
+		followingAmount: 0, 
+		avt: null,
+		password: 'userpassword',
+	},
+	{
+		id: 2,
+		username: 'vtri201612',
+		phoneNumber: '0342970934',
+		email: 'vtri6006@gmail.com',
+		fullName: 'vtri6006',
+		postAmount: 0,
+		followerAmount: 0,
+		followingAmount: 0,
+		avt: null,
+		password: '12345678',
+	},
+];

@@ -2,7 +2,17 @@
   "Client": {
     "showPassword": "show",
     "hidePassword": "hide",
-    "or": "or"
+    "or": "or",
+    "auth": {
+      "signUp": {
+        "successToast": "Sign up successfully!",
+        "errorToast": "Sign up error, {errorCode, select, notFound {user not found} other {user not found}}!"
+      },
+      "signIn": {
+        "successToast": "Sign in successfully!",
+        "errorToast": "Sign in error, {errorCode, select, notFound {user not found} other {user not found}}!"
+      }
+    }
   },
   "Common": {},
   "Auth": {

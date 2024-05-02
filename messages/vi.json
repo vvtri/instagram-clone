@@ -2,7 +2,17 @@
   "Client": {
     "showPassword": "hiển thị",
     "hidePassword": "ẩn",
-    "or": "hoặc"
+    "or": "hoặc",
+    "auth": {
+      "signUp": {
+        "successToast": "Đăng ký thành công!",
+        "errorToast": "Đăng ký thất bại, {errorCode, select, notFound {user không tồn tại} other {user không tồn tại}}!"
+      },
+      "signIn": {
+        "successToast": "Đăng nhập thành công!",
+        "errorToast": "Đăng nhập thất bại, {errorCode, select, notFound {user không tồn tại} other {user không tồn tại}}!"
+      }
+    }
   },
   "Common": {},
   "Auth": {

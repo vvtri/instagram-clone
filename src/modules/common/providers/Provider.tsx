@@ -1,11 +1,12 @@
-import React from 'react';
-import StoreProvider from './StoreProvider';
-import { ThemeProvider } from 'next-themes';
 import {
 	AbstractIntlMessages,
 	NextIntlClientProvider,
 	useMessages,
 } from 'next-intl';
+import { ThemeProvider } from 'next-themes';
+import React from 'react';
+import QueryClientProvider from './QueryClientProvider';
+import StoreProvider from './StoreProvider';
 
 type ProviderProps = {
 	children: React.ReactNode;
@@ -18,7 +19,9 @@ export default function Provider({ children }: ProviderProps) {
 	return (
 		<NextIntlClientProvider messages={commonMessage}>
 			<ThemeProvider enableSystem>
-				<StoreProvider>{children}</StoreProvider>
+				<QueryClientProvider>
+					<StoreProvider>{children}</StoreProvider>
+				</QueryClientProvider>
 			</ThemeProvider>
 		</NextIntlClientProvider>
 	);

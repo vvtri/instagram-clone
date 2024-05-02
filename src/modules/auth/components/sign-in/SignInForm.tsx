@@ -3,11 +3,12 @@ import React, { ReactNode } from 'react';
 import { useForm } from 'react-hook-form';
 import { SignUpFormData, signUpSchema } from '../../schema/sign-up.scheme';
 import { yupResolver } from '@hookform/resolvers/yup';
-import InstaButton from '@/modules/common/components/Button';
+import InstaButton from '@/modules/common/components/utility/Button';
 import InstaLink from '@/modules/common/components/InstaLink';
 import AuthInput from '../AuthInput';
 import error from 'next/error';
 import { SignInFormData, signInSchema } from '../../schema/sign-in.scheme';
+import { useSignIn } from '../../hooks/use-sign-in.hook';
 
 type SignInFormProps = {
 	i18n: {
@@ -15,18 +16,17 @@ type SignInFormProps = {
 		password: string;
 		signInBtn: string;
 	};
+	redirectUrl?: string;
 };
 
 export default function SignInForm(props: SignInFormProps) {
-	const { i18n } = props;
+	const { i18n, redirectUrl } = props;
+
+	const { mutate, isLoading } = useSignIn(redirectUrl);
 
 	const { register, handleSubmit, formState } = useForm<SignInFormData>({
 		resolver: yupResolver(signInSchema),
 	});
-
-	const handleSignIn = (data: SignInFormData) => {
-		console.log('data', data);
-	};
 
 	const getInputValid = (key: keyof typeof formState.errors) => {
 		let error = formState.errors[key];
@@ -35,8 +35,16 @@ export default function SignInForm(props: SignInFormProps) {
 		return !error;
 	};
 
+	const handleSignIn = (data: SignInFormData) => {
+		mutate(data);
+	};
+
 	return (
-		<form className='w-full space-y-2' onSubmit={handleSubmit(handleSignIn)}>
+		<form
+			className='w-full space-y-2'
+			onSubmit={handleSubmit(handleSignIn)}
+			noValidate
+		>
 			<AuthInput
 				{...register('phoneNumberOrUsernameOrEmail')}
 				type='text'
@@ -50,7 +58,9 @@ export default function SignInForm(props: SignInFormProps) {
 				isValid={getInputValid('password')}
 			/>
 
-			<InstaButton className='w-full'>{i18n.signInBtn}</InstaButton>
+			<InstaButton type='submit' className='w-full' disabled={isLoading}>
+				{i18n.signInBtn}
+			</InstaButton>
 		</form>
 	);
 }

@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 import { useForm } from 'react-hook-form';
 import { SignUpFormData, signUpSchema } from '../../schema/sign-up.scheme';
 import { yupResolver } from '@hookform/resolvers/yup';
-import InstaButton from '@/modules/common/components/Button';
+import InstaButton from '@/modules/common/components/utility/Button';
 import InstaLink from '@/modules/common/components/InstaLink';
 import AuthInput from '../AuthInput';
 import error from 'next/error';
@@ -26,7 +26,6 @@ export default function SignUpForm(props: SignUpFormProps) {
 	const { register, handleSubmit, formState } = useForm<SignUpFormData>({
 		resolver: yupResolver(signUpSchema),
 	});
-
 
 	const handleSignUp = (data: SignUpFormData) => {
 		console.log('data', data);

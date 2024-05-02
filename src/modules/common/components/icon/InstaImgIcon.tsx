@@ -9,7 +9,7 @@ type InstagramIconProps = {
 	className?: string;
 };
 
-export default function InstaIcon(props: InstagramIconProps) {
+export default function InstaImgIcon(props: InstagramIconProps) {
 	const {
 		backgroundPosition,
 		height = 16,

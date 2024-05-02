@@ -1,5 +1,5 @@
 'use client';
-import InstaIcon from '@/modules/common/components/InstagramIcon';
+import InstaImgIcon from '@/modules/common/components/icon/InstaImgIcon';
 import { useClickOutSide } from '@/modules/common/hooks/use-click-out-side.hook';
 import { cn } from '@/utilities/tailwind/cn';
 import { useTranslations } from 'next-intl';
@@ -61,8 +61,12 @@ const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>((props, ref) => {
 	useEffect(() => {
 		const input = document.getElementById(`${id}`);
 
-		if (input?.matches(':autofill') || input?.matches(':autocompleted')) {
-			setIsActive(true);
+		try {
+			if (input?.matches(':autofill') || input?.matches(':autocompleted')) {
+				setIsActive(true);
+			}
+		} catch (error) {
+			setIsActive(false);
 		}
 	}, []);
 
@@ -83,7 +87,7 @@ const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>((props, ref) => {
 			</span>
 			<input
 				className={cn(
-					'p-2 pr-0 bg-zinc-50 w-full border-instagram-auth border  focus:outline-none focus:border-zinc-300',
+					'p-2 pr-0 bg-zinc-50 w-full border-instagram-auth border focus:outline-none focus:border-zinc-300',
 					{ 'pb-[2px] pt-[14px]': isActive }
 				)}
 				onChange={onInputChange}
@@ -95,7 +99,7 @@ const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>((props, ref) => {
 
 			<div className='flex items-center space-x-2 absolute right-2 top-1/2 -translate-y-1/2'>
 				{isValid === true && (
-					<InstaIcon
+					<InstaImgIcon
 						height={22}
 						width={22}
 						backgroundPosition='-225px -333px'
@@ -105,7 +109,7 @@ const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>((props, ref) => {
 				)}
 
 				{isValid === false && (
-					<InstaIcon
+					<InstaImgIcon
 						height={22}
 						width={22}
 						backgroundPosition='-249px -333px'
@@ -116,8 +120,9 @@ const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>((props, ref) => {
 
 				{type === 'password' && (
 					<button
-						className='text-xs font-semibold max-h-full p-3 pr-2 flex-shrink-0 capitalize'
+						className='block text-xs font-semibold max-h-full p-3 pr-2 flex-shrink-0 capitalize'
 						onClick={handleTogglePassword}
+						type='button'
 					>
 						{isShowPassword
 							? t('Client.hidePassword')
