@@ -4,15 +4,21 @@ import {
 	SvgIconProps,
 } from '../../constants/svg-icon.constant';
 
-export default function MessageSvgIcon({ thickness = 'thin' }: SvgIconProps) {
+type MessageIconProps = React.JSX.IntrinsicElements['svg'] & SvgIconProps;
+
+export default function MessageSvgIcon(props: MessageIconProps) {
+	const { thickness = 'thin', width = 24, height = 24, ...rest } = props;
+
+
 	return (
 		<svg
 			aria-label='Bình luận'
 			fill='currentColor'
-			height='24'
 			role='img'
 			viewBox='0 0 24 24'
-			width='24'
+			width={width}
+			height={height}
+			{...rest}
 		>
 			<title>Bình luận</title>
 			<path

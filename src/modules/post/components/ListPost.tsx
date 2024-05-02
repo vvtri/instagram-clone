@@ -11,12 +11,16 @@ type ListPostProps = {
 
 export default function ListPost({ className }: ListPostProps) {
 	return (
-		<div className='w-full'>
-			{Array(5)
-				.fill(0)
-				.map((item, idx) => (
-					<PostCard key={idx} />
-				))}
+		<div className='w-full flex items-center flex-col'>
+			<div className='w-full pb-[4000px] flex-col items-center flex'>
+				{Array(5)
+					.fill(0)
+					.map((item, idx) => (
+						<PostCard key={idx} />
+					))}
+			</div>
+
+			{/* loading */}
 		</div>
 	);
 }

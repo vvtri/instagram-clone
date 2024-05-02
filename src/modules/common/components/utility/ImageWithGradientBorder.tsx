@@ -32,7 +32,7 @@ export default function ImageWithGradientBorder(
 				width={length}
 				height={length}
 				alt='UserStory Image'
-				className='rounded-full outline-[3px] outline-white outline'
+				className='rounded-full outline-[3px] outline-white outline dark:outline-black'
 			/>
 		</div>
 	);

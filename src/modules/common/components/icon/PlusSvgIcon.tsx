@@ -1,14 +1,20 @@
 import React from 'react';
+import { SvgIconProps } from '../../constants/svg-icon.constant';
 
-export default function PlusSvgIcon() {
+type PlusSvgIconProps = React.JSX.IntrinsicElements['svg'] & SvgIconProps;
+
+export default function PlusSvgIcon(props: PlusSvgIconProps) {
+	const { thickness = 'thin', width = 24, height = 24, ...rest } = props;
+
 	return (
 		<svg
 			aria-label='Trang chủ'
 			fill='currentColor'
-			height='24'
 			role='img'
 			viewBox='0 0 24 24'
-			width='24'
+			height={width}
+			width={height}
+			{...rest}
 		>
 			<title>Trang chủ</title>
 			<path

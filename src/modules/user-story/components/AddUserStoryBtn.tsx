@@ -1,13 +1,21 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { cn } from '@/utilities/tailwind/cn';
 
 // TODO: Add API and props later
-type AddUserStoryBtnProps = {};
+type AddUserStoryBtnProps = {
+	itemId: string;
+	className?: string;
+};
 
-export default function AddUserStoryBtn() {
+export default function AddUserStoryBtn({ className }: AddUserStoryBtnProps) {
 	return (
-		<Link className='flex flex-col px-1 items-center w-20' href='#'>
+		<Link
+			className={cn('flex flex-col px-1 items-center w-20', className)}
+			href='#'
+			suppressHydrationWarning
+		>
 			<div className='w-[66px] h-[66px] relative p-[2px] rounded-full flex items-center justify-center mb-2'>
 				<Image
 					src='/common/empty-avt.jpg'

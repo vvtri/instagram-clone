@@ -4,14 +4,8 @@ import { SignInFormData } from '../schema/sign-in.scheme';
 
 export type UserModel = (typeof users)[number];
 
-const mapTokenToUserId: Record<string, number> = {
-	abc: 1,
-	def: 2,
-};
-
 export const getCurrentUser = async (token: string) => {
-	const userId = mapTokenToUserId[token];
-
+	const userId = parseInt(token);
 
 	const user = users.find((item) => item.id === userId);
 
@@ -29,14 +23,7 @@ export const signIn = async (data: SignInFormData) => {
 		)
 	);
 
-	const hashedPwd = password; // fake hash
+	if (!user || user.password !== password) throw new ApiError('notFound');
 
-	if (!user || user.password !== hashedPwd) throw new ApiError('notFound');
-
-	return {
-		user,
-		token: Object.entries(mapTokenToUserId).find(
-			(key, value) => value === user.id
-		)?.[0],
-	};
+	return { user, token: user.id };
 };

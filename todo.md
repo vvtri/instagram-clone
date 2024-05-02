@@ -1,7 +1,5 @@
-auth:
+todo:
 
-1. user login:
-   1. get cookie
-   2. get user
-      1. co user --> proceed
-      2. ko co user --> link đến trang login
+
+allow . in path: solution: use regex to validate media file in public folders: 
+`^.*\.(jpg|JPG|gif|GIF|doc|DOC|pdf|PDF|png)$` or create one subfolder in public and match it

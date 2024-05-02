@@ -1,10 +1,11 @@
 import Provider from '@/modules/common/providers/Provider';
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import 'react-horizontal-scrolling-menu/dist/styles.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
 import '../globals.css';
 
 export const metadata: Metadata = {
@@ -28,7 +29,7 @@ export default function RootLayout({
 				style={{
 					fontFamily: `apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`,
 				}}
-				className='relative'
+				className='relative bg-white text-black dark:bg-black dark:text-white'
 			>
 				<Provider>{children}</Provider>
 

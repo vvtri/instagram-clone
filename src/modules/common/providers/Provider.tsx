@@ -18,7 +18,7 @@ export default function Provider({ children }: ProviderProps) {
 
 	return (
 		<NextIntlClientProvider messages={commonMessage}>
-			<ThemeProvider enableSystem>
+			<ThemeProvider enableSystem attribute='class'>
 				<QueryClientProvider>
 					<StoreProvider>{children}</StoreProvider>
 				</QueryClientProvider>

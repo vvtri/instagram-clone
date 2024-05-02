@@ -11,6 +11,7 @@ import ShareSvgIcon from '@/modules/common/components/icon/ShareSvgIcon';
 import BookmarkSvgIcon from '@/modules/common/components/icon/BookmarkSvgIcon';
 import Comment from '@/modules/comment/components/Comment';
 import { cn } from '@/utilities/tailwind/cn';
+import VerifySvgIcon from '@/modules/common/components/icon/VerifySvgIcon';
 
 type PostCardProps = {
 	className?: string;
@@ -18,7 +19,7 @@ type PostCardProps = {
 
 export default function PostCard({ className }: PostCardProps) {
 	return (
-		<div className={cn('w-full', className)}>
+		<div className={cn('w-full sm:max-w-[470px]', className)}>
 			<div className='flex items-center p-3'>
 				<ImageWithGradientBorder
 					length={32}
@@ -26,7 +27,13 @@ export default function PostCard({ className }: PostCardProps) {
 				/>
 
 				<div className='flex flex-col ml-3'>
-					<p className='font-semibold text-sm'>hungvanngo</p>
+					<div className='flex items-center font-semibold text-sm space-x-1'>
+						<span>hungvanngo</span>
+						<VerifySvgIcon />
+						<span className='text-sm'>•</span>
+						<span className='text-sm'>1 ngày</span>
+					</div>
+
 					<span className='text-xs font-normal'>
 						Jungle
 						<span className='text-sm mx-1'>•</span>
@@ -50,7 +57,7 @@ export default function PostCard({ className }: PostCardProps) {
 				{Array(3)
 					.fill(0)
 					.map((item, idx) => (
-						<div className='relative w-full aspect-[4/5]'>
+						<div key={idx} className='relative w-full aspect-[4/5]'>
 							<Image src='/post/lowg.jpg' fill alt='' />
 						</div>
 					))}

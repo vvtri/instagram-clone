@@ -4,24 +4,20 @@ import {
 	SvgIconProps,
 } from '../../constants/svg-icon.constant';
 
-type SearchIconProps = {
-	width?: number;
-	height?: number;
-	className?: string;
-} & SvgIconProps;
+type SearchIconProps = React.JSX.IntrinsicElements['svg'] & SvgIconProps;
 
 export default function SearchSvgIcon(props: SearchIconProps) {
-	const { height = 16, width = 16, className, thickness = 'thin' } = props;
+	const { thickness = 'thin', width = 24, height = 24, ...rest } = props;
 
 	return (
 		<svg
 			aria-label='Tìm kiếm'
 			fill='currentColor'
-			height={width}
 			role='img'
 			viewBox='0 0 24 24'
-			width={height}
-			className={className}
+			width={width}
+			height={height}
+			{...rest}
 		>
 			<title>Tìm kiếm</title>
 			<path

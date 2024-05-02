@@ -14,16 +14,20 @@ const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
 		return (
 			<div
 				className={cn(
-					'flex items-center relative text-base px-4 bg-bg-hightLight text-text-secondary rounded-lg w-full h-full'
+					'flex items-center relative text-base px-4 bg-bg-hightLight text-text-secondary rounded-lg w-full h-full dark:bg-bg-highLightDark'
 				)}
 			>
 				{!isFocus && (
-					<SearchSvgIcon className='mr-3 shrink-0 translate-y-[1px]' />
+					<SearchSvgIcon
+						className='mr-3 shrink-0 translate-y-[1px]'
+						width={16}
+						height={16}
+					/>
 				)}
 				<input
 					type='text'
 					className={cn(
-						'border-none focus:outline-none focus:border-none w-full bg-bg-hightLight',
+						'border-none focus:outline-none focus:border-none w-full bg-bg-hightLight dark:bg-bg-highLightDark',
 						inputClassName
 					)}
 					placeholder='Tìm kiếm'

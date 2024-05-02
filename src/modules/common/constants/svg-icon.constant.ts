@@ -6,6 +6,6 @@ export const MapThicknessToIconStrokeWidth: Record<
 	Required<SvgIconProps>['thickness'],
 	number
 > = {
-	fat: 1,
-	thin: 5,
+	fat: 3,
+	thin: 2,
 };

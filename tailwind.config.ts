@@ -33,8 +33,10 @@ const config: Config = {
 					secondary: '#262626',
 				},
 				separator: 'rgb(219,219,219)',
+				elevatedSeparator: 'rgb(54,54,54)',
 				bg: {
 					hightLight: 'rgb(239, 239, 239)',
+					highLightDark: 'rgb(38, 38, 38)',
 				},
 			},
 		},
