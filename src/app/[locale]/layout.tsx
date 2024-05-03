@@ -2,6 +2,7 @@ import Provider from '@/modules/common/providers/Provider';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import 'react-horizontal-scrolling-menu/dist/styles.css';
+import 'react-loading-skeleton/dist/skeleton.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'slick-carousel/slick/slick-theme.css';

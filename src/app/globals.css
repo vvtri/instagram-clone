@@ -65,3 +65,11 @@ input::-ms-clear {
 		right: 14px;
 	}
 }
+
+html.dark {
+	.react-loading-skeleton {
+		--base-color: #38444d;
+	}
+}
+
+/* #15202B */

@@ -7,6 +7,7 @@ import { ThemeProvider } from 'next-themes';
 import React from 'react';
 import QueryClientProvider from './QueryClientProvider';
 import StoreProvider from './StoreProvider';
+import { SkeletonTheme } from 'react-loading-skeleton';
 
 type ProviderProps = {
 	children: React.ReactNode;

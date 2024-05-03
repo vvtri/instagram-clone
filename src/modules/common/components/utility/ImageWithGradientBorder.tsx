@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { cn } from '@/utilities/tailwind/cn';
+import Skeleton from 'react-loading-skeleton';
 
 type ImageWithGradientBorderProps = {
 	imageUrl: string;

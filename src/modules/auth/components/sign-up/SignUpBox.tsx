@@ -1,5 +1,4 @@
 import InstaButton from '@/modules/common/components/utility/Button';
-import InstaLink from '@/modules/common/components/InstaLink';
 import InstaImgIcon from '@/modules/common/components/icon/InstaImgIcon';
 import { useTranslations } from 'next-intl';
 import AuthLogo from '../AuthLogo';
@@ -7,6 +6,7 @@ import AuthBoxContainer from '../BoxContainer';
 import GetTheApp from '../GetTheApp';
 import SignUpForm from './SignUpForm';
 import AuthSeparator from '../AuthSeparator';
+import InstaLink from '@/modules/common/components/utility/InstaLink';
 
 type SignUpBoxProps = {};
 

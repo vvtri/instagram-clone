@@ -72,7 +72,7 @@ const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>((props, ref) => {
 
 	return (
 		<label
-			className={cn('relative flex items-center w-full text-xs', {
+			className={cn('relative flex items-center w-full text-xs dark:bg-black', {
 				'text-xs': isActive,
 			})}
 			ref={labelRef}
@@ -87,7 +87,7 @@ const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>((props, ref) => {
 			</span>
 			<input
 				className={cn(
-					'p-2 pr-0 bg-zinc-50 w-full border-instagram-auth border focus:outline-none focus:border-zinc-300',
+					'p-2 pr-0 bg-zinc-50 w-full border-instagram-auth border focus:outline-none focus:border-zinc-300 dark:bg-black',
 					{ 'pb-[2px] pt-[14px]': isActive }
 				)}
 				onChange={onInputChange}

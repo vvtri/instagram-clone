@@ -27,7 +27,7 @@ export default function Navbar() {
 				<InstagramLogoSvgIcon className='hidden lg:block' />
 			</Link>
 
-			<Link href='/' className='mt-8'>
+			<Link href='/' className='lg:mt-8'>
 				<HomeSvgIcon
 					width={iconSize}
 					height={iconSize}
@@ -35,7 +35,7 @@ export default function Navbar() {
 				/>
 			</Link>
 
-			<Link href='/' className='mt-8'>
+			<Link href='/' className='lg:mt-8'>
 				<SearchSvgIcon
 					thickness={pathname === '/search' ? 'fat' : 'thin'}
 					width={iconSize}
@@ -44,7 +44,7 @@ export default function Navbar() {
 				/>
 			</Link>
 
-			<Link href='/' className='mt-8'>
+			<Link href='/' className='lg:mt-8'>
 				<ExploreSvgIcon
 					thickness={pathname === '/explore' ? 'fat' : 'thin'}
 					width={iconSize}
@@ -53,7 +53,7 @@ export default function Navbar() {
 				/>
 			</Link>
 
-			<Link href='/' className='mt-8'>
+			<Link href='/' className='lg:mt-8'>
 				<ReelSvgIcon
 					thickness={pathname === '/reels' ? 'fat' : 'thin'}
 					width={iconSize}
@@ -61,7 +61,7 @@ export default function Navbar() {
 				/>
 			</Link>
 
-			<Link href='/' className='mt-8'>
+			<Link href='/' className='lg:mt-8'>
 				<PlusSvgIcon
 					thickness={pathname === '/reels' ? 'fat' : 'thin'}
 					width={iconSize}
@@ -69,7 +69,7 @@ export default function Navbar() {
 				/>
 			</Link>
 
-			<Link href='/' className='mt-8'>
+			<Link href='/' className='lg:mt-8'>
 				<MessengerSvgIcon
 					thickness={pathname === '/message' ? 'fat' : 'thin'}
 					width={iconSize}
@@ -82,11 +82,11 @@ export default function Navbar() {
 				width={iconSize}
 				height={iconSize}
 				alt=''
-				className='rounded-full mt-8'
+				className='rounded-full lg:mt-8'
 			/>
 
 			<div className='hidden lg:flex flex-col items-center mt-auto'>
-				<Link href='/' className='mt-8'>
+				<Link href='/' className='lg:mt-8'>
 					<ThreadSvgIcon
 						thickness={pathname === '/message' ? 'fat' : 'thin'}
 						width={iconSize}
@@ -94,7 +94,7 @@ export default function Navbar() {
 					/>
 				</Link>
 
-				<Link href='/' className='mt-8'>
+				<Link href='/' className='lg:mt-8'>
 					<MenuSvgIcon
 						thickness={pathname === '/message' ? 'fat' : 'thin'}
 						width={iconSize}

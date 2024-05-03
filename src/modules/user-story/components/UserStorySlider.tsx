@@ -1,34 +1,52 @@
 'use client';
 import InstaImgIcon from '@/modules/common/components/icon/InstaImgIcon';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import {
 	ScrollMenu,
 	VisibilityContext,
 	publicApiType,
 } from 'react-horizontal-scrolling-menu';
-import UserStoryCard from './UserStoryCard';
+import UserStoryCard, { UserStoryCardSkeleton } from './UserStoryCard';
 import { cn } from '@/utilities/tailwind/cn';
 import AddUserStoryBtn from './AddUserStoryBtn';
+import { useInfiniteUserStory } from '../hooks/use-infinite-user-story.hook';
 
 type UserStorySliderProps = {
 	className?: string;
 };
 
 export default function UserStorySlider({ className }: UserStorySliderProps) {
-	const cards = Array(50)
-		.fill(0)
-		.map((item, idx) => <UserStoryCard key={idx} itemId={`idx${idx}`} />);
+	const { data, isLoading, fetchNextPage, isFetching } = useInfiniteUserStory({
+		page: 1,
+		size: 20,
+	});
 
-	if (typeof window !== 'undefined') {
-		if (screen?.width < 640) {
-			cards.unshift(<AddUserStoryBtn itemId='add-user-story-btn'  />);
+	let cards: React.ReactElement<{
+		itemId: string;
+	}>[] = [];
+
+	if (data) {
+		cards = data.pages.flatMap((page, idx) =>
+			page.data.map((item) => (
+				<UserStoryCard key={idx} itemId={`idx${idx}`} userStory={item} />
+			))
+		);
+
+		if (typeof window !== 'undefined') {
+			if (screen?.width < 640) {
+				cards.unshift(<AddUserStoryBtn itemId='add-user-story-btn' />);
+			}
 		}
+	} else {
+		cards = Array(20)
+			.fill(0)
+			.map((item, idx) => (
+				<UserStoryCardSkeleton itemId={`skeleton-${idx}`} key={idx} />
+			));
 	}
 
 	return (
-		<div
-			className='py-3 border-b border-separator sm:pb-5 sm:border-none'
-		>
+		<div className='py-3 border-b border-separator sm:pb-5 sm:border-none'>
 			<ScrollMenu
 				LeftArrow={LeftArrow}
 				RightArrow={RightArrow}
