@@ -4,9 +4,7 @@ import { useForm } from 'react-hook-form';
 import { SignUpFormData, signUpSchema } from '../../schema/sign-up.scheme';
 import { yupResolver } from '@hookform/resolvers/yup';
 import InstaButton from '@/modules/common/components/utility/Button';
-import InstaLink from '@/modules/common/components/InstaLink';
 import AuthInput from '../AuthInput';
-import error from 'next/error';
 
 type SignUpFormProps = {
 	i18n: {

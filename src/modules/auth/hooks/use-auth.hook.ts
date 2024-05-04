@@ -14,7 +14,7 @@ export const useAuthContext = (initialState: AuthContextData) => {
 };
 
 export const useAuth = () => {
-	const user = useContext(AuthContext);
+	const user = useContext(AuthContext) as UserModel;
 
 	return { user };
 };

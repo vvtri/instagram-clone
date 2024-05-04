@@ -12,7 +12,7 @@ export type GetListUserStoryParams = {} & BasePaginationReqType;
 
 export const getListUserStory = async (
 	params: GetListUserStoryParams
-): Promise<BasePaginationResType<UserStoryModel[]>> => {
+): Promise<BasePaginationResType<UserStoryModel>> => {
 	const { page = 1, size = 20 } = params;
 
 	const firstIdx = page - 1 * size;

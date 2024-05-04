@@ -20,7 +20,9 @@ const config: Config = {
 				},
 				text: {
 					primary: '#000',
-					secondary: '#737373',
+					primaryDark: 'rgb(245, 245, 245)',
+					secondary: 'rgb(115,115,115)',
+					secondaryDark: 'rgb(168,168,168)',
 					tertiary: '#C7C7C7 ',
 					tertiaryBtn: '#C7C7C7 ',
 					disableAction: '#A9DBFF',
@@ -37,6 +39,7 @@ const config: Config = {
 				bg: {
 					hightLight: 'rgb(239, 239, 239)',
 					highLightDark: 'rgb(38, 38, 38)',
+					hoverOverlayDark: 'rgba(255,255,255,0.1)',
 				},
 			},
 		},

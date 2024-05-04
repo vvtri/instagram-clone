@@ -28,7 +28,7 @@ export default function RootLayout({
 
 			<body
 				style={{
-					fontFamily: `apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`,
+					fontFamily: `apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Noto Color Emoji'`,
 				}}
 				className='relative bg-white text-black dark:bg-black dark:text-white'
 			>

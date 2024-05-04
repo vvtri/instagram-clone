@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,6 +25,12 @@
 			scrollbar-width: none;
 			-ms-overflow-style: none;
 		}
+	}
+
+	.emoji-sm .EmojiPickerReact {
+		--epr-emoji-size: 20px;
+		--epr-emoji-fullsize: 34px;
+		--epr-category-navigation-button-size: 30px;
 	}
 }
 
@@ -72,4 +80,6 @@ html.dark {
 	}
 }
 
-/* #15202B */
+.EmojiPickerReact .epr-emoji-native {
+	font-family: 'Noto Color Emoji', sans-serif !important;
+}

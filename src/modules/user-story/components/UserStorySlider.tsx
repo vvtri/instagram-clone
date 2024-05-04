@@ -26,8 +26,8 @@ export default function UserStorySlider({ className }: UserStorySliderProps) {
 	}>[] = [];
 
 	if (data) {
-		cards = data.pages.flatMap((page, idx) =>
-			page.data.map((item) => (
+		cards = data.pages.flatMap((page) =>
+			page.data.map((item, idx) => (
 				<UserStoryCard key={idx} itemId={`idx${idx}`} userStory={item} />
 			))
 		);

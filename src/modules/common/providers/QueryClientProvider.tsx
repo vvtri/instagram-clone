@@ -6,7 +6,14 @@ import {
 } from 'react-query';
 
 export default function QueryClientProvider({ children }: PropsWithChildren) {
-	const [queryClient] = useState(() => new QueryClient());
+	const [queryClient] = useState(
+		() =>
+			new QueryClient({
+				defaultOptions: {
+					queries: { refetchOnWindowFocus: false },
+				},
+			})
+	);
 
 	return (
 		<QueryClientProviderReactQuery client={queryClient}>

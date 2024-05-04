@@ -17,7 +17,8 @@ export default function InstaButton(props: InstaButtonProps) {
 				{
 					'bg-btn-primary hover:bg-btn-primaryHover text-white':
 						variant === 'fill',
-					'text-text-outlineBtn bg-white': variant === 'outline',
+					'text-text-outlineBtn bg-transparent dark:text-btn-primary dark:hover:text-text-primaryDark':
+						variant === 'outline',
 				},
 				className
 			)}

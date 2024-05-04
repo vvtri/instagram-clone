@@ -23,11 +23,11 @@ export default function UserStoryCard({
 			<ImageWithGradientBorder
 				length={56}
 				className='mb-2'
-				imageUrl='/home/user-story/card-img.jpg'
+				imageUrl={userStory.user.avt}
 			/>
 
 			<span className='text-xs text-center text-ellipsis line-clamp-1 w-full block'>
-				lowgasdadasdsa
+				{userStory.user.username}
 			</span>
 		</Link>
 	);
