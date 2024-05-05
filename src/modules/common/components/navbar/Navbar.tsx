@@ -24,10 +24,12 @@ import NavbarItem from './NavbarItem';
 import NavbarMorePopoverMenu from './NavbarMorePopoverMenu';
 import HeartSvgIcon from '../icon/svg-icon/HeartSvgIcon';
 import { cn } from '@/utilities/tailwind/cn';
+import { useTranslations } from 'next-intl';
 
 export const NAVBAR_ICON_SIZE = 24;
 
 export default function Navbar() {
+	const t = useTranslations('Client');
 	const pathname = usePathname();
 	const { user } = useAuth();
 	const router = useRouter();
@@ -49,7 +51,7 @@ export default function Navbar() {
 
 			<NavbarItem
 				icon={HomeSvgIcon}
-				label={'Trang chủ'}
+				label={t('common.navbar.home')}
 				highlight={pathname === '/'}
 				onClick={() => router.push('/')}
 				iconProps={{
@@ -60,14 +62,14 @@ export default function Navbar() {
 
 			<NavbarItem
 				icon={SearchSvgIcon}
-				label={'Tìm kiếm'}
+				label={t('common.navbar.search')}
 				highlight={pathname === '/search'}
 				onClick={() => router.push('/search')}
 			/>
 
 			<NavbarItem
 				icon={ExploreSvgIcon}
-				label={'Khám phá'}
+				label={t('common.navbar.explore')}
 				highlight={pathname === '/explore'}
 				onClick={() => router.push('/explore')}
 				className='hidden lg:block'
@@ -75,27 +77,27 @@ export default function Navbar() {
 
 			<NavbarItem
 				icon={ReelSvgIcon}
-				label={'Reels'}
+				label={t('common.navbar.reel')}
 				highlight={pathname === '/reels'}
 				onClick={() => router.push('/reels')}
 			/>
 
 			<NavbarItem
 				icon={PlusInBoxSvgIcon}
-				label={'Tạo'}
+				label={t('common.navbar.create')}
 				className='hidden lg:block'
 			/>
 
 			<NavbarItem
 				icon={MessengerSvgIcon}
-				label={'Tin nhắn'}
+				label={t('common.navbar.message')}
 				highlight={pathname === '/message'}
 				onClick={() => router.push('/message')}
 			/>
 
 			<NavbarItem
 				icon={HeartSvgIcon}
-				label={'Thông báo'}
+				label={t('common.navbar.notification')}
 				highlight={pathname === '/message'}
 				onClick={() => router.push('/message')}
 				className='hidden lg:block'
@@ -114,21 +116,22 @@ export default function Navbar() {
 						})}
 					/>
 				}
-				label={'Trang cá nhân'}
+				label={t('common.navbar.profile')}
 				onClick={() => router.push(`/${user.username}`)}
+				highlight={pathname === `/${user.username}`}
 			/>
 
 			<div className='hidden w-full lg:flex flex-col items-center mt-auto'>
 				<NavbarItem
 					icon={ThreadSvgIcon}
-					label={'Threads'}
+					label={t('common.navbar.thread')}
 					highlight={pathname === '/threads'}
 					onClick={() => router.push('/threads')}
 				/>
 
 				<NavbarItem
 					icon={MenuSvgIcon}
-					label={'Xem thêm'}
+					label={t('common.navbar.more')}
 					popupOverNode={<NavbarMorePopoverMenu />}
 					ref={navbarMoreRef}
 					onClick={() => dispatch(toggleShowNavbarMorePopoverMenu())}

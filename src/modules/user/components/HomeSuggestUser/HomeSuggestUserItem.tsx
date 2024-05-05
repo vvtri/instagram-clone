@@ -1,15 +1,19 @@
 import { UserModel } from '@/modules/auth/apis/auth.api';
+import AvatarSkeleton from '@/modules/common/components/skeleton/AvatarSkeleton';
+import BoxSkeleton from '@/modules/common/components/skeleton/BoxSkeleton';
 import InstaButton from '@/modules/common/components/utility/InstaButton';
 import Image from 'next/image';
 import React from 'react';
+import Skeleton from 'react-loading-skeleton';
 
 type HomeSuggestUserItemProps = {
 	user: UserModel;
+	suggestText: string;
+	followText: string;
 };
 
-export default function HomeSuggestUserItem({
-	user,
-}: HomeSuggestUserItemProps) {
+export default function HomeSuggestUserItem(props: HomeSuggestUserItemProps) {
+	const { user, followText, suggestText } = props;
 	return (
 		<div className='flex items-center'>
 			<Image
@@ -26,7 +30,7 @@ export default function HomeSuggestUserItem({
 				</span>
 
 				<span className='text-text-secondary dark:text-text-secondaryDark text-sm'>
-					Gợi ý cho bạn
+					{suggestText}
 				</span>
 			</div>
 
@@ -34,8 +38,18 @@ export default function HomeSuggestUserItem({
 				className='text-xs ml-auto flex-shrink-0 pr-0'
 				variant='outline'
 			>
-				Theo dõi
+				{followText}
 			</InstaButton>
 		</div>
 	);
 }
+
+export const HomeSuggestUserItemSkeleton = () => {
+	return (
+		<div className='flex items-center'>
+			<AvatarSkeleton className='w-[44px]' containerClassName='mr-3' />
+
+			<BoxSkeleton />
+		</div>
+	);
+};

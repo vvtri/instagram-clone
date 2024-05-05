@@ -1,3 +1,4 @@
+'use client';
 import { cn } from '@/utilities/tailwind/cn';
 import { useAppDispatch, useAppSelector } from '../../hooks/store.hook';
 import { setShowNavbarChangeThemePopoverMenu } from '../../slices/navbar.slice';
@@ -8,6 +9,7 @@ import SettingSvgIcon from '../icon/svg-icon/SettingSvgIcon';
 import ThemeSvgIcon from '../icon/svg-icon/ThemeSvgIcon';
 import NavbarChangeThemePopoverMenu from './NavbarChangeThemePopoverMenu';
 import NavbarMorePopoverMenuItem from './NavbarMorePopoverMenuItem';
+import { useTranslations } from 'next-intl';
 
 type NavbarMorePopoverMenuProps = {};
 
@@ -15,6 +17,7 @@ export default function NavbarMorePopoverMenu({}: NavbarMorePopoverMenuProps) {
 	const { showNavbarMorePopoverMenu, showNavbarChangeThemePopoverMenu } =
 		useAppSelector(({ navbar }) => navbar);
 	const dispatch = useAppDispatch();
+	const t = useTranslations('Client');
 
 	return (
 		<div
@@ -30,20 +33,26 @@ export default function NavbarMorePopoverMenu({}: NavbarMorePopoverMenuProps) {
 				className={cn('w-full', { hidden: showNavbarChangeThemePopoverMenu })}
 			>
 				<ul className='w-full p-2'>
-					<NavbarMorePopoverMenuItem icon={SettingSvgIcon} label='Cài đặt' />
+					<NavbarMorePopoverMenuItem
+						icon={SettingSvgIcon}
+						label={t('common.navbar.settings')}
+					/>
 					<NavbarMorePopoverMenuItem
 						icon={ActivitySvgIcon}
-						label='Hoạt động của bạn'
+						label={t('common.navbar.yourActivity')}
 					/>
-					<NavbarMorePopoverMenuItem icon={BookmarkSvgIcon} label='Đã lưu' />
+					<NavbarMorePopoverMenuItem
+						icon={BookmarkSvgIcon}
+						label={t('common.navbar.saved')}
+					/>
 					<NavbarMorePopoverMenuItem
 						icon={ThemeSvgIcon}
-						label='Chuyển chế độ'
+						label={t('common.navbar.switchAppearance')}
 						onClick={() => dispatch(setShowNavbarChangeThemePopoverMenu(true))}
 					/>
 					<NavbarMorePopoverMenuItem
 						icon={ProblemSvgIcon}
-						label='Báo cáo sự cố'
+						label={t('common.navbar.reportAProblem')}
 					/>
 				</ul>
 
@@ -53,8 +62,8 @@ export default function NavbarMorePopoverMenu({}: NavbarMorePopoverMenuProps) {
 				/>
 
 				<ul className='w-full p-2'>
-					<NavbarMorePopoverMenuItem label='Chuyển tài khoản' />
-					<NavbarMorePopoverMenuItem label='Đăng xuất' />
+					<NavbarMorePopoverMenuItem label={t('common.navbar.switchAccounts')} />
+					<NavbarMorePopoverMenuItem label={t('common.navbar.logout')} />
 				</ul>
 			</div>
 		</div>

@@ -1,7 +1,9 @@
-import React from 'react';
+'use client';
+
+import { cn } from '@/utilities/tailwind/cn';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
-import { cn } from '@/utilities/tailwind/cn';
 
 // TODO: Add API and props later
 type AddUserStoryBtnProps = {
@@ -10,6 +12,8 @@ type AddUserStoryBtnProps = {
 };
 
 export default function AddUserStoryBtn({ className }: AddUserStoryBtnProps) {
+	const t = useTranslations('Client');
+
 	return (
 		<Link
 			className={cn('flex flex-col px-1 items-center w-20', className)}
@@ -39,7 +43,7 @@ export default function AddUserStoryBtn({ className }: AddUserStoryBtnProps) {
 			</div>
 
 			<span className='text-xs text-center text-ellipsis line-clamp-1 w-full block'>
-				Tin của bạn
+				{t('userStory.add.yourNews')}
 				{/* TODO: i18n */}
 			</span>
 		</Link>

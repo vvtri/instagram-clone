@@ -28,20 +28,32 @@ export default function UserStorySlider({ className }: UserStorySliderProps) {
 	if (data) {
 		cards = data.pages.flatMap((page) =>
 			page.data.map((item, idx) => (
-				<UserStoryCard key={idx} itemId={`idx${idx}`} userStory={item} />
+				<UserStoryCard
+					key={item.id}
+					itemId={item.id.toString()}
+					userStory={item}
+				/>
 			))
 		);
 
 		if (typeof window !== 'undefined') {
 			if (screen?.width < 640) {
-				cards.unshift(<AddUserStoryBtn itemId='add-user-story-btn' />);
+				cards.unshift(
+					<AddUserStoryBtn
+						key='add-user-story-btn'
+						itemId='add-user-story-btn'
+					/>
+				);
 			}
 		}
 	} else {
 		cards = Array(20)
 			.fill(0)
 			.map((item, idx) => (
-				<UserStoryCardSkeleton itemId={`skeleton-${idx}`} key={idx} />
+				<UserStoryCardSkeleton
+					itemId={`skeleton-${idx}`}
+					key={`skeleton-${idx}`}
+				/>
 			));
 	}
 

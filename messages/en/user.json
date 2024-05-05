@@ -1,0 +1,22 @@
+{
+  "common": {},
+  "post": {
+    "empty": {
+      "sharePhoto": "Share Photos",
+      "sharePhotoDesc": "When you share photos, they will appear on your profile.",
+      "shareFirstPhoto": "Share your first photo"
+    }
+  },
+  "save": {
+    "empty": {
+      "save": "Save",
+      "saveDesc": "Save photos and videos that you want to see again. No one is notified, and only you can see what you've saved."
+    }
+  },
+  "tagged": {
+    "empty": {
+      "photoOfYou": "Photos of you",
+      "photoOfYouDesc": "When people tag you in photos, they'll appear here."
+    }
+  }
+}

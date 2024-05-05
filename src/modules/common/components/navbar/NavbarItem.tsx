@@ -57,7 +57,7 @@ const NavbarItem = React.forwardRef<HTMLDivElement, NavbarItemProps>(
 					{iconNode}
 
 					<span
-						className='hidden xl:block text-base text-text-primary dark:text-text-primaryDark ml-5'
+						className='hidden xl:block text-base text-text-primary dark:text-text-primaryDark ml-5 first-letter:uppercase'
 						style={{ fontWeight: highlight ? 700 : 400 }}
 					>
 						{label}

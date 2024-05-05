@@ -34,7 +34,7 @@ const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>((props, ref) => {
 	const labelRef = useRef<HTMLLabelElement | null>(null);
 	const [isActive, setIsActive] = useState(false);
 	const [isShowPassword, setIsShowPassword] = useState(false);
-	const t = useTranslations();
+	const t = useTranslations('Client');
 	const id = useId();
 
 	useClickOutSide(labelRef, () => {
@@ -125,8 +125,8 @@ const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>((props, ref) => {
 						type='button'
 					>
 						{isShowPassword
-							? t('Client.hidePassword')
-							: t('Client.showPassword')}
+							? t('auth.common.hidePassword')
+							: t('auth.common.showPassword')}
 					</button>
 				)}
 			</div>

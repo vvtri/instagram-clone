@@ -1,0 +1,22 @@
+{
+  "common": {},
+  "post": {
+    "empty": {
+      "sharePhoto": "Chia sẻ ảnh",
+      "sharePhotoDesc": "Khi bạn chia sẻ ảnh, ảnh sẽ xuất hiện trên trang cá nhân của bạn.",
+      "shareFirstPhoto": "Chia sẻ ảnh đầu tiên của bạn"
+    }
+  },
+  "save": {
+    "empty": {
+      "save": "Lưu",
+      "saveDesc": "Lưu ảnh và video mà bạn muốn xem lại. Sẽ không có ai được thông báo và chỉ mình bạn có thể xem những gì mình đã lưu."
+    }
+  },
+  "tagged": {
+    "empty": {
+      "photoOfYou": "Ảnh có mặt bạn",
+      "photoOfYouDesc": "Khi mọi người gắn thẻ bạn trong ảnh, ảnh sẽ xuất hiện tại đây."
+    }
+  }
+}

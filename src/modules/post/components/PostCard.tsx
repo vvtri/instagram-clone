@@ -14,7 +14,10 @@ import MessageSvgIcon from '@/modules/common/components/icon/svg-icon/MessageSvg
 import ShareSvgIcon from '@/modules/common/components/icon/svg-icon/ShareSvgIcon';
 import VerifySvgIcon from '@/modules/common/components/icon/svg-icon/VerifySvgIcon';
 import MoreSvgIcon from '@/modules/common/components/icon/svg-icon/MoreSvgIcon';
-import { genImageSizesProp } from '@/modules/common/helpers/image.helper';
+import { useFormatter, useTranslations } from 'next-intl';
+import { genImageSizesProp } from '@/utilities/image/gen-image-sizes-prop';
+import BoxSkeleton from '@/modules/common/components/skeleton/BoxSkeleton';
+import AvatarSkeleton from '@/modules/common/components/skeleton/AvatarSkeleton';
 
 type PostCardProps = {
 	className?: string;
@@ -22,6 +25,9 @@ type PostCardProps = {
 };
 
 export default function PostCard({ className, post }: PostCardProps) {
+	const format = useFormatter();
+	const t = useTranslations('Client');
+
 	return (
 		<div
 			className={cn(
@@ -38,7 +44,7 @@ export default function PostCard({ className, post }: PostCardProps) {
 						<VerifySvgIcon />
 						<span className='text-sm'>•</span>
 						<span className='text-sm text-text-secondary dark:text-text-secondaryDark'>
-							{/* todo: format date by language */}1 ngày
+							{format.relativeTime(new Date(Date.now() - 86500000))}
 						</span>
 					</div>
 
@@ -73,7 +79,7 @@ export default function PostCard({ className, post }: PostCardProps) {
 								sizes={genImageSizesProp({ default: '100vw', sm: '640px' })}
 								fill
 								alt=''
-                priority
+								priority
 							/>
 						</div>
 					</div>
@@ -94,7 +100,7 @@ export default function PostCard({ className, post }: PostCardProps) {
 				</div>
 
 				<p className='font-semibold text-sm mt-3'>
-					{post.likeAmount} lượt thích
+					{t('post.postCard.likeAmount', { likes: post.likeAmount })}
 				</p>
 
 				<div className='mt-2'>
@@ -108,7 +114,7 @@ export default function PostCard({ className, post }: PostCardProps) {
 				</div>
 
 				<p className='text-sm text-text-secondary mt-1 dark:text-text-secondaryDark'>
-					Xem tất cả {post.commentAmount} bình luận
+					{t('post.postCard.viewComment', { comments: post.commentAmount })}
 				</p>
 
 				<PostCommentInput />
@@ -123,16 +129,9 @@ export function PostCardSkeleton({
 	return (
 		<div className={cn('w-full sm:max-w-[470px] mb-10 pt-6', className)}>
 			<div className='h-[42px] flex mb-3'>
-				<Skeleton
-					containerClassName='flex items-center justify-center shrink-0'
-					className='h-[42px] aspect-square w-full mr-3'
-					circle
-				/>
+				<AvatarSkeleton className='h-[42px]' />
 
-				<Skeleton
-					containerClassName='flex w-full h-full'
-					className='h-full w-full'
-				/>
+				<BoxSkeleton />
 			</div>
 
 			<Skeleton containerClassName='flex' className='w-full aspect-square' />

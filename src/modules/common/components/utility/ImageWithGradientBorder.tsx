@@ -1,8 +1,5 @@
-import React from 'react';
-import Image, { ImageProps } from 'next/image';
 import { cn } from '@/utilities/tailwind/cn';
-import Skeleton from 'react-loading-skeleton';
-import { OptionalKeysOf } from 'type-fest';
+import Image, { ImageProps } from 'next/image';
 
 type ImageWithGradientBorderProps = {
 	imageUrl: string;

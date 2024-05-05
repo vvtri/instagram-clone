@@ -1,4 +1,6 @@
+'use client';
 import { cn } from '@/utilities/tailwind/cn';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 type UserProfilePersonalInfoStatisticProps = {
@@ -8,6 +10,8 @@ type UserProfilePersonalInfoStatisticProps = {
 export default function UserProfilePersonalInfoStatistic({
 	className,
 }: UserProfilePersonalInfoStatisticProps) {
+	const t = useTranslations('Client');
+
 	return (
 		<div
 			className={cn(
@@ -16,28 +20,36 @@ export default function UserProfilePersonalInfoStatistic({
 			)}
 		>
 			<p className=''>
-				<span className='text-text-primary font-semibold dark:text-text-primaryDark'>
-					{' '}
-					0{' '}
-				</span>
-				<span>bài viết</span>
+				{t.rich('user.profile.postAmount', {
+					posts: 3,
+					bold: (posts) => (
+						<span className='text-text-primary font-semibold dark:text-text-primaryDark'>
+							{posts}
+						</span>
+					),
+				})}
 			</p>
 
 			<p className=''>
-				<span className='text-text-primary font-semibold dark:text-text-primaryDark'>
-					{' '}
-					1{' '}
-				</span>
-				<span>người theo dõi</span>
+				{t.rich('user.profile.followerAmount', {
+					followers: 3,
+					bold: (posts) => (
+						<span className='text-text-primary font-semibold dark:text-text-primaryDark'>
+							{posts}
+						</span>
+					),
+				})}
 			</p>
 
 			<p className=''>
-				<span>Đang theo dõi</span>
-				<span className='text-text-primary font-semibold dark:text-text-primaryDark'>
-					{' '}
-					1{' '}
-				</span>
-				<span>người dùng</span>
+				{t.rich('user.profile.followingAmount', {
+					following: 3,
+					bold: (posts) => (
+						<span className='text-text-primary font-semibold dark:text-text-primaryDark'>
+							{posts}
+						</span>
+					),
+				})}
 			</p>
 		</div>
 	);

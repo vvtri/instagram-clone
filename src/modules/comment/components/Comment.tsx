@@ -1,4 +1,4 @@
-import VerifySvgIcon from '@/modules/common/components/icon/VerifySvgIcon';
+import VerifySvgIcon from '@/modules/common/components/icon/svg-icon/VerifySvgIcon';
 import React from 'react';
 
 type CommentProps = {

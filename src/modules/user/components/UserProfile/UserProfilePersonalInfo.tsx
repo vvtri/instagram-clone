@@ -1,5 +1,6 @@
 'use client';
-import React from 'react';
+
+import React, { ComponentType } from 'react';
 import { useUserProfileData } from '../../hooks/use-user-profile-data.hook';
 import Image from 'next/image';
 import InstaButton from '@/modules/common/components/utility/InstaButton';
@@ -12,21 +13,28 @@ import PlusSvgIcon from '@/modules/common/components/icon/svg-icon/PlusSvgIcon';
 import { cn } from '@/utilities/tailwind/cn';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { genImageSizesProp } from '@/modules/common/helpers/image.helper';
+import { genImageSizesProp } from '@/utilities/image/gen-image-sizes-prop';
+import { NestedValueOf, useTranslations } from 'next-intl';
+import { MessageClientKey } from '../../../../../global';
+import { SvgIconProps } from '@/modules/common/types/svg-icon.type';
 
-const USER_PROFILE_SECTIONS = [
+const USER_PROFILE_SECTIONS: {
+	labelI18nKey: MessageClientKey;
+	getHref: (username: string) => string;
+	Icon: ComponentType<SvgIconProps>;
+}[] = [
 	{
-		labelI18nKey: 'Bài viết',
+		labelI18nKey: 'user.common.posts',
 		getHref: (username: string) => `/${username}`,
 		Icon: PostSvgIcon,
 	},
 	{
-		labelI18nKey: 'Đã lưu',
+		labelI18nKey: 'user.common.saved',
 		getHref: (username: string) => `/${username}/saved`,
 		Icon: BookmarkSvgIcon,
 	},
 	{
-		labelI18nKey: 'Được gắn thẻ',
+		labelI18nKey: 'user.common.tagged',
 		getHref: (username: string) => `/${username}/tagged`,
 		Icon: TaggedSvgIcon,
 	},
@@ -41,6 +49,8 @@ export default function UserProfilePersonalInfo({
 }: UserProfilePersonalInfoProps) {
 	const pathname = usePathname();
 	const { data: user } = useUserProfileData({ username });
+	const t = useTranslations('Client');
+
 	if (!user) throw new Error('User data not found');
 
 	return (
@@ -64,9 +74,11 @@ export default function UserProfilePersonalInfo({
 
 							<div className='flex items-center lg:ml-6 text-sm'>
 								<InstaButton className='mr-2' colorSchema='gray'>
-									Chỉnh sửa trang cá nhân
+									{t('user.profile.editProfile')}
 								</InstaButton>
-								<InstaButton colorSchema='gray'>Xem kho lưu trữ</InstaButton>
+								<InstaButton colorSchema='gray'>
+									{t('user.profile.viewArchive')}
+								</InstaButton>
 								<div className='hidden p-2 lg:block cursor-pointer'>
 									<SettingSvgIcon />
 								</div>
@@ -88,7 +100,7 @@ export default function UserProfilePersonalInfo({
 						<PlusSvgIcon className='text-icon-tertiary dark:text-icon-tertiaryDark' />
 					</div>
 
-					<span className='text-xs mt-3'>Mới</span>
+					<span className='text-xs mt-3 first-letter:uppercase'>{t('user.common.new')}</span>
 				</div>
 			</div>
 
@@ -109,7 +121,7 @@ export default function UserProfilePersonalInfo({
 					>
 						<item.Icon className='lg:w-3 lg:h-3' />
 						<span className='hidden uppercase lg:block'>
-							{item.labelI18nKey}
+							{t(item.labelI18nKey)}
 						</span>
 					</Link>
 				))}

@@ -1,4 +1,4 @@
-import UserPostEmpty from '@/modules/user/components/UserProfile/UserPostEmpty';
+import UserProfilePostEmpty from '@/modules/user/components/UserProfile/UserProfilePostEmpty';
 
 type UserProfilePageProps = {
 	params: {
@@ -8,5 +8,5 @@ type UserProfilePageProps = {
 };
 
 export default function UserProfilePage({ params }: UserProfilePageProps) {
-	return <UserPostEmpty />;
+	return <UserProfilePostEmpty />;
 }

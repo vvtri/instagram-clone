@@ -1,0 +1,74 @@
+{
+  "common": {
+    "word": {
+      "or": "or",
+      "switch": "switch",
+      "seeAll": "see all"
+    },
+    "navbar": {
+      "home": "home",
+      "search": "search",
+      "explore": "explore",
+      "reel": "reels",
+      "message": "messages",
+      "notification": "notifications",
+      "create": "create",
+      "profile": "profile",
+      "thread": "threads",
+      "more": "more",
+      "settings": "settings",
+      "yourActivity": "your activity",
+      "saved": "saved",
+      "switchAppearance": "switch appearance",
+      "reportAProblem": "report a problem",
+      "switchAccounts": "switch accounts",
+      "logout": "log out",
+      "darkMode": "dark mode"
+    },
+    "home": {}
+  },
+  "auth": {
+    "common": {
+      "showPassword": "show",
+      "hidePassword": "hide"
+    },
+    "signUp": {
+      "successToast": "Sign up successfully!",
+      "errorToast": "Sign up error, {errorCode, select, notFound {user not found} other {user not found}}!"
+    },
+    "signIn": {
+      "successToast": "Sign in successfully!",
+      "errorToast": "Sign in error, {errorCode, select, notFound {user not found} other {user not found}}!"
+    }
+  },
+  "user": {
+    "common": {
+      "suggestUser": "suggested for you",
+      "follow": "follow",
+      "posts": "posts",
+      "saved": "saved",
+      "tagged": "tagged",
+      "new": "new"
+    },
+    "profile": {
+      "editProfile": "Edit profile",
+      "viewArchive": "View archive",
+      "postAmount": "{posts, plural, =0 {<bold>#</bold> post} =1 {<bold>#</bold> post} other {<bold>#</bold> posts}}",
+      "followerAmount": "{followers, plural, =0 {<bold>#</bold> follower} =1 {<bold>#</bold> follower} other {<bold>#</bold> followers}}",
+      "followingAmount": "<bold>{following}</bold> following"
+    }
+  },
+  "post": {
+    "postCard": {
+      "likeAmount": "{likes, number} likes",
+      "viewComment": "View all {comments, number} comments",
+      "addComment": "Add comment",
+      "post": "Post"
+    }
+  },
+  "userStory": {
+    "add": {
+      "yourNews": "Your story"
+    }
+  }
+}

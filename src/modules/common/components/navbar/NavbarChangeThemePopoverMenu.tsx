@@ -1,3 +1,4 @@
+'use client';
 import { useAuth } from '@/modules/auth/hooks/use-auth.hook';
 import { useChangeTheme } from '@/modules/user/hooks/use-change-theme.hook';
 import { cn } from '@/utilities/tailwind/cn';
@@ -8,6 +9,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks/store.hook';
 import { setShowNavbarChangeThemePopoverMenu } from '../../slices/navbar.slice';
 import CaretSvgIcon from '../icon/svg-icon/CaretSvgIcon';
 import ThemeSvgIcon from '../icon/svg-icon/ThemeSvgIcon';
+import { useTranslations } from 'next-intl';
 
 const getThemeCheck = (theme: string) => {
 	if (theme === 'dark') return true;
@@ -18,7 +20,7 @@ export default function NavbarChangeThemePopoverMenu() {
 	const isShow = useAppSelector(
 		({ navbar }) => navbar.showNavbarChangeThemePopoverMenu
 	);
-
+	const t = useTranslations('Client');
 	const [_, startTransition] = useTransition();
 	const dispatch = useAppDispatch();
 	const { resolvedTheme, setTheme } = useTheme();
@@ -60,7 +62,9 @@ export default function NavbarChangeThemePopoverMenu() {
 					className='mr-3 -rotate-[90deg] text-text-secondary dark:text-text-secondaryDark cursor-pointer'
 					onClick={() => dispatch(setShowNavbarChangeThemePopoverMenu(false))}
 				/>
-				<p className='font-semibold'>Chuyển chế độ</p>
+				<p className='font-semibold first-letter:uppercase'>
+					{t('common.navbar.switchAppearance')}
+				</p>
 				<ThemeSvgIcon width={18} height={18} className='ml-auto' />
 			</div>
 
@@ -69,8 +73,8 @@ export default function NavbarChangeThemePopoverMenu() {
 				aria-hidden
 			/>
 
-			<div className='flex items-center pt-6 pb-4 px-2'>
-				<p className=''>Chế độ tối</p>
+			<div className='flex items-center pt-6 pb-4 px-2 first-letter:uppercase'>
+				<p className='first-letter:uppercase'>{t('common.navbar.darkMode')}</p>
 
 				<ReactSwitch
 					disabled={isLoading}

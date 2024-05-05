@@ -1,3 +1,4 @@
+'use client';
 import InstaButton from '@/modules/common/components/utility/InstaButton';
 import EmojiPicker from '@/modules/common/components/utility/EmojiPicker';
 import { useClickOutSide } from '@/modules/common/hooks/use-click-out-side.hook';
@@ -5,11 +6,13 @@ import { cn } from '@/utilities/tailwind/cn';
 import React, { useRef, useState } from 'react';
 import ReactTextareaAutosize from 'react-textarea-autosize';
 import EmojiSvgIcon from '@/modules/common/components/icon/svg-icon/EmojiSvgIcon';
+import { useTranslations } from 'next-intl';
 
 export default function PostCommentInput() {
 	const [comment, setComment] = useState('');
 	const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 	const emojiPickerRef = useRef<HTMLDivElement | null>(null);
+	const t = useTranslations('Client');
 
 	useClickOutSide(emojiPickerRef, () => {
 		setShowEmojiPicker(false);
@@ -20,7 +23,7 @@ export default function PostCommentInput() {
 			<ReactTextareaAutosize
 				minRows={1}
 				maxRows={6}
-				placeholder='Thêm bình luận'
+				placeholder={t('post.postCard.addComment')}
 				className='outline-none border-none flex-grow bg-transparent text-sm resize-none'
 				value={comment}
 				onChange={(e) => setComment(e.target.value)}
@@ -32,7 +35,7 @@ export default function PostCommentInput() {
 					'opacity-100 pointer-events-auto visible': comment,
 				})}
 			>
-				Đăng
+				{t('post.postCard.post')}
 			</InstaButton>
 
 			<div className='relative cursor-pointer' ref={emojiPickerRef}>

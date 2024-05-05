@@ -1,6 +1,9 @@
 import InstaImgIcon from '@/modules/common/components/icon/InstaImgIcon';
+import { useTranslations } from 'next-intl';
 
 export default function UserBookmarkEmpty() {
+	const t = useTranslations('User');
+
 	return (
 		<div className='w-[350px] mx-auto flex flex-col items-center mt-8'>
 			<InstaImgIcon
@@ -11,11 +14,10 @@ export default function UserBookmarkEmpty() {
 				height={62}
 			/>
 
-			<h2 className='font-extrabold text-3xl tracking-wide mt-6'>Lưu</h2>
-			<p className='text-sm mt-5 mb-6'>
-				Lưu ảnh và video mà bạn muốn xem lại. Sẽ không có ai được thông báo và
-				chỉ mình bạn có thể xem những gì mình đã lưu.
-			</p>
+			<h2 className='font-extrabold text-3xl tracking-wide mt-6'>
+				{t('save.empty.save')}
+			</h2>
+			<p className='text-sm mt-5 mb-6'>{t('save.empty.saveDesc')}</p>
 		</div>
 	);
 }

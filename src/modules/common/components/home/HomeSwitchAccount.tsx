@@ -4,9 +4,12 @@ import { useAuth } from '@/modules/auth/hooks/use-auth.hook';
 import Image from 'next/image';
 import React from 'react';
 import InstaButton from '../utility/InstaButton';
+import { useTranslations } from 'next-intl';
+import { upperFirstChar } from '@/utilities/text/upper-first-char';
 
 export default function HomeSwitchAccount() {
 	const { user } = useAuth();
+	const t = useTranslations('Client');
 
 	return (
 		<div className='flex items-center'>
@@ -32,7 +35,7 @@ export default function HomeSwitchAccount() {
 				className='text-xs ml-auto flex-shrink-0 pr-0'
 				variant='outline'
 			>
-				Chuyển
+				{upperFirstChar(t('common.word.switch'))}
 			</InstaButton>
 		</div>
 	);

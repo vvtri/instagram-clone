@@ -4,12 +4,14 @@ import { cn } from '@/utilities/tailwind/cn';
 import React, { forwardRef, useState } from 'react';
 import InstaImgIcon from '../icon/InstaImgIcon';
 import SearchSvgIcon from '../icon/svg-icon/SearchSvgIcon';
+import { useTranslations } from 'next-intl';
 
 type SearchInputProps = React.JSX.IntrinsicElements['input'];
 
 const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
 	({ className: inputClassName, ...rest }, ref) => {
 		const [isFocus, setIsFocus] = useState(false);
+		const t = useTranslations('Client');
 
 		return (
 			<div
@@ -27,10 +29,10 @@ const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
 				<input
 					type='text'
 					className={cn(
-						'border-none focus:outline-none focus:border-none w-full bg-bg-hightLight dark:bg-bg-highLightDark',
+						'border-none focus:outline-none focus:border-none w-full bg-bg-hightLight dark:bg-bg-highLightDark placeholder:capitalize',
 						inputClassName
 					)}
-					placeholder='Tìm kiếm'
+					placeholder={t('common.navbar.search')}
 					{...rest}
 					ref={ref}
 					onFocus={() => setIsFocus(true)}
