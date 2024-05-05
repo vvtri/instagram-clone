@@ -46,7 +46,7 @@ export default function UserStorySlider({ className }: UserStorySliderProps) {
 	}
 
 	return (
-		<div className='py-3 border-b border-separator sm:pb-5 sm:border-none'>
+		<div className='py-3 pt-0 border-b border-separator sm:pb-5 sm:border-none'>
 			<ScrollMenu
 				LeftArrow={LeftArrow}
 				RightArrow={RightArrow}
@@ -65,7 +65,7 @@ const LeftArrow = () => {
 	return (
 		<div
 			className={cn(
-				'absolute top-[calc(50%_-_33px)] left-0 opacity-1 visible pointer-events-auto transition z-10 cursor-pointer',
+				'hidden absolute top-[calc(50%_-_33px)] left-0 opacity-1 visible pointer-events-auto transition z-10 cursor-pointer sm:block',
 				{ 'opacity-1 invisible pointer-events-none': isFirstItemVisible }
 			)}
 			onClick={() => visibility.scrollPrev()}
@@ -87,7 +87,7 @@ const RightArrow = () => {
 	return (
 		<div
 			className={cn(
-				'absolute top-[calc(50%_-_33px)] right-0 opacity-1 visible pointer-events-auto transition z-10 cursor-pointer',
+				'hidden absolute top-[calc(50%_-_33px)] right-0 opacity-1 visible pointer-events-auto transition z-10 cursor-pointer sm:block',
 				{ 'opacity-1 invisible pointer-events-none': isLastItemVisible }
 			)}
 			onClick={() => visibility.scrollNext()}

@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 import { useForm } from 'react-hook-form';
 import { SignUpFormData, signUpSchema } from '../../schema/sign-up.scheme';
 import { yupResolver } from '@hookform/resolvers/yup';
-import InstaButton from '@/modules/common/components/utility/Button';
+import InstaButton from '@/modules/common/components/utility/InstaButton';
 import AuthInput from '../AuthInput';
 
 type SignUpFormProps = {

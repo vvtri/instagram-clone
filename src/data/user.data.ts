@@ -12,6 +12,7 @@ export const users = [
 		avt: '/user/avt/kien-hoang-254.jpg',
 		password: 'userpassword',
 		theme: 'dark',
+		// theme: 'light',
 		isVerified: true,
 		nickname: 'Blog cá nhân',
 		desc: `📱Facebook : Kiên Hoàng 🇻🇳🇻🇳🇻🇳

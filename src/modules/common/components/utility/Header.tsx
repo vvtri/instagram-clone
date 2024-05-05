@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import HeartSvgIcon from '../icon/HeartSvgIcon';
-import InstaSvgLogo from '../icon/InstagramLogoTextSvgIcon';
+import InstaSvgLogo from '../icon/svg-icon/InstagramLogoTextSvgIcon';
 import SearchInput from './SearchInput';
-import PlusSvgIcon from '../icon/PlusSvgIcon';
+import HeartSvgIcon from '../icon/svg-icon/HeartSvgIcon';
+import PlusSvgIcon from '../icon/svg-icon/PlusSvgIcon';
 
 export default function Header() {
 	return (
@@ -21,7 +21,7 @@ export default function Header() {
 				</div>
 
 				<Link href='/notifications'>
-					<HeartSvgIcon />
+					<HeartSvgIcon className='hover:scale-110 transition' />
 				</Link>
 			</div>
 		</header>

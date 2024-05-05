@@ -1,14 +1,9 @@
 import React from 'react';
-import {
-	MapThicknessToIconStrokeWidth,
-	SvgIconProps,
-} from '../../constants/svg-icon.constant';
+import { SvgIconProps } from '@/modules/common/types/svg-icon.type';
+import { MapThicknessToIconStrokeWidth } from '@/modules/common/constants/svg-icon.constant';
 
-type MessageIconProps = React.JSX.IntrinsicElements['svg'] & SvgIconProps;
-
-export default function MessageSvgIcon(props: MessageIconProps) {
+export default function MessageSvgIcon(props: SvgIconProps) {
 	const { thickness = 'thin', width = 24, height = 24, ...rest } = props;
-
 
 	return (
 		<svg

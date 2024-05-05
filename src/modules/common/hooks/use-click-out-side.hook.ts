@@ -2,7 +2,7 @@ import { MutableRefObject, Ref, useEffect } from 'react';
 
 export const useClickOutSide = (
 	ref: MutableRefObject<HTMLElement | null | undefined>,
-	handler: () => any
+	handler: () => any,
 ) => {
 	useEffect(() => {
 		const clickHandler = (e: MouseEvent) => {

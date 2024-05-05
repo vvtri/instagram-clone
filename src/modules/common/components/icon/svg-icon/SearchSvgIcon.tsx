@@ -1,12 +1,8 @@
+import { MapThicknessToIconStrokeWidth } from '@/modules/common/constants/svg-icon.constant';
+import { SvgIconProps } from '@/modules/common/types/svg-icon.type';
 import React, { PropsWithChildren } from 'react';
-import {
-	MapThicknessToIconStrokeWidth,
-	SvgIconProps,
-} from '../../constants/svg-icon.constant';
 
-type SearchIconProps = React.JSX.IntrinsicElements['svg'] & SvgIconProps;
-
-export default function SearchSvgIcon(props: SearchIconProps) {
+export default function SearchSvgIcon(props: SvgIconProps) {
 	const { thickness = 'thin', width = 24, height = 24, ...rest } = props;
 
 	return (

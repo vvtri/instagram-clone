@@ -1,15 +1,8 @@
+import { MapThicknessToIconStrokeWidth } from '@/modules/common/constants/svg-icon.constant';
+import { SvgIconProps } from '@/modules/common/types/svg-icon.type';
 import React from 'react';
-import {
-	MapThicknessToIconStrokeWidth,
-	SvgIconProps,
-} from '../../constants/svg-icon.constant';
 
-type HomeSvgIconProps = React.JSX.IntrinsicElements['svg'] &
-	SvgIconProps & {
-		variant?: 'outline' | 'solid';
-	};
-
-export default function HomeSvgIcon(props: HomeSvgIconProps) {
+export default function HomeSvgIcon(props: SvgIconProps) {
 	const {
 		thickness = 'thin',
 		variant = 'outline',
@@ -17,7 +10,6 @@ export default function HomeSvgIcon(props: HomeSvgIconProps) {
 		height = 24,
 		...rest
 	} = props;
-
 
 	return (
 		<svg

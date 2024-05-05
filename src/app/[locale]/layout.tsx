@@ -30,7 +30,7 @@ export default function RootLayout({
 				style={{
 					fontFamily: `apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Noto Color Emoji'`,
 				}}
-				className='relative bg-white text-black dark:bg-black dark:text-white'
+				className='relative bg-white text-text-primary dark:bg-black dark:text-text-primaryDark'
 			>
 				<Provider>{children}</Provider>
 

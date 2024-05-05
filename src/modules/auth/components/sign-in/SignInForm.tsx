@@ -1,5 +1,5 @@
 'use client';
-import InstaButton from '@/modules/common/components/utility/Button';
+import InstaButton from '@/modules/common/components/utility/InstaButton';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { useSignIn } from '../../hooks/use-sign-in.hook';

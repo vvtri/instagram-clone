@@ -1,15 +1,7 @@
+import { SvgIconProps } from '@/modules/common/types/svg-icon.type';
 import React from 'react';
-import {
-	MapThicknessToIconStrokeWidth,
-	SvgIconProps,
-} from '../../constants/svg-icon.constant';
 
-type ExploreSvgIconProps = React.JSX.IntrinsicElements['svg'] &
-	SvgIconProps & {
-		variant?: 'outline' | 'solid';
-	};
-
-export default function ExploreSvgIcon(props: ExploreSvgIconProps) {
+export default function ExploreSvgIcon(props: SvgIconProps) {
 	const {
 		thickness = 'thin',
 		variant = 'outline',

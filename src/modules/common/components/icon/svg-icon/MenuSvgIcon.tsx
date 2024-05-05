@@ -1,15 +1,7 @@
 import React from 'react';
-import {
-	MapThicknessToIconStrokeWidth,
-	SvgIconProps,
-} from '../../constants/svg-icon.constant';
+import { SvgIconProps } from '@/modules/common/types/svg-icon.type';
 
-type MenuSvgIconProps = React.JSX.IntrinsicElements['svg'] &
-	SvgIconProps & {
-		variant?: 'outline' | 'solid';
-	};
-
-export default function MenuSvgIcon(props: MenuSvgIconProps) {
+export default function MenuSvgIcon(props: SvgIconProps) {
 	const {
 		thickness = 'thin',
 		variant = 'outline',

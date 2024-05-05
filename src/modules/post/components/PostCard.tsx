@@ -1,20 +1,19 @@
 'use client';
 
-import MoreSvgIcon from '@/modules/common/components/icon/MoreSvgIcon';
 import ImageWithGradientBorder from '@/modules/common/components/utility/ImageWithGradientBorder';
 import React from 'react';
 import Slider from 'react-slick';
 import Image from 'next/image';
-import HeartSvgIcon from '@/modules/common/components/icon/HeartSvgIcon';
-import MessageSvgIcon from '@/modules/common/components/icon/MessageSvgIcon';
-import ShareSvgIcon from '@/modules/common/components/icon/ShareSvgIcon';
-import BookmarkSvgIcon from '@/modules/common/components/icon/BookmarkSvgIcon';
-import Comment from '@/modules/comment/components/Comment';
 import { cn } from '@/utilities/tailwind/cn';
-import VerifySvgIcon from '@/modules/common/components/icon/VerifySvgIcon';
 import { PostModel } from '../apis/post.api';
 import Skeleton from 'react-loading-skeleton';
 import PostCommentInput from './PostCommentInput';
+import BookmarkSvgIcon from '@/modules/common/components/icon/svg-icon/BookmarkSvgIcon';
+import HeartSvgIcon from '@/modules/common/components/icon/svg-icon/HeartSvgIcon';
+import MessageSvgIcon from '@/modules/common/components/icon/svg-icon/MessageSvgIcon';
+import ShareSvgIcon from '@/modules/common/components/icon/svg-icon/ShareSvgIcon';
+import VerifySvgIcon from '@/modules/common/components/icon/svg-icon/VerifySvgIcon';
+import MoreSvgIcon from '@/modules/common/components/icon/svg-icon/MoreSvgIcon';
 
 type PostCardProps = {
 	className?: string;

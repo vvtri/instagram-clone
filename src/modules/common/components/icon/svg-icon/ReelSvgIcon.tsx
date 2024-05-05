@@ -1,14 +1,9 @@
+import { MapThicknessToIconStrokeWidth } from '@/modules/common/constants/svg-icon.constant';
+import { SvgIconProps } from '@/modules/common/types/svg-icon.type';
 import React from 'react';
-import {
-	SvgIconProps,
-	MapThicknessToIconStrokeWidth,
-} from '../../constants/svg-icon.constant';
 
-type ReelIconProps = React.JSX.IntrinsicElements['svg'] & SvgIconProps;
-
-export default function ReelSvgIcon(props: ReelIconProps) {
+export default function ReelSvgIcon(props: SvgIconProps) {
 	const { thickness = 'thin', width = 24, height = 24, ...rest } = props;
-
 
 	return (
 		<svg

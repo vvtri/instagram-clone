@@ -1,6 +1,4 @@
-export type SvgIconProps = {
-	thickness?: 'thin' | 'fat';
-};
+import { SvgIconProps } from '../types/svg-icon.type';
 
 export const MapThicknessToIconStrokeWidth: Record<
 	Required<SvgIconProps>['thickness'],
@@ -8,4 +6,5 @@ export const MapThicknessToIconStrokeWidth: Record<
 > = {
 	fat: 3,
 	thin: 2,
+	extraThin: 0,
 };

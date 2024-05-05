@@ -1,4 +1,4 @@
-import InstaButton from '@/modules/common/components/utility/Button';
+import InstaButton from '@/modules/common/components/utility/InstaButton';
 import InstaImgIcon from '@/modules/common/components/icon/InstaImgIcon';
 import { useTranslations } from 'next-intl';
 import AuthLogo from '../AuthLogo';

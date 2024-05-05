@@ -1,9 +1,7 @@
+import { SvgIconProps } from '@/modules/common/types/svg-icon.type';
 import React from 'react';
-import { SvgIconProps } from '../../constants/svg-icon.constant';
 
-type PlusSvgIconProps = React.JSX.IntrinsicElements['svg'] & SvgIconProps;
-
-export default function PlusSvgIcon(props: PlusSvgIconProps) {
+export default function PlusSvgIcon(props: SvgIconProps) {
 	const { thickness = 'thin', width = 24, height = 24, ...rest } = props;
 
 	return (

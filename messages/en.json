@@ -54,6 +54,10 @@
     "threads": "threads",
     "contactUploadingAndNonUsers": "contact uploading & non-users",
     "metaVerified": "meta verified",
-    "copyright": "Instagram from Meta"
+    "copyright": "Instagram from Meta",
+    "job": "Jobs",
+    "term": "Terms",
+    "location": "Locations",
+    "language": "Languages"
   }
 }

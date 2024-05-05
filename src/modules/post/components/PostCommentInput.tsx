@@ -1,10 +1,10 @@
-import EmojiSvgIcon from '@/modules/common/components/icon/EmojiSvgIcon';
-import InstaButton from '@/modules/common/components/utility/Button';
+import InstaButton from '@/modules/common/components/utility/InstaButton';
 import EmojiPicker from '@/modules/common/components/utility/EmojiPicker';
 import { useClickOutSide } from '@/modules/common/hooks/use-click-out-side.hook';
 import { cn } from '@/utilities/tailwind/cn';
 import React, { useRef, useState } from 'react';
 import ReactTextareaAutosize from 'react-textarea-autosize';
+import EmojiSvgIcon from '@/modules/common/components/icon/svg-icon/EmojiSvgIcon';
 
 export default function PostCommentInput() {
 	const [comment, setComment] = useState('');

@@ -3,7 +3,7 @@
 import { cn } from '@/utilities/tailwind/cn';
 import React, { forwardRef, useState } from 'react';
 import InstaImgIcon from '../icon/InstaImgIcon';
-import SearchSvgIcon from '../icon/SearchSvgIcon';
+import SearchSvgIcon from '../icon/svg-icon/SearchSvgIcon';
 
 type SearchInputProps = React.JSX.IntrinsicElements['input'];
 

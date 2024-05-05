@@ -1,12 +1,7 @@
+import { SvgIconProps } from '@/modules/common/types/svg-icon.type';
 import React from 'react';
-import { SvgIconProps } from '../../constants/svg-icon.constant';
 
-type EmojiSvgIconProps = React.JSX.IntrinsicElements['svg'] &
-	SvgIconProps & {
-		variant?: 'outline' | 'solid';
-	};
-
-export default function EmojiSvgIcon(props: EmojiSvgIconProps) {
+export default function EmojiSvgIcon(props: SvgIconProps) {
 	const {
 		thickness = 'thin',
 		variant = 'outline',

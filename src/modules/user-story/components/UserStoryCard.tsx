@@ -39,8 +39,8 @@ export const UserStoryCardSkeleton = (
 	return (
 		<div className='flex flex-col px-1 items-center w-20'>
 			<Skeleton
-				className='w-[66px] aspect-square rounded-full'
-				containerClassName='flex rounded-full mb-2'
+				className='w-[66px] aspect-square rounded-full '
+				containerClassName='flex rounded-full mb-2 w-[66px] overflow-hidden'
 			/>
 
 			<Skeleton

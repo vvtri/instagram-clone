@@ -1,9 +1,7 @@
+import { SvgIconProps } from '@/modules/common/types/svg-icon.type';
 import React from 'react';
-import { SvgIconProps } from '../../constants/svg-icon.constant';
 
-type VerifyIconProps = React.JSX.IntrinsicElements['svg'] & SvgIconProps;
-
-export default function VerifySvgIcon({ thickness, ...rest }: VerifyIconProps) {
+export default function VerifySvgIcon({ thickness, ...rest }: SvgIconProps) {
 	return (
 		<svg
 			aria-label='Đã xác minh'

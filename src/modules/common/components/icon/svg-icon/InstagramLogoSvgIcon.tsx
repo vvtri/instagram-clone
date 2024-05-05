@@ -1,15 +1,7 @@
+import { SvgIconProps } from '@/modules/common/types/svg-icon.type';
 import React from 'react';
-import {
-	MapThicknessToIconStrokeWidth,
-	SvgIconProps,
-} from '../../constants/svg-icon.constant';
 
-type InstagramLogoSvgIconProps = React.JSX.IntrinsicElements['svg'] &
-	SvgIconProps & {
-		variant?: 'outline' | 'solid';
-	};
-
-export default function InstagramLogoSvgIcon(props: InstagramLogoSvgIconProps) {
+export default function InstagramLogoSvgIcon(props: SvgIconProps) {
 	const {
 		thickness = 'thin',
 		variant = 'outline',

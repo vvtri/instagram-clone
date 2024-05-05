@@ -1,12 +1,7 @@
 import React from 'react';
-import {
-	MapThicknessToIconStrokeWidth,
-	SvgIconProps,
-} from '../../constants/svg-icon.constant';
+import { SvgIconProps } from '@/modules/common/types/svg-icon.type';
 
-type MessengerSvgIconProps = React.JSX.IntrinsicElements['svg'] & SvgIconProps;
-
-export default function MessengerSvgIcon(props: MessengerSvgIconProps) {
+export default function MessengerSvgIcon(props: SvgIconProps) {
 	const { thickness = 'thin', width = 24, height = 24, ...rest } = props;
 
 	return (
@@ -17,7 +12,7 @@ export default function MessengerSvgIcon(props: MessengerSvgIconProps) {
 			viewBox='0 0 24 24'
 			height={width}
 			width={height}
-      {...rest}
+			{...rest}
 		>
 			<title>Messenger</title>
 			<path

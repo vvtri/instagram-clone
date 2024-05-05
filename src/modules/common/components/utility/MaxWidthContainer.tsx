@@ -10,8 +10,8 @@ export default function MaxWidthContainer({
 	className,
 }: MaxWidthContainerProps) {
 	return (
-		<div className={cn('w-full', className)}>
-			<div className='sm:max-w-[630px] mx-auto'>{children}</div>
+		<div className={cn('w-full lg:pl-[72px] xl:pl-[244px]', className)}>
+			{children}
 		</div>
 	);
 }
