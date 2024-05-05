@@ -16,13 +16,14 @@ import InstagramLogoSvgIcon from '../icon/svg-icon/InstagramLogoSvgIcon';
 import InstaSvgLogo from '../icon/svg-icon/InstagramLogoTextSvgIcon';
 import MenuSvgIcon from '../icon/svg-icon/MenuSvgIcon';
 import MessengerSvgIcon from '../icon/svg-icon/MessengerSvgIcon';
-import PlusSvgIcon from '../icon/svg-icon/PlusSvgIcon';
+import PlusInBoxSvgIcon from '../icon/svg-icon/PlusInBoxSvgIcon';
 import ReelSvgIcon from '../icon/svg-icon/ReelSvgIcon';
 import SearchSvgIcon from '../icon/svg-icon/SearchSvgIcon';
 import ThreadSvgIcon from '../icon/svg-icon/ThreadSvgIcon';
 import NavbarItem from './NavbarItem';
 import NavbarMorePopoverMenu from './NavbarMorePopoverMenu';
 import HeartSvgIcon from '../icon/svg-icon/HeartSvgIcon';
+import { cn } from '@/utilities/tailwind/cn';
 
 export const NAVBAR_ICON_SIZE = 24;
 
@@ -39,7 +40,7 @@ export default function Navbar() {
 	});
 
 	return (
-		<div className='flex items-center justify-around w-full h-12 bg-white text-text-primary fixed bottom-0 inset-x-0 dark:bg-black dark:text-text-primaryDark lg:fixed lg:inset-y-0 lg:left-0 lg:w-[72px] lg:flex-col lg:border-r lg:border-separator lg:dark:border-elevatedSeparator lg:h-full lg:justify-start lg:py-3 lg:pb-12 xl:w-[244px] xl:px-3 xl:pt-2 xl:pb-5 xl:items-start'>
+		<div className='flex items-center justify-around w-full h-12 bg-white text-text-primary fixed bottom-0 inset-x-0 border-t dark:bg-black dark:text-text-primaryDark lg:border-t-0 lg:fixed lg:inset-y-0 lg:left-0 lg:w-[72px] lg:flex-col lg:border-r lg:border-separator lg:dark:border-separatorDark lg:h-full lg:justify-start lg:py-3 lg:pb-12 xl:w-[244px] xl:px-3 xl:pt-2 xl:pb-5 xl:items-start'>
 			<Link href='/' className='hidden px-3 pb-4 lg:block lg:pt-6'>
 				<InstaSvgLogo className='hidden xl:block' />
 
@@ -52,7 +53,7 @@ export default function Navbar() {
 				highlight={pathname === '/'}
 				onClick={() => router.push('/')}
 				iconProps={{
-					thickness: 'extraThin',
+					thickness: pathname === '/' ? 'extraThin' : 'thin',
 					variant: pathname === '/' ? 'solid' : 'outline',
 				}}
 			/>
@@ -80,9 +81,9 @@ export default function Navbar() {
 			/>
 
 			<NavbarItem
-				icon={PlusSvgIcon}
+				icon={PlusInBoxSvgIcon}
 				label={'Tạo'}
-				className='hidden sm:block'
+				className='hidden lg:block'
 			/>
 
 			<NavbarItem
@@ -97,19 +98,24 @@ export default function Navbar() {
 				label={'Thông báo'}
 				highlight={pathname === '/message'}
 				onClick={() => router.push('/message')}
+				className='hidden lg:block'
 			/>
 
 			<NavbarItem
 				iconNode={
 					<Image
-						src='/common/empty-avt.jpg'
+						src={user.avt}
 						width={NAVBAR_ICON_SIZE}
 						height={NAVBAR_ICON_SIZE}
 						alt=''
-						className='rounded-full'
+						className={cn('rounded-full', {
+							'outline-2 outline outline-text-primary dark:outline-text-primaryDark':
+								pathname === `/${user.username}`,
+						})}
 					/>
 				}
 				label={'Trang cá nhân'}
+				onClick={() => router.push(`/${user.username}`)}
 			/>
 
 			<div className='hidden w-full lg:flex flex-col items-center mt-auto'>

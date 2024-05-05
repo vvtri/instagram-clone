@@ -1,5 +1,12 @@
-import React from 'react';
+import UserPostEmpty from '@/modules/user/components/UserProfile/UserPostEmpty';
 
-export default function ProfilePage() {
-	return <div>ProfilePage</div>;
+type UserProfilePageProps = {
+	params: {
+		username: string;
+		locale: string;
+	};
+};
+
+export default function UserProfilePage({ params }: UserProfilePageProps) {
+	return <UserPostEmpty />;
 }

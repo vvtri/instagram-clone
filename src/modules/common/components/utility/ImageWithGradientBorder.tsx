@@ -1,18 +1,20 @@
 import React from 'react';
-import Image from 'next/image';
+import Image, { ImageProps } from 'next/image';
 import { cn } from '@/utilities/tailwind/cn';
 import Skeleton from 'react-loading-skeleton';
+import { OptionalKeysOf } from 'type-fest';
 
 type ImageWithGradientBorderProps = {
 	imageUrl: string;
 	length: number;
 	className?: string;
+	imgProps?: Partial<ImageProps>;
 };
 
 export default function ImageWithGradientBorder(
 	props: ImageWithGradientBorderProps
 ) {
-	const { imageUrl, className, length } = props;
+	const { imageUrl, className, length, imgProps } = props;
 	const containerLength = length + 10;
 
 	return (
@@ -34,6 +36,7 @@ export default function ImageWithGradientBorder(
 				height={length}
 				alt='UserStory Image'
 				className='rounded-full outline-[3px] outline-white outline dark:outline-black'
+				{...imgProps}
 			/>
 		</div>
 	);

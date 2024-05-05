@@ -24,6 +24,7 @@ export default function UserStoryCard({
 				length={56}
 				className='mb-2'
 				imageUrl={userStory.user.avt}
+				imgProps={{ priority: true }}
 			/>
 
 			<span className='text-xs text-center text-ellipsis line-clamp-1 w-full block'>

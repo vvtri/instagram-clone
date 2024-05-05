@@ -41,3 +41,19 @@ export const changeTheme = async (
 	user.theme = theme;
 	return theme;
 };
+
+export type GetUserProfileParams = {
+	username: string;
+	// token:string
+};
+
+export const getUserProfile = async (
+	params: GetUserProfileParams
+): Promise<UserModel> => {
+	const { username } = params;
+
+	const user = users.find((item) => item.username === username);
+	if (!user) throw new ApiError('notFound');
+
+	return user;
+};

@@ -1,12 +1,8 @@
 'use client';
-import UserStoryCard from '@/modules/user-story/components/UserStoryCard';
-import React, { ReactNode } from 'react';
-import Slider from 'react-slick';
-import Image from 'next/image';
-import PostCard, { PostCardSkeleton } from './PostCard';
-import { PostModel } from '../apis/post.api';
-import { useInfinitePost } from '../hooks/use-infinite-post.hook';
 import LoadingSpinner from '@/modules/common/components/utility/LoadingSpinner';
+import { ReactNode } from 'react';
+import { useInfinitePost } from '../hooks/use-infinite-post.hook';
+import PostCard, { PostCardSkeleton } from './PostCard';
 
 type ListPostProps = {
 	className?: string;

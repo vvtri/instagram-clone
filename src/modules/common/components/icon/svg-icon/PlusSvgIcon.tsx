@@ -2,49 +2,27 @@ import { SvgIconProps } from '@/modules/common/types/svg-icon.type';
 import React from 'react';
 
 export default function PlusSvgIcon(props: SvgIconProps) {
-	const { thickness = 'thin', width = 24, height = 24, ...rest } = props;
+  const {
+		thickness = 'thin',
+		variant = 'outline',
+		width = 44,
+		height = 44,
+		...rest
+	} = props;
+
 
 	return (
 		<svg
-			aria-label='Trang chủ'
+			aria-label='Biểu tượng dấu cộng'
 			fill='currentColor'
 			role='img'
 			viewBox='0 0 24 24'
-			height={width}
-			width={height}
+      height={height}
+			width={width}
 			{...rest}
 		>
-			<title>Trang chủ</title>
-			<path
-				d='M2 12v3.45c0 2.849.698 4.005 1.606 4.944.94.909 2.098 1.608 4.946 1.608h6.896c2.848 0 4.006-.7 4.946-1.608C21.302 19.455 22 18.3 22 15.45V8.552c0-2.849-.698-4.006-1.606-4.945C19.454 2.7 18.296 2 15.448 2H8.552c-2.848 0-4.006.699-4.946 1.607C2.698 4.547 2 5.703 2 8.552Z'
-				fill='none'
-				stroke='currentColor'
-				strokeLinecap='round'
-				strokeLinejoin='round'
-				strokeWidth='2'
-			></path>
-			<line
-				fill='none'
-				stroke='currentColor'
-				strokeLinecap='round'
-				strokeLinejoin='round'
-				strokeWidth='2'
-				x1='6.545'
-				x2='17.455'
-				y1='12.001'
-				y2='12.001'
-			></line>
-			<line
-				fill='none'
-				stroke='currentColor'
-				strokeLinecap='round'
-				strokeLinejoin='round'
-				strokeWidth='2'
-				x1='12.003'
-				x2='12.003'
-				y1='6.545'
-				y2='17.455'
-			></line>
+			<title>Biểu tượng dấu cộng</title>
+			<path d='M21 11.3h-8.2V3c0-.4-.3-.8-.8-.8s-.8.4-.8.8v8.2H3c-.4 0-.8.3-.8.8s.3.8.8.8h8.2V21c0 .4.3.8.8.8s.8-.3.8-.8v-8.2H21c.4 0 .8-.3.8-.8s-.4-.7-.8-.7z'></path>
 		</svg>
 	);
 }

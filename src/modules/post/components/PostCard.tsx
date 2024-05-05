@@ -14,6 +14,7 @@ import MessageSvgIcon from '@/modules/common/components/icon/svg-icon/MessageSvg
 import ShareSvgIcon from '@/modules/common/components/icon/svg-icon/ShareSvgIcon';
 import VerifySvgIcon from '@/modules/common/components/icon/svg-icon/VerifySvgIcon';
 import MoreSvgIcon from '@/modules/common/components/icon/svg-icon/MoreSvgIcon';
+import { genImageSizesProp } from '@/modules/common/helpers/image.helper';
 
 type PostCardProps = {
 	className?: string;
@@ -24,7 +25,7 @@ export default function PostCard({ className, post }: PostCardProps) {
 	return (
 		<div
 			className={cn(
-				'w-full sm:max-w-[470px] pt-2 lg:border-b lg:border-separator lg:dark:border-elevatedSeparator',
+				'w-full sm:max-w-[470px] pt-2 lg:border-b lg:border-separator lg:dark:border-separatorDark',
 				className
 			)}
 		>
@@ -67,7 +68,13 @@ export default function PostCard({ className, post }: PostCardProps) {
 							className='relative w-full aspect-square'
 							style={{ aspectRatio: post.imageRatio }}
 						>
-							<Image src={item} fill alt='' />
+							<Image
+								src={item}
+								sizes={genImageSizesProp({ default: '100vw', sm: '640px' })}
+								fill
+								alt=''
+                priority
+							/>
 						</div>
 					</div>
 				))}

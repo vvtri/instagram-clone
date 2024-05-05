@@ -20,7 +20,7 @@ export default function Provider({ children }: ProviderProps) {
 	return (
 		<CookiesProvider>
 			<NextIntlClientProvider messages={commonMessage}>
-				<ThemeProvider enableSystem attribute='class'>
+				<ThemeProvider enableSystem attribute='class' disableTransitionOnChange >
 					<QueryClientProvider>
 						<StoreProvider>{children}</StoreProvider>
 					</QueryClientProvider>

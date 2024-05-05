@@ -10,6 +10,7 @@ export default function LoadingScreen() {
 				src='/loading/auth-loading-icon-logo.png'
 				className=''
 				alt='Loading icon'
+				priority
 			/>
 
 			<Image
@@ -18,6 +19,7 @@ export default function LoadingScreen() {
 				src='/loading/auth-loading-icon-meta.png'
 				className='absolute bottom-8 left-1/2 -translate-x-1/2'
 				alt='Loading icon'
+				priority
 			/>
 		</main>
 	);

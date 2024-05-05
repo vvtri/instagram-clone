@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { PropsWithChildren } from 'react';
 import FooterLanguageSelect from './FooterLanguageSelect';
+import { cn } from '@/utilities/tailwind/cn';
 
 type FooterLinkProps = PropsWithChildren<{
 	href: string;
@@ -18,11 +19,15 @@ const FooterLink = ({ href, children }: FooterLinkProps) => {
 	);
 };
 
-export default function Footer() {
+type FooterProps = {
+	className?: string;
+};
+
+export default function Footer({ className }: FooterProps) {
 	const t = useTranslations('Footer');
 
 	return (
-		<footer className='px-4 mb-20 mt-6'>
+		<footer className={cn('px-4 mb-20 mt-6', className)}>
 			<div className='flex flex-wrap gap-2 items-center justify-center'>
 				<FooterLink href='#'>{t('meta')}</FooterLink>
 				<FooterLink href='#'>{t('about')}</FooterLink>

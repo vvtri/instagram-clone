@@ -2,11 +2,11 @@ import Link from 'next/link';
 import InstaSvgLogo from '../icon/svg-icon/InstagramLogoTextSvgIcon';
 import SearchInput from './SearchInput';
 import HeartSvgIcon from '../icon/svg-icon/HeartSvgIcon';
-import PlusSvgIcon from '../icon/svg-icon/PlusSvgIcon';
+import PlusInBoxSvgIcon from '../icon/svg-icon/PlusInBoxSvgIcon';
 
 export default function Header() {
 	return (
-		<header className='h-16 sticky top-0 inset-x-0 w-full flex justify-between items-center px-4 border-b border-separator z-50 bg-white overflow-visible sm:tracking-wide dark:bg-black dark:text-white dark:border-elevatedSeparator lg:hidden'>
+		<header className='h-16 sticky top-0 inset-x-0 w-full flex justify-between items-center px-4 border-b border-separator z-50 bg-white overflow-visible sm:tracking-wide dark:bg-black dark:text-white dark:border-separatorDark lg:hidden'>
 			<Link href='/'>
 				<InstaSvgLogo />
 			</Link>
@@ -17,7 +17,7 @@ export default function Header() {
 				</div>
 
 				<div className='px-3  cursor-pointer sm:hidden'>
-					<PlusSvgIcon />
+					<PlusInBoxSvgIcon />
 				</div>
 
 				<Link href='/notifications'>

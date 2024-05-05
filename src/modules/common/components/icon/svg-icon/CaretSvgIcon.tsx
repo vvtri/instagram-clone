@@ -1,7 +1,7 @@
 import { SvgIconProps } from '@/modules/common/types/svg-icon.type';
 import React from 'react';
 
-export default function BackSvgIcon(props: SvgIconProps) {
+export default function CaretSvgIcon(props: SvgIconProps) {
 	const {
 		thickness = 'thin',
 		variant = 'outline',

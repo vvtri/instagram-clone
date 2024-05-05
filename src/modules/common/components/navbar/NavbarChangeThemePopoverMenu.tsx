@@ -1,14 +1,13 @@
+import { useAuth } from '@/modules/auth/hooks/use-auth.hook';
+import { useChangeTheme } from '@/modules/user/hooks/use-change-theme.hook';
 import { cn } from '@/utilities/tailwind/cn';
+import { useTheme } from 'next-themes';
+import { useCallback, useState, useTransition } from 'react';
+import ReactSwitch from 'react-switch';
 import { useAppDispatch, useAppSelector } from '../../hooks/store.hook';
 import { setShowNavbarChangeThemePopoverMenu } from '../../slices/navbar.slice';
-import BackSvgIcon from '../icon/svg-icon/CaretSvgIcon';
+import CaretSvgIcon from '../icon/svg-icon/CaretSvgIcon';
 import ThemeSvgIcon from '../icon/svg-icon/ThemeSvgIcon';
-import ReactSwitch from 'react-switch';
-import { useTheme } from 'next-themes';
-import { useChangeTheme } from '@/modules/user/hooks/use-change-theme.hook';
-import { useCookies } from 'next-client-cookies';
-import { useAuth } from '@/modules/auth/hooks/use-auth.hook';
-import { useCallback, useState, useTransition } from 'react';
 
 const getThemeCheck = (theme: string) => {
 	if (theme === 'dark') return true;
@@ -55,7 +54,7 @@ export default function NavbarChangeThemePopoverMenu() {
 			)}
 		>
 			<div className='flex text-base items-center px-2 pt-3 py-4'>
-				<BackSvgIcon
+				<CaretSvgIcon
 					width={12}
 					height={12}
 					className='mr-3 -rotate-[90deg] text-text-secondary dark:text-text-secondaryDark cursor-pointer'
