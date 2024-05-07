@@ -69,6 +69,11 @@
   "userStory": {
     "add": {
       "yourNews": "Your story"
+    },
+    "detailSlider": {
+      "warningTitle": "View as {username}",
+      "warningDesc": "{username} will be able to see that you viewed their story",
+      "viewStory": "View story"
     }
   }
 }

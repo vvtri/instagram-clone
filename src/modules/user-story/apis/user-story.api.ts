@@ -1,3 +1,4 @@
+import { ApiError } from '@/data/error-code.data';
 import { userStories } from '@/data/user-stories.data';
 import { users } from '@/data/user.data';
 import { UserModel } from '@/modules/auth/apis/auth.api';
@@ -29,4 +30,21 @@ export const getListUserStory = async (
 	const hasNextPage = lastIdx < userStoryData.length;
 
 	return { data: result, hasNextPage, currentPage: page, lastPage };
+};
+
+export type GetDetailUserStoryParams = {
+	userStoryId: number;
+};
+
+export const getDetailUserStory = async (
+	params: GetDetailUserStoryParams
+): Promise<UserStoryModel> => {
+	const { userStoryId } = params;
+
+	const userStory = userStories.find((item) => item.id === userStoryId);
+	if (!userStory) throw new ApiError('notFound');
+
+	const user = users.find((item) => item.id === userStory.userId)!;
+
+	return { ...userStory, user };
 };

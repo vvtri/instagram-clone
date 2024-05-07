@@ -42,7 +42,7 @@ export default function Navbar() {
 	});
 
 	return (
-		<div className='flex items-center justify-around w-full h-12 bg-white text-text-primary fixed bottom-0 inset-x-0 border-t dark:bg-black dark:text-text-primaryDark lg:border-t-0 lg:fixed lg:inset-y-0 lg:left-0 lg:w-[72px] lg:flex-col lg:border-r lg:border-separator lg:dark:border-separatorDark lg:h-full lg:justify-start lg:py-3 lg:pb-12 xl:w-[244px] xl:px-3 xl:pt-2 xl:pb-5 xl:items-start'>
+		<div className='flex items-center justify-around w-full h-12 bg-bg-primary text-text-primary fixed bottom-0 inset-x-0 border-t border-separator lg:border-t-0 lg:fixed lg:inset-y-0 lg:left-0 lg:w-[72px] lg:flex-col lg:border-r lg:border-separator lg:dark:border-separatorDark lg:h-full lg:justify-start lg:py-3 lg:pb-12 xl:w-[244px] xl:px-3 xl:pt-2 xl:pb-5 xl:items-start'>
 			<Link href='/' className='hidden px-3 pb-4 lg:block lg:pt-6'>
 				<InstaSvgLogo className='hidden xl:block' />
 

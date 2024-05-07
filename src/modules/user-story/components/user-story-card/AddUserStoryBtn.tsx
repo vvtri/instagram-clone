@@ -5,7 +5,6 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 
-// TODO: Add API and props later
 type AddUserStoryBtnProps = {
 	itemId: string;
 	className?: string;
@@ -44,7 +43,6 @@ export default function AddUserStoryBtn({ className }: AddUserStoryBtnProps) {
 
 			<span className='text-xs text-center text-ellipsis line-clamp-1 w-full block'>
 				{t('userStory.add.yourNews')}
-				{/* TODO: i18n */}
 			</span>
 		</Link>
 	);

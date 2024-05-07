@@ -22,7 +22,7 @@ export default function NavbarMorePopoverMenu({}: NavbarMorePopoverMenuProps) {
 	return (
 		<div
 			className={cn(
-				'hidden absolute bottom-[calc(100%_+_10px)] left-0 w-[266px] bg-white dark:bg-bg-highLightDark text-base rounded-lg shadow-container',
+				'hidden absolute bottom-[calc(100%_+_10px)] left-0 w-[266px] bg-bg-hightLight dark:bg-bg-highLightDark text-base rounded-lg shadow-container',
 				{ block: showNavbarMorePopoverMenu }
 			)}
 			onClick={(e) => e.stopPropagation()}
@@ -58,7 +58,7 @@ export default function NavbarMorePopoverMenu({}: NavbarMorePopoverMenuProps) {
 
 				<div
 					aria-hidden
-					className='w-full h-1 bg-bg-hightLight dark:bg-bg-hoverOverlayDark'
+					className='w-full h-1 bg-bg-hightLight'
 				/>
 
 				<ul className='w-full p-2'>

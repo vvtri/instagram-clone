@@ -43,7 +43,7 @@ const NavbarItem = React.forwardRef<HTMLDivElement, NavbarItemProps>(
 			>
 				{popupOverNode}
 
-				<div className='transition cursor-pointer lg:py-4 xl:w-full xl:px-3 xl:flex xl:items-center xl:hover:bg-bg-hoverOverlay xl:dark:hover:bg-bg-hoverOverlayDark xl:rounded-lg group'>
+				<div className='transition cursor-pointer lg:py-4 xl:w-full xl:px-3 xl:flex xl:items-center xl:hover:bg-bg-banner xl:rounded-lg group'>
 					{Icon && (
 						<Icon
 							width={NAVBAR_ICON_SIZE}

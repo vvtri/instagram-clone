@@ -3,8 +3,6 @@ import AvatarSkeleton from '@/modules/common/components/skeleton/AvatarSkeleton'
 import BoxSkeleton from '@/modules/common/components/skeleton/BoxSkeleton';
 import InstaButton from '@/modules/common/components/utility/InstaButton';
 import Image from 'next/image';
-import React from 'react';
-import Skeleton from 'react-loading-skeleton';
 
 type HomeSuggestUserItemProps = {
 	user: UserModel;
@@ -29,7 +27,7 @@ export default function HomeSuggestUserItem(props: HomeSuggestUserItemProps) {
 					{user.username}
 				</span>
 
-				<span className='text-text-secondary dark:text-text-secondaryDark text-sm'>
+				<span className='text-text-secondary dark:text-text-secondaryDark text-sm first-letter:uppercase'>
 					{suggestText}
 				</span>
 			</div>
@@ -38,7 +36,7 @@ export default function HomeSuggestUserItem(props: HomeSuggestUserItemProps) {
 				className='text-xs ml-auto flex-shrink-0 pr-0'
 				variant='outline'
 			>
-				{followText}
+				<span className='first-letter:uppercase'>{followText}</span>
 			</InstaButton>
 		</div>
 	);
@@ -46,10 +44,10 @@ export default function HomeSuggestUserItem(props: HomeSuggestUserItemProps) {
 
 export const HomeSuggestUserItemSkeleton = () => {
 	return (
-		<div className='flex items-center'>
-			<AvatarSkeleton className='w-[44px]' containerClassName='mr-3' />
+		<div className='flex items-center h-[44px]'>
+			<AvatarSkeleton className='' containerClassName='mr-3 w-[44px]' />
 
-			<BoxSkeleton />
+			<BoxSkeleton containerClassName='h-4/5' />
 		</div>
 	);
 };

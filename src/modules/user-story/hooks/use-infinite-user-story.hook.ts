@@ -6,10 +6,10 @@ import {
 import { UseInfiniteQueryOptions, useInfiniteQuery } from 'react-query';
 
 export const useInfiniteUserStory = (
-	params: GetListUserStoryParams,
+	params?: GetListUserStoryParams,
 	opts?: UseInfiniteQueryOptions
 ) => {
-	const queryKey = [QueryKey.INFINITE_USER_STORY, params];
+	const queryKey = [QueryKey.INFINITE_USER_STORY];
 
 	return {
 		...useInfiniteQuery({

@@ -12,7 +12,7 @@ export default function BoxSkeleton(props: BoxSkeletonProps) {
 
 	return (
 		<Skeleton
-			containerClassName={cn('flex w-full h-full', containerClassName)}
+			containerClassName={cn('flex w-full h-full items-center', containerClassName)}
 			className={cn('h-full w-full', className)}
 		/>
 	);

@@ -32,6 +32,54 @@
 		--epr-emoji-fullsize: 34px;
 		--epr-category-navigation-button-size: 30px;
 	}
+
+	.user-story-detail-slider {
+		.slick-slider {
+			height: 100%;
+
+			.slick-list {
+				height: 100%;
+			}
+
+			.slick-track {
+				height: 100%;
+
+				.slick-slide {
+					padding: 20vh 5vw;
+					transition: all 0.1s ease-in-out;
+				}
+
+				.slick-center {
+					padding: 0;
+				}
+			}
+
+			.slick-next {
+				right: calc(30vw - 20px);
+				z-index: 1000;
+			}
+
+			.slick-prev {
+				left: calc(30vw - 20px);
+				z-index: 1000;
+			}
+		}
+
+		.slick-slide > div {
+			height: 100%;
+		}
+	}
+
+	.disable-next-user-story-btn {
+		.slick-next {
+			pointer-events: none !important;
+		}
+
+		.slick-next:before {
+			opacity: 0.25 !important;
+			pointer-events: none !important;
+		}
+	}
 }
 
 input::-ms-reveal,
@@ -82,4 +130,8 @@ html.dark {
 
 .EmojiPickerReact .epr-emoji-native {
 	font-family: 'Noto Color Emoji', sans-serif !important;
+}
+
+.react-horizontal-scrolling-menu--wrapper {
+	width: 100%;
 }

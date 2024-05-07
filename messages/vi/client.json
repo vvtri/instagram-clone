@@ -69,6 +69,11 @@
   "userStory": {
     "add": {
       "yourNews": "Tin của bạn"
+    },
+    "detailSlider": {
+      "warningTitle": "Xem với tư cách {username}",
+      "warningDesc": "{username} sẽ có thể thấy là bạn đã xem tin của họ",
+      "viewStory": "Xem"
     }
   }
 }

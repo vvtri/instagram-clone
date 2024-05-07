@@ -10,15 +10,18 @@ export type GetListUserParams = {} & BasePaginationReqType;
 export const getListUser = async (
 	params: GetListUserParams
 ): Promise<BasePaginationResType<UserModel>> => {
-	const { page = 1, size = 20 } = params;
+	let { page = 1, size = 20 } = params;
+	if (page < 1) page = 1;
 
-	const firstIdx = page - 1 * size;
+	const firstIdx = (page - 1) * size;
 	const lastIdx = page * size;
 
 	const userData = users.slice(firstIdx, lastIdx);
 	const lastPage = Math.ceil(userStories.length / size);
 
 	const hasNextPage = lastIdx < userData.length;
+
+	console.log('userData', userData);
 
 	return { data: userData, hasNextPage, currentPage: page, lastPage };
 };

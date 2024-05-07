@@ -24,7 +24,7 @@ export default function ImageWithGradientBorder(
 		>
 			<div
 				aria-hidden
-				className='absolute inset-0 -z-10 bg-[linear-gradient(to_right_top,#FFF1BD,#D921CC)] rounded-full'
+				className='absolute inset-0 -z-10 bg-[linear-gradient(to_right_top,#FFF1BD,#D921CC)] rounded-full '
 			/>
 
 			<Image
@@ -32,7 +32,7 @@ export default function ImageWithGradientBorder(
 				width={length}
 				height={length}
 				alt='UserStory Image'
-				className='rounded-full outline-[3px] outline-white outline dark:outline-black'
+				className='rounded-full outline-[3px] outline-bg-primary outline'
 				{...imgProps}
 			/>
 		</div>

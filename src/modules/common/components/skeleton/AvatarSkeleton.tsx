@@ -16,7 +16,7 @@ export default function AvatarSkeleton(props: AvatarSkeletonProps) {
 				'flex items-center justify-center shrink-0',
 				containerClassName
 			)}
-			className={cn('aspect-square w-full mr-3', className)}
+			className={cn('aspect-square w-full', className)}
 			circle
 		/>
 	);

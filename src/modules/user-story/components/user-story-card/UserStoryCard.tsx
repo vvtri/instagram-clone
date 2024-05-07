@@ -1,25 +1,19 @@
 import ImageWithGradientBorder from '@/modules/common/components/utility/ImageWithGradientBorder';
 import Link from 'next/link';
 import Skeleton from 'react-loading-skeleton';
-import { UserStoryModel } from '../apis/user-story.api';
+import { UserStoryModel } from '../../apis/user-story.api';
 
-// TODO: Add API and props later
 type UserStoryCardProps = {
 	itemId: string;
 	userStory: UserStoryModel;
 };
 
-export default function UserStoryCard({
-	itemId,
-	userStory,
-}: UserStoryCardProps) {
-	// const visibility = useContext(VisibilityContext);
-	// const isVisible = visibility.useIsVisible(itemId);
-
-	// console.log('itemId isVisible ', isVisible);
-
+export default function UserStoryCard({ userStory }: UserStoryCardProps) {
 	return (
-		<Link className='flex flex-col px-1 items-center w-20' href='#'>
+		<Link
+			className='flex flex-col px-1 items-center w-20'
+			href={`/stories/${userStory.user.username}/${userStory.id}`}
+		>
 			<ImageWithGradientBorder
 				length={56}
 				className='mb-2'

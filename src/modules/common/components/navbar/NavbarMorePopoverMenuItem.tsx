@@ -15,7 +15,7 @@ export default function NavbarMorePopoverMenuItem(
 
 	return (
 		<li className='w-full relative bg-transparent' onClick={onClick}>
-			<div className='p-4 flex items-center cursor-pointer hover:bg-bg-hightLight dark:hover:bg-bg-hoverOverlayDark rounded-lg transition'>
+			<div className='p-4 flex items-center cursor-pointer hover:bg-bg-hoverOverlay rounded-lg transition'>
 				{Icon && <Icon width={18} height={18} className='mr-3' />}
 				<span className='first-letter:uppercase'>{label}</span>
 			</div>

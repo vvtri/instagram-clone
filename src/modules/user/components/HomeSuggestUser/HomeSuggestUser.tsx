@@ -1,16 +1,16 @@
 'use client';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import React from 'react';
+import { useInfiniteUser } from '../../hooks/use-infinite-user.hook';
 import HomeSuggestUserItem, {
 	HomeSuggestUserItemSkeleton,
 } from './HomeSuggestUserItem';
-import { useInfiniteUser } from '../../hooks/use-infinite-user.hook';
-import { users } from '@/data/user.data';
-import { useTranslations } from 'next-intl';
 
 export default function HomeSuggestUser() {
-	const { data, isLoading } = useInfiniteUser({ page: 0, size: 20 });
+	const { data, isLoading } = useInfiniteUser({ size: 5 });
 	const t = useTranslations('Client');
+
+	console.log('data', data);
 
 	return (
 		<div className='w-full'>
@@ -21,7 +21,7 @@ export default function HomeSuggestUser() {
 
 				<Link
 					href='/explore/people'
-					className='text-black dark:text-white text-xs font-semibold dark:hover:text-text-secondary ml-auto pr-0 first-letter:uppercase'
+					className='text-text-primary text-xs font-semibold hover:text-text-secondary ml-auto pr-0 first-letter:uppercase'
 				>
 					{t('common.word.seeAll')}
 				</Link>

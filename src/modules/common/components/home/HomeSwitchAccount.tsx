@@ -22,7 +22,7 @@ export default function HomeSwitchAccount() {
 			/>
 
 			<div className='flex justify-center flex-col overflow-ellipsis'>
-				<span className='text-sm text-black dark:text-white font-semibold'>
+				<span className='text-sm text-text-primary font-semibold'>
 					{user.username}
 				</span>
 

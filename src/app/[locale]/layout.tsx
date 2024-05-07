@@ -1,13 +1,15 @@
 import Provider from '@/modules/common/providers/Provider';
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import '../../modules/common/css/variables.css';
 import 'react-horizontal-scrolling-menu/dist/styles.css';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import '../globals.css';
+import '../../modules/common/css/globals.css';
+import NextTopLoader from 'nextjs-toploader';
 
 export const metadata: Metadata = {
 	title: 'Instagram',
@@ -30,8 +32,10 @@ export default function RootLayout({
 				style={{
 					fontFamily: `apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Noto Color Emoji'`,
 				}}
-				className='relative bg-white text-text-primary dark:bg-black dark:text-text-primaryDark'
+				className='relative bg-bg-primary text-text-primary'
 			>
+				<NextTopLoader />
+
 				<Provider>{children}</Provider>
 
 				<ToastContainer />

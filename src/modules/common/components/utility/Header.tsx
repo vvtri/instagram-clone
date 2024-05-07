@@ -6,7 +6,7 @@ import PlusInBoxSvgIcon from '../icon/svg-icon/PlusInBoxSvgIcon';
 
 export default function Header() {
 	return (
-		<header className='h-16 sticky top-0 inset-x-0 w-full flex justify-between items-center px-4 border-b border-separator z-50 bg-white overflow-visible sm:tracking-wide dark:bg-black dark:text-white dark:border-separatorDark lg:hidden'>
+		<header className='h-16 sticky top-0 inset-x-0 w-full flex justify-between items-center px-4 border-b border-separator z-50 bg-bg-primary text-text-primary overflow-visible sm:tracking-wide dark:border-separatorDark lg:hidden'>
 			<Link href='/'>
 				<InstaSvgLogo />
 			</Link>

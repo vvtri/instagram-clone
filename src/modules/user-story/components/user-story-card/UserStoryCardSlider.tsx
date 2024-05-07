@@ -9,14 +9,16 @@ import {
 import UserStoryCard, { UserStoryCardSkeleton } from './UserStoryCard';
 import { cn } from '@/utilities/tailwind/cn';
 import AddUserStoryBtn from './AddUserStoryBtn';
-import { useInfiniteUserStory } from '../hooks/use-infinite-user-story.hook';
+import { useInfiniteUserStory } from '../../hooks/use-infinite-user-story.hook';
 
 type UserStorySliderProps = {
 	className?: string;
 };
 
-export default function UserStorySlider({ className }: UserStorySliderProps) {
-	const { data, isLoading, fetchNextPage, isFetching } = useInfiniteUserStory({
+export default function UserStoryCardSlider({
+	className,
+}: UserStorySliderProps) {
+	const { data } = useInfiniteUserStory({
 		page: 1,
 		size: 20,
 	});

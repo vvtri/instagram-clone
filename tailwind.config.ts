@@ -16,43 +16,43 @@ const config: Config = {
 			},
 			colors: {
 				instagram: {
-					auth: '#dbdbdb',
+					auth: 'rgb(var(--tertiary-button-border))',
 				},
 				text: {
-					primary: '#000',
-					primaryDark: 'rgb(245, 245, 245)',
-					secondary: 'rgb(115, 115, 115) ',
-					secondaryDark: 'rgb(168, 168, 168) ',
-					tertiary: 'rgba(199, 199, 199)',
-					tertiaryBtn: '#C7C7C7 ',
-					disableAction: '#A9DBFF',
-					link: 'rgb(0, 55, 107)',
-					outlineBtn: '#385185',
+					primary: 'rgb(var(--primary-text))',
+				
+					secondary: 'rgb(var(--secondary-text))',
+					// secondaryDark: 'rgb(168, 168, 168) ',
+					// tertiary: 'rgba(199, 199, 199)',
+					tertiary: 'rgb(var(--tertiary-text))',
+					tertiaryBtn: 'rgb(var(--tertiary-button-text))',
+					disableAction: 'rgb(var(--disabled-action-text))',
+					link: 'rgb(var(--link))',
+					outlineBtn: 'rgb(var(--outline-btn-text))',
 				},
 				btn: {
-					primary: '#0095F6',
-					primaryHover: '#1877F2',
-					secondary: 'rgb(239, 239, 239)',
-					secondaryHover: 'rgb(219, 219, 219)',
-					secondaryDark: 'rgb(54, 54, 54)', //todo
-					secondaryHoverDark: 'rgb(38, 38, 38)', //todo
+					primary: 'rgb(var(--primary-button))',
+					primaryHover: 'rgb(var(--primary-button-hover))',
+					secondary: 'rgb(var(--secondary-button-background))', 
+					secondaryHover: 'rgb(var(--secondary-button-hover))',
+					tertiaryBorder: 'rgb(var(--tertiary-button-border))',
 				},
-				separator: 'rgb(219, 219, 219) ',
-				separatorDark: 'rgb(54, 54, 54) ',
+				separator: 'rgb(var(--separator)) ',
 				bg: {
-					hightLight: 'rgb(239, 239, 239)',
-					highLightDark: 'rgb(38, 38, 38)',
-					hoverOverlay: 'rgb(242, 242, 242)',
-					hoverOverlayDark: 'rgba(255, 255, 255, 0.1)',
+          primary: 'rgb(var(--primary-background))',
+					hightLight: 'rgb(var(--highlight-background))',
+					hoverOverlay: 'rgba(var(--hover-overlay))',
+          banner: 'rgb(var(--banner-background))'
 				},
 				icon: {
-					tertiary: 'rgba(199, 199, 199)',
-					tertiaryDark: 'rgba(199, 199, 199)', //todo
+					tertiary: 'rgb(var(--highlight-background)) rgba(199, 199, 199)',
+					tertiaryDark: 'rgb(var(--highlight-background)) rgba(199, 199, 199)', //todo
 				},
 			},
 			boxShadow: {
 				container: '0 4px 12px rgba(0, 0, 0, 0.15)',
 			},
+      
 		},
 	},
 	plugins: [],

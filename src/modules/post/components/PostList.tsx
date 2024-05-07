@@ -28,7 +28,16 @@ export default function PostList({ className }: ListPostProps) {
 	}
 
 	return (
-		<div className='w-full flex items-center flex-col'>
+		<div className='w-full flex items-center flex-col overflow-hidden'>
+			<div
+				className='w-20 h-20'
+				style={{
+					// background: 'red',
+					background:
+						'linear-gradient(to right, var(--logo-linear-gradient))',
+				}}
+			></div>
+
 			<div className='w-full pb-[4000px] flex-col items-center flex'>
 				{postCards}
 			</div>

@@ -44,7 +44,7 @@ export default function PostCard({ className, post }: PostCardProps) {
 						<VerifySvgIcon />
 						<span className='text-sm'>•</span>
 						<span className='text-sm text-text-secondary dark:text-text-secondaryDark'>
-							{format.relativeTime(new Date(Date.now() - 86500000))}
+							{format.relativeTime(new Date(post.createdAt))}
 						</span>
 					</div>
 
@@ -129,7 +129,7 @@ export function PostCardSkeleton({
 	return (
 		<div className={cn('w-full sm:max-w-[470px] mb-10 pt-6', className)}>
 			<div className='h-[42px] flex mb-3'>
-				<AvatarSkeleton className='h-[42px]' />
+				<AvatarSkeleton containerClassName='w-[42px] mr-3' />
 
 				<BoxSkeleton />
 			</div>

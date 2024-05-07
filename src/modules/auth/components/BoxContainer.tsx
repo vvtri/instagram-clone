@@ -15,7 +15,7 @@ export default function AuthBoxContainer({
 		<section className='w-full'>
 			<div
 				className={cn(
-					'mx-auto flex flex-col items-center w-[350px] border-instagram-auth border px-10',
+					'mx-auto flex flex-col items-center w-[350px] border-btn-tertiaryBorder border px-10',
 					className
 				)}
 			>

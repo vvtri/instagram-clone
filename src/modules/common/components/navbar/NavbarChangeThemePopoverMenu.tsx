@@ -69,7 +69,7 @@ export default function NavbarChangeThemePopoverMenu() {
 			</div>
 
 			<div
-				className='bg-text-secondary dark:bg-bg-hoverOverlayDark w-full h-[1px]'
+				className='bg-bg-banner w-full h-[1px]'
 				aria-hidden
 			/>
 

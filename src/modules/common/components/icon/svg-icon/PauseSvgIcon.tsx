@@ -1,7 +1,7 @@
 import { SvgIconProps } from '@/modules/common/types/svg-icon.type';
 import React from 'react';
 
-export default function MoreSvgIcon(props: SvgIconProps) {
+export default function PauseSvgIcon(props: SvgIconProps) {
 	const {
 		thickness = 'thin',
 		variant = 'outline',
@@ -12,18 +12,16 @@ export default function MoreSvgIcon(props: SvgIconProps) {
 
 	return (
 		<svg
-			aria-label='Tùy chọn khác'
+			aria-label='Pause'
 			fill='currentColor'
 			role='img'
-			viewBox='0 0 24 24'
+			viewBox='0 0 48 48'
 			height={width}
 			width={height}
 			{...rest}
 		>
-			<title>Tùy chọn khác</title>
-			<circle cx='12' cy='12' r='1.5'></circle>
-			<circle cx='6' cy='12' r='1.5'></circle>
-			<circle cx='18' cy='12' r='1.5'></circle>
+			<title>Pause</title>
+			<path d='M15 1c-3.3 0-6 1.3-6 3v40c0 1.7 2.7 3 6 3s6-1.3 6-3V4c0-1.7-2.7-3-6-3zm18 0c-3.3 0-6 1.3-6 3v40c0 1.7 2.7 3 6 3s6-1.3 6-3V4c0-1.7-2.7-3-6-3z'></path>
 		</svg>
 	);
 }

@@ -6,18 +6,19 @@ import Navbar from '@/modules/common/components/navbar/Navbar';
 import Header from '@/modules/common/components/utility/Header';
 import MaxWidthContainer from '@/modules/common/components/utility/MaxWidthContainer';
 import PostList from '@/modules/post/components/PostList';
-import UserStorySlider from '@/modules/user-story/components/UserStorySlider';
+import UserStoryCardSlider from '@/modules/user-story/components/user-story-card/UserStoryCardSlider';
 import HomeSuggestUser from '@/modules/user/components/HomeSuggestUser/HomeSuggestUser';
 
 export default function RootPage() {
 	return (
 		<AuthGuard redirectComp={<LoginWithScreenshot />}>
 			<Header />
+
 			<MaxWidthContainer>
 				<div className='mt-3 xl:flex xl:justify-center xl:mt-8 px-4 sm:px-0'>
-					<div className='mx-auto sm:max-w-[630px]  xl:m-0'>
+					<div className='mx-auto sm:max-w-[500px] md:max-w-[630px] xl:m-0'>
 						<div className=''>
-							<UserStorySlider />
+							<UserStoryCardSlider />
 						</div>
 
 						<PostList />

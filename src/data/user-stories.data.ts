@@ -1,4 +1,21 @@
-export const userStories = [
+type UserStoriesData = {
+	id: number;
+	userId: number;
+	createdAt: string;
+	media: Array<
+		| {
+				type: 'video';
+				src: string;
+		  }
+		| {
+				type: 'image';
+				src: string;
+				durationSeconds: number;
+		  }
+	>;
+}[];
+
+export const userStories: UserStoriesData = [
 	{
 		id: 1,
 		userId: 1,
@@ -17,7 +34,7 @@ export const userStories = [
 		media: [
 			{
 				type: 'video',
-				src: '/public/user-story/videos/loungu-us2-v1.mp4',
+				src: '/user-story/videos/loungu-us2-v1.mp4',
 			},
 		],
 	},
@@ -28,11 +45,11 @@ export const userStories = [
 		media: [
 			{
 				type: 'video',
-				src: '/public/user-story/videos/hungvanngo-us3-v1.mp4',
+				src: '/user-story/videos/hungvanngo-us3-v1.mp4',
 			},
 			{
 				type: 'video',
-				src: '/public/user-story/videos/hungvanngo-us3-v2.mp4',
+				src: '/user-story/videos/hungvanngo-us3-v2.mp4',
 			},
 		],
 	},
@@ -43,11 +60,11 @@ export const userStories = [
 		media: [
 			{
 				type: 'video',
-				src: '/public/user-story/videos/ttruc__us4-v1.mp4',
+				src: '/user-story/videos/ttruc__us4-v1.mp4',
 			},
 			{
 				type: 'video',
-				src: '/public/user-story/videos/ttruc__-us4-v2.mp4',
+				src: '/user-story/videos/ttruc__-us4-v2.mp4',
 			},
 		],
 	},
@@ -58,23 +75,23 @@ export const userStories = [
 		media: [
 			{
 				type: 'video',
-				src: '/public/user-story/videos/minhtu_nguyen-us5-v1.mp4',
+				src: '/user-story/videos/minhtu_nguyen-us5-v1.mp4',
 			},
 			{
 				type: 'video',
-				src: '/public/user-story/videos/minhtu_nguyen-us5-v2.mp4',
+				src: '/user-story/videos/minhtu_nguyen-us5-v2.mp4',
 			},
 			{
 				type: 'video',
-				src: '/public/user-story/videos/minhtu_nguyen-us5-v3.mp4',
+				src: '/user-story/videos/minhtu_nguyen-us5-v3.mp4',
 			},
 			{
 				type: 'video',
-				src: '/public/user-story/videos/minhtu_nguyen-us5-v4.mp4',
+				src: '/user-story/videos/minhtu_nguyen-us5-v4.mp4',
 			},
 			{
 				type: 'video',
-				src: '/public/user-story/videos/minhtu_nguyen-us5-v5.mp4',
+				src: '/user-story/videos/minhtu_nguyen-us5-v5.mp4',
 			},
 		],
 	},
@@ -85,19 +102,19 @@ export const userStories = [
 		media: [
 			{
 				type: 'video',
-				src: '/public/user-story/videos/nusr_et-us6-v1.mp4',
+				src: '/user-story/videos/nusr_et-us6-v1.mp4',
 			},
 			{
 				type: 'video',
-				src: '/public/user-story/videos/nusr_et-us6-v2.mp4',
+				src: '/user-story/videos/nusr_et-us6-v2.mp4',
 			},
 			{
 				type: 'video',
-				src: '/public/user-story/videos/nusr_et-us6-v3.mp4',
+				src: '/user-story/videos/nusr_et-us6-v3.mp4',
 			},
 			{
 				type: 'video',
-				src: '/public/user-story/videos/nusr_et-us6-v4.mp4',
+				src: '/user-story/videos/nusr_et-us6-v4.mp4',
 			},
 		],
 	},
@@ -107,8 +124,9 @@ export const userStories = [
 		createdAt: '2024-05-01T13:09:43.940Z',
 		media: [
 			{
-				type: 'video',
-				src: '/public/user-story/images/lf.low.g-us7-i1.jpg',
+				type: 'image',
+				src: '/user-story/images/lf.low.g-us7-i1.jpg',
+				durationSeconds: 10,
 			},
 		],
 	},
@@ -118,8 +136,9 @@ export const userStories = [
 		createdAt: '2024-05-01T13:09:43.940Z',
 		media: [
 			{
-				type: 'video',
-				src: '/public/user-story/images/loganpaul-us8-i1.jpg',
+				type: 'image',
+				src: '/user-story/images/loganpaul-us8-i1.jpg',
+				durationSeconds: 10,
 			},
 		],
 	},
@@ -129,8 +148,9 @@ export const userStories = [
 		createdAt: '2024-05-01T13:09:43.940Z',
 		media: [
 			{
-				type: 'video',
-				src: '/public/user-story/images/xeesoxee-us9-i1.jpg',
+				type: 'image',
+				src: '/user-story/images/xeesoxee-us9-i1.jpg',
+				durationSeconds: 10,
 			},
 		],
 	},
