@@ -6,12 +6,19 @@ type ImageWithGradientBorderProps = {
   length: number;
   className?: string;
   imgProps?: Partial<ImageProps>;
+  imagePriority?: boolean;
 };
 
 export default function ImageWithGradientBorder(
   props: ImageWithGradientBorderProps,
 ) {
-  const { imageUrl, className, length, imgProps } = props;
+  const {
+    imageUrl,
+    className,
+    length,
+    imgProps,
+    imagePriority = false,
+  } = props;
   const containerLength = length + 10;
 
   return (
@@ -33,7 +40,7 @@ export default function ImageWithGradientBorder(
         height={length}
         alt="UserStory Image"
         className="rounded-full outline-[3px] outline-bg-primary outline"
-        priority
+        priority={imagePriority}
         {...imgProps}
       />
     </div>

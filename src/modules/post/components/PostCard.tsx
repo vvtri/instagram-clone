@@ -29,17 +29,17 @@ import { useInView } from 'framer-motion';
 type PostCardProps = {
   className?: string;
   post: PostModel;
+  imagePriority?: boolean;
 };
 
-export default function PostCard({ className, post }: PostCardProps) {
+export default function PostCard(props: PostCardProps) {
+  const { className, post, imagePriority = false } = props;
   const { isLargeDevice } = useResponsive();
   const dispatch = useAppDispatch();
   const router = useRouter();
   const format = useFormatter();
   const t = useTranslations('Client');
   const { warning } = useToast();
-  const wrapperRef = useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(wrapperRef, { once: true });
 
   const onViewAllComments = () => {
     if (isLargeDevice)
@@ -107,7 +107,7 @@ export default function PostCard({ className, post }: PostCardProps) {
                 sizes={genImageSizesProp({ default: '100vw', sm: '640px' })}
                 fill
                 alt=""
-                priority={isInView}
+                priority={idx === 0 && imagePriority}
               />
             </div>
           </div>
