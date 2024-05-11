@@ -9,7 +9,6 @@ export const useUserProfileData = (params: GetUserProfileParams) => {
 		...useQuery({
 			queryKey,
 			queryFn: () => getUserProfile(params),
-			keepPreviousData: true,
 		}),
 	};
 };
