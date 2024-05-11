@@ -15,7 +15,7 @@ export default function InstaLink(props: InstaLinkProps) {
 		<Link
 			href={href}
 			className={cn(
-				'text-xs text-text-link text whitespace-pre break-words dark:text-btn-primary',
+				'text-xs text-text-link whitespace-pre break-words dark:text-btn-primary',
 				{ 'text-btn-primary text-sm font-semibold': size === 'md' },
 				className
 			)}

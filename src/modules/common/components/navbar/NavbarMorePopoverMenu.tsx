@@ -10,6 +10,8 @@ import ThemeSvgIcon from '../icon/svg-icon/ThemeSvgIcon';
 import NavbarChangeThemePopoverMenu from './NavbarChangeThemePopoverMenu';
 import NavbarMorePopoverMenuItem from './NavbarMorePopoverMenuItem';
 import { useTranslations } from 'next-intl';
+import { useAuth } from '@/modules/auth/hooks/use-auth.hook';
+import { useToast } from '../../hooks/use-toast.hook';
 
 type NavbarMorePopoverMenuProps = {};
 
@@ -18,11 +20,13 @@ export default function NavbarMorePopoverMenu({}: NavbarMorePopoverMenuProps) {
 		useAppSelector(({ navbar }) => navbar);
 	const dispatch = useAppDispatch();
 	const t = useTranslations('Client');
+	const { signOut } = useAuth();
+	const { warning } = useToast();
 
 	return (
 		<div
 			className={cn(
-				'hidden absolute bottom-[calc(100%_+_10px)] left-0 w-[266px] bg-bg-hightLight dark:bg-bg-highLightDark text-base rounded-lg shadow-container',
+				'hidden absolute bottom-[calc(100%_+_10px)] left-0 w-[266px] bg-bg-hightLight text-base rounded-lg shadow-container',
 				{ block: showNavbarMorePopoverMenu }
 			)}
 			onClick={(e) => e.stopPropagation()}
@@ -36,14 +40,17 @@ export default function NavbarMorePopoverMenu({}: NavbarMorePopoverMenuProps) {
 					<NavbarMorePopoverMenuItem
 						icon={SettingSvgIcon}
 						label={t('common.navbar.settings')}
+						onClick={() => warning(t('common.error.functionIsNotImplemented'))}
 					/>
 					<NavbarMorePopoverMenuItem
 						icon={ActivitySvgIcon}
 						label={t('common.navbar.yourActivity')}
+						onClick={() => warning(t('common.error.functionIsNotImplemented'))}
 					/>
 					<NavbarMorePopoverMenuItem
 						icon={BookmarkSvgIcon}
 						label={t('common.navbar.saved')}
+						onClick={() => warning(t('common.error.functionIsNotImplemented'))}
 					/>
 					<NavbarMorePopoverMenuItem
 						icon={ThemeSvgIcon}
@@ -53,17 +60,21 @@ export default function NavbarMorePopoverMenu({}: NavbarMorePopoverMenuProps) {
 					<NavbarMorePopoverMenuItem
 						icon={ProblemSvgIcon}
 						label={t('common.navbar.reportAProblem')}
+						onClick={() => warning(t('common.error.functionIsNotImplemented'))}
 					/>
 				</ul>
 
-				<div
-					aria-hidden
-					className='w-full h-1 bg-bg-hightLight'
-				/>
+				<div aria-hidden className='w-full h-1 bg-bg-hightLight' />
 
 				<ul className='w-full p-2'>
-					<NavbarMorePopoverMenuItem label={t('common.navbar.switchAccounts')} />
-					<NavbarMorePopoverMenuItem label={t('common.navbar.logout')} />
+					<NavbarMorePopoverMenuItem
+						label={t('common.navbar.switchAccounts')}
+						onClick={() => warning(t('common.error.functionIsNotImplemented'))}
+					/>
+					<NavbarMorePopoverMenuItem
+						label={t('common.navbar.logout')}
+						onClick={signOut}
+					/>
 				</ul>
 			</div>
 		</div>

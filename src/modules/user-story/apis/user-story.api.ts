@@ -16,7 +16,7 @@ export const getListUserStory = async (
 ): Promise<BasePaginationResType<UserStoryModel>> => {
 	const { page = 1, size = 20 } = params;
 
-	const firstIdx = page - 1 * size;
+	const firstIdx = (page - 1) * size;
 	const lastIdx = page * size;
 
 	const userStoryData = userStories.slice(firstIdx, lastIdx);
@@ -27,7 +27,7 @@ export const getListUserStory = async (
 		user: users.find((user) => user.id === item.userId) as UserModel,
 	}));
 
-	const hasNextPage = lastIdx < userStoryData.length;
+	const hasNextPage = lastIdx < userStories.length;
 
 	return { data: result, hasNextPage, currentPage: page, lastPage };
 };

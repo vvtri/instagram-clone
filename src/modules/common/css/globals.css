@@ -80,6 +80,17 @@
 			pointer-events: none !important;
 		}
 	}
+
+	.disable-scroll {
+		position: fixed;
+		top: var(--disable-scroll-top, 0);
+		inline-size: 100%;
+		overflow-y: scroll;
+	}
+
+  .filter-media-overlay {
+    filter: invert(90%) brightness(70%);
+  }
 }
 
 input::-ms-reveal,
@@ -91,35 +102,6 @@ input::-ms-clear {
 	max-width: 100vw;
 	width: 100%;
 	overflow: hidden;
-}
-
-.post-image-slide {
-	.slick-dots {
-		bottom: 25px;
-
-		li button:before {
-			color: white;
-			opacity: 0.4;
-		}
-
-		li.slick-active button:before {
-			color: white;
-			opacity: 1;
-		}
-	}
-
-	.slick-prev,
-	.slick-next {
-		z-index: 1;
-	}
-
-	.slick-prev {
-		left: 14px;
-	}
-
-	.slick-next {
-		right: 14px;
-	}
 }
 
 html.dark {

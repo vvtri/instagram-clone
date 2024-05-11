@@ -2,19 +2,33 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { UserModel } from '../apis/auth.api';
 
-type AuthContextData = UserModel | null;
+export type AuthContextData = {
+	user: UserModel | null;
+	signOut: () => any;
+};
 
-const AuthContext = createContext<AuthContextData>(null);
+const initialAuthContextData: AuthContextData = {
+	signOut: () => {},
+	user: null,
+};
 
-export const useAuthContext = (initialState: AuthContextData) => {
-	const [authContextData, setAuthContextData] =
-		useState<AuthContextData>(initialState);
+const AuthContext = createContext<AuthContextData>(initialAuthContextData);
 
-	return { AuthContext, authContextData, setAuthContextData };
+export const useAuthContext = () => {
+	const [authContextData, setAuthContextData] = useState<AuthContextData>(
+		initialAuthContextData
+	);
+
+	return {
+		AuthContext,
+		authContextData,
+		setAuthContextData,
+		initialAuthContextData,
+	};
 };
 
 export const useAuth = () => {
-	const user = useContext(AuthContext) as UserModel;
+	const { user, signOut } = useContext(AuthContext);
 
-	return { user };
+	return { user: user as UserModel, signOut };
 };

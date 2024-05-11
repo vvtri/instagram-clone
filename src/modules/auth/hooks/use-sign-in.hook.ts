@@ -2,32 +2,36 @@
 
 import { ApiError } from '@/data/error-code.data';
 import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
-import { useMutation } from 'react-query';
+import { usePathname, useRouter } from 'next/navigation';
+import { useMutation } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
 import { AsyncReturnType } from 'type-fest';
 import { signIn } from '../apis/auth.api';
 import { ACCESS_TOKEN_COOKIE_KEY } from '../constants/auth.constant';
 import { SignInFormData } from '../schema/sign-in.scheme';
 import { useCookies } from 'next-client-cookies';
+import { useTheme } from 'next-themes';
 
-export const useSignIn = (
-	redirectUrl: string = '/'
-) => {
+export const useSignIn = (redirectUrl: string = '/') => {
 	const t = useTranslations('Client');
 	const router = useRouter();
-  const cookies= useCookies()
+	const cookies = useCookies();
+	const pathname = usePathname();
+	const { resolvedTheme } = useTheme();
 
 	return useMutation<AsyncReturnType<typeof signIn>, ApiError, SignInFormData>({
 		mutationFn: (data: SignInFormData) => signIn(data),
-		// ...opts,
 		onSuccess: (data) => {
 			const { token, user } = data;
-			toast.success(t('auth.signIn.successToast'));
+			toast.success(t('auth.signIn.successToast'), { theme: resolvedTheme });
 
-      cookies.set(ACCESS_TOKEN_COOKIE_KEY, token.toString());
-			router.push(redirectUrl);
-			router.refresh();
+			cookies.set(ACCESS_TOKEN_COOKIE_KEY, token.toString());
+
+			if (pathname === redirectUrl) {
+				window.location.reload();
+			} else {
+				router.push(redirectUrl);
+			}
 		},
 		onError: (error) => {
 			const { code } = error;

@@ -3,7 +3,11 @@
     "word": {
       "or": "hoặc",
       "switch": "chuyển",
-      "seeAll": "xem tất cả"
+      "seeAll": "xem tất cả",
+      "error": "lỗi",
+      "post": "bài đăng",
+      "following": "đang theo dõi",
+      "comment": "bình luận"
     },
     "navbar": {
       "home": "trang chủ",
@@ -25,7 +29,13 @@
       "logout": "đăng xuất",
       "darkMode": "chế độ tối"
     },
-    "home": {}
+    "home": {},
+    "error": {
+      "default": "Một lỗi không xác định đã xảy ra",
+      "dismiss": "Bỏ qua",
+      "retry": "Thử lại",
+      "functionIsNotImplemented": "Tính năng chưa sẵn có."
+    }
   },
   "auth": {
     "common": {
@@ -59,11 +69,12 @@
     }
   },
   "post": {
-    "postCard": {
+    "common": {
       "likeAmount": "{likes, number} lượt thích",
       "viewComment": "Xem tất cả {comments, number} bình luận",
       "addComment": "Thêm bình luận",
-      "post": "Post"
+      "post": "đăng",
+      "morePost": "Thêm các bài viết từ"
     }
   },
   "userStory": {

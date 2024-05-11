@@ -2,6 +2,7 @@ import Provider from '@/modules/common/providers/Provider';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import '../../modules/common/css/variables.css';
+import '../../modules/post/css/post.css';
 import 'react-horizontal-scrolling-menu/dist/styles.css';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { ToastContainer } from 'react-toastify';
@@ -38,7 +39,7 @@ export default function RootLayout({
 
 				<Provider>{children}</Provider>
 
-				<ToastContainer />
+				<ToastContainer stacked closeOnClick />
 			</body>
 		</html>
 	);

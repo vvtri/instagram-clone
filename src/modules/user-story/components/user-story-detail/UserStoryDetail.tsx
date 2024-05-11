@@ -65,7 +65,7 @@ export default function UserStoryDetail(
 			>
 				{/* header */}
 				<div
-					className='absolute top-0 p-5 inset-x-0 w-full z-[1000]'
+					className='absolute top-0 p-5 inset-x-0 w-full z-float'
 					onClick={(e) => isActive && e.stopPropagation()}
 				>
 					<div className='flex items-center justify-between'>
@@ -106,7 +106,7 @@ export default function UserStoryDetail(
 							<ReactTextareaAutosize
 								minRows={1}
 								maxRows={3}
-								placeholder={t('post.postCard.addComment')}
+								placeholder={t('post.common.addComment')}
 								className='outline-none border-none flex-grow bg-transparent text-sm resize-none pt-3 pb-2 px-[9px] no-scrollbar w-full'
 								value={message}
 								onChange={(e) => setMessage(e.target.value)}

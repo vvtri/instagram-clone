@@ -15,7 +15,7 @@ export default function UserProfilePersonalInfoStatistic({
 	return (
 		<div
 			className={cn(
-				'flex items-center justify-around py-5 gap-5 text-text-secondary dark:text-text-secondaryDark',
+				'flex items-center justify-around py-5 gap-5 text-text-secondary',
 				className
 			)}
 		>
@@ -23,7 +23,7 @@ export default function UserProfilePersonalInfoStatistic({
 				{t.rich('user.profile.postAmount', {
 					posts: 3,
 					bold: (posts) => (
-						<span className='text-text-primary font-semibold dark:text-text-primaryDark'>
+						<span className='text-text-primary font-semibold'>
 							{posts}
 						</span>
 					),
@@ -34,7 +34,7 @@ export default function UserProfilePersonalInfoStatistic({
 				{t.rich('user.profile.followerAmount', {
 					followers: 3,
 					bold: (posts) => (
-						<span className='text-text-primary font-semibold dark:text-text-primaryDark'>
+						<span className='text-text-primary font-semibold'>
 							{posts}
 						</span>
 					),
@@ -45,7 +45,7 @@ export default function UserProfilePersonalInfoStatistic({
 				{t.rich('user.profile.followingAmount', {
 					following: 3,
 					bold: (posts) => (
-						<span className='text-text-primary font-semibold dark:text-text-primaryDark'>
+						<span className='text-text-primary font-semibold'>
 							{posts}
 						</span>
 					),

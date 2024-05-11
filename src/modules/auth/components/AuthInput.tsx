@@ -72,7 +72,7 @@ const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>((props, ref) => {
 
 	return (
 		<label
-			className={cn('relative flex items-center w-full text-xs dark:bg-black', {
+			className={cn('relative flex items-center w-full text-xs bg-bg-primary', {
 				'text-xs': isActive,
 			})}
 			ref={labelRef}

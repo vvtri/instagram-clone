@@ -24,7 +24,7 @@ export default function ImageWithGradientBorder(
 		>
 			<div
 				aria-hidden
-				className='absolute inset-0 -z-10 bg-[linear-gradient(to_right_top,#FFF1BD,#D921CC)] rounded-full '
+				className='absolute inset-0 -z-float bg-[linear-gradient(to_right_top,#FFF1BD,#D921CC)] rounded-full '
 			/>
 
 			<Image

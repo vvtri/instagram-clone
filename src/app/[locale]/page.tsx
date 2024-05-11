@@ -5,7 +5,7 @@ import HomeSwitchAccount from '@/modules/common/components/home/HomeSwitchAccoun
 import Navbar from '@/modules/common/components/navbar/Navbar';
 import Header from '@/modules/common/components/utility/Header';
 import MaxWidthContainer from '@/modules/common/components/utility/MaxWidthContainer';
-import PostList from '@/modules/post/components/PostList';
+import PostList from '@/modules/post/components/PostCardList';
 import UserStoryCardSlider from '@/modules/user-story/components/user-story-card/UserStoryCardSlider';
 import HomeSuggestUser from '@/modules/user/components/HomeSuggestUser/HomeSuggestUser';
 

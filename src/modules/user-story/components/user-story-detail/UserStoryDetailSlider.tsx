@@ -58,12 +58,15 @@ export default function UserStoryDetailSlider(
 				{ 'disable-next-user-story-btn': isLastSlide }
 			)}
 		>
-			<div className='hidden absolute top-4 left-4 right-4 xl:flex justify-between'>
+			<div className='hidden absolute top-4 left-4 right-4 z-float xl:flex justify-between'>
 				<InstagramLogoTextSvgIcon
-					className='z-50 cursor-pointer'
+					className='cursor-pointer'
 					onClick={() => router.push('/')}
 				/>
-				<div className='p-4 cursor-pointer z-50' onClick={onExitClicked}>
+				<div
+					className='p-4 cursor-pointer'
+					onClick={(e) => onExitClicked?.()}
+				>
 					<CloseSvgIcon className='w-6 h-6' />
 				</div>
 			</div>
@@ -88,7 +91,7 @@ export default function UserStoryDetailSlider(
 				slidesToShow={3}
 				arrows={true}
 				centerPadding='0'
-        useTransform={false}
+				useTransform={false}
 				swipe={!isLastSlide}
 				draggable={!isLastSlide}
 				responsive={[

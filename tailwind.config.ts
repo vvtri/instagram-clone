@@ -20,10 +20,7 @@ const config: Config = {
 				},
 				text: {
 					primary: 'rgb(var(--primary-text))',
-				
 					secondary: 'rgb(var(--secondary-text))',
-					// secondaryDark: 'rgb(168, 168, 168) ',
-					// tertiary: 'rgba(199, 199, 199)',
 					tertiary: 'rgb(var(--tertiary-text))',
 					tertiaryBtn: 'rgb(var(--tertiary-button-text))',
 					disableAction: 'rgb(var(--disabled-action-text))',
@@ -33,26 +30,36 @@ const config: Config = {
 				btn: {
 					primary: 'rgb(var(--primary-button))',
 					primaryHover: 'rgb(var(--primary-button-hover))',
-					secondary: 'rgb(var(--secondary-button-background))', 
+					secondary: 'rgb(var(--secondary-button-background))',
 					secondaryHover: 'rgb(var(--secondary-button-hover))',
 					tertiaryBorder: 'rgb(var(--tertiary-button-border))',
 				},
 				separator: 'rgb(var(--separator)) ',
 				bg: {
-          primary: 'rgb(var(--primary-background))',
+					primary: 'rgb(var(--primary-background))',
+					secondary: 'rgb(var(--secondary-background))',
 					hightLight: 'rgb(var(--highlight-background))',
 					hoverOverlay: 'rgba(var(--hover-overlay))',
-          banner: 'rgb(var(--banner-background))'
+					banner: 'rgb(var(--banner-background))',
+					mediaOverlay: 'rgb(var(--web-overlay-on-media))',
 				},
 				icon: {
-					tertiary: 'rgb(var(--highlight-background)) rgba(199, 199, 199)',
-					tertiaryDark: 'rgb(var(--highlight-background)) rgba(199, 199, 199)', //todo
+					tertiary: 'rgb(var(--highlight-background))',
+				},
+				modal: {
+					default: 'var(--modal-backdrop-default)',
 				},
 			},
 			boxShadow: {
 				container: '0 4px 12px rgba(0, 0, 0, 0.15)',
 			},
-      
+			zIndex: {
+				float: 'var(--z-float)',
+				navbar: 'var(--z-navbar)',
+				header: 'var(--z-header)',
+				modal: 'var(--z-modal)',
+				loading: 'var(--z-loading)',
+			},
 		},
 	},
 	plugins: [],

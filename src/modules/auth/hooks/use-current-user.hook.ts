@@ -1,5 +1,5 @@
 import { QueryKey } from '@/modules/common/constants/query-key.constant';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import { getCurrentUser } from '../apis/auth.api';
 import { useCookies } from 'next-client-cookies';
 import { ACCESS_TOKEN_COOKIE_KEY } from '../constants/auth.constant';
@@ -17,7 +17,6 @@ export const useCurrentUser = () => {
 				if (!token) return null;
 				return getCurrentUser(token);
 			},
-			keepPreviousData: true,
 		}),
 	};
 };

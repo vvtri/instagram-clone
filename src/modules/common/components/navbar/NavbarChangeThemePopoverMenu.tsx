@@ -28,7 +28,7 @@ export default function NavbarChangeThemePopoverMenu() {
 	const [themeChecked, setThemeChecked] = useState(() =>
 		getThemeCheck(resolvedTheme!)
 	);
-	const { mutate, isLoading } = useChangeTheme<{ theme: string }>({
+	const { mutate, isPending } = useChangeTheme<{ theme: string }>({
 		onMutate: (params) => {
 			setThemeChecked(getThemeCheck(params.theme));
 			startTransition(() => setTheme(params.theme));
@@ -51,33 +51,35 @@ export default function NavbarChangeThemePopoverMenu() {
 	return (
 		<div
 			className={cn(
-				'w-full p-2 hidden rounded-lg bg-bg-hightLight dark:bg-bg-highLightDark',
+				'w-full p-2 hidden rounded-lg bg-bg-hightLight',
 				{ block: isShow }
 			)}
 		>
-			<div className='flex text-base items-center px-2 pt-3 py-4'>
-				<CaretSvgIcon
-					width={12}
-					height={12}
-					className='mr-3 -rotate-[90deg] text-text-secondary dark:text-text-secondaryDark cursor-pointer'
+			<div className='flex text-base items-center pr-2 pt-2 py-3'>
+				<div
+					className='py-2 px-3 flex items-center justify-center'
 					onClick={() => dispatch(setShowNavbarChangeThemePopoverMenu(false))}
-				/>
+				>
+					<CaretSvgIcon
+						width={12}
+						height={12}
+						className='-rotate-[90deg] text-text-secondary cursor-pointer'
+					/>
+				</div>
+
 				<p className='font-semibold first-letter:uppercase'>
 					{t('common.navbar.switchAppearance')}
 				</p>
 				<ThemeSvgIcon width={18} height={18} className='ml-auto' />
 			</div>
 
-			<div
-				className='bg-bg-banner w-full h-[1px]'
-				aria-hidden
-			/>
+			<div className='bg-bg-banner w-full h-[1px]' aria-hidden />
 
 			<div className='flex items-center pt-6 pb-4 px-2 first-letter:uppercase'>
 				<p className='first-letter:uppercase'>{t('common.navbar.darkMode')}</p>
 
 				<ReactSwitch
-					disabled={isLoading}
+					disabled={isPending}
 					onChange={handleChangeTheme}
 					checked={themeChecked}
 					height={16}

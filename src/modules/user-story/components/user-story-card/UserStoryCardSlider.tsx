@@ -79,7 +79,7 @@ const LeftArrow = () => {
 	return (
 		<div
 			className={cn(
-				'hidden absolute top-[calc(50%_-_33px)] left-0 opacity-1 visible pointer-events-auto transition z-10 cursor-pointer sm:block',
+				'hidden absolute top-[calc(50%_-_33px)] left-0 opacity-1 visible pointer-events-auto transition z-float cursor-pointer sm:block',
 				{ 'opacity-1 invisible pointer-events-none': isFirstItemVisible }
 			)}
 			onClick={() => visibility.scrollPrev()}
@@ -101,7 +101,7 @@ const RightArrow = () => {
 	return (
 		<div
 			className={cn(
-				'hidden absolute top-[calc(50%_-_33px)] right-0 opacity-1 visible pointer-events-auto transition z-10 cursor-pointer sm:block',
+				'hidden absolute top-[calc(50%_-_33px)] right-0 opacity-1 visible pointer-events-auto transition z-float cursor-pointer sm:block',
 				{ 'opacity-1 invisible pointer-events-none': isLastItemVisible }
 			)}
 			onClick={() => visibility.scrollNext()}

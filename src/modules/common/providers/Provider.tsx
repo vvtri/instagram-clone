@@ -8,6 +8,7 @@ import React from 'react';
 import QueryClientProvider from './QueryClientProvider';
 import StoreProvider from './StoreProvider';
 import { CookiesProvider } from 'next-client-cookies/server';
+import OriginProvider from './OriginProvider';
 
 type ProviderProps = {
 	children: React.ReactNode;
@@ -20,9 +21,11 @@ export default function Provider({ children }: ProviderProps) {
 	return (
 		<CookiesProvider>
 			<NextIntlClientProvider messages={commonMessage}>
-				<ThemeProvider enableSystem attribute='class' disableTransitionOnChange >
+				<ThemeProvider enableSystem attribute='class' disableTransitionOnChange>
 					<QueryClientProvider>
-						<StoreProvider>{children}</StoreProvider>
+						<StoreProvider>
+							<OriginProvider>{children}</OriginProvider>
+						</StoreProvider>
 					</QueryClientProvider>
 				</ThemeProvider>
 			</NextIntlClientProvider>

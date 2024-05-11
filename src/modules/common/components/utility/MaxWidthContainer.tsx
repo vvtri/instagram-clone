@@ -12,7 +12,7 @@ export default function MaxWidthContainer({
 	return (
 		<div
 			className={cn(
-				'w-full min-h-screen flex flex-col pb-12 lg:flex lg:pb-0 lg:pl-[72px] xl:pl-[244px]',
+				'w-full min-h-screen flex flex-col pb-12 lg:flex lg:pb-0 lg:pl-[72px] xl:pl-[244px] overflow-x-hidden',
 				className
 			)}
 		>

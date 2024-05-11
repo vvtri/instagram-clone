@@ -15,5 +15,10 @@
     "privacy": "privacy",
     "terms": "terms",
     "threads": "threads"
+  },
+  "error": {
+    "default": "An unknown error has ocurred",
+    "dismiss": "Dismiss",
+    "retry": "Retry"
   }
 }

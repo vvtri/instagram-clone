@@ -18,10 +18,14 @@ type SignInFormProps = {
 export default function SignInForm(props: SignInFormProps) {
 	const { i18n, redirectUrl } = props;
 
-	const { mutate, isLoading } = useSignIn(redirectUrl);
+	const { mutate, isPending } = useSignIn(redirectUrl);
 
 	const { register, handleSubmit, formState } = useForm<SignInFormData>({
 		resolver: yupResolver(signInSchema),
+		values: {
+			phoneNumberOrUsernameOrEmail: 'kienhoang254',
+			password: 'userpassword',
+		},
 	});
 
 	const getInputValid = (key: keyof typeof formState.errors) => {
@@ -54,7 +58,7 @@ export default function SignInForm(props: SignInFormProps) {
 				isValid={getInputValid('password')}
 			/>
 
-			<InstaButton type='submit' className='w-full' disabled={isLoading}>
+			<InstaButton type='submit' className='w-full' disabled={isPending}>
 				{i18n.signInBtn}
 			</InstaButton>
 		</form>

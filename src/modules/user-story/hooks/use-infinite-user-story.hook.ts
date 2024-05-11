@@ -3,7 +3,13 @@ import {
 	GetListUserStoryParams,
 	getListUserStory,
 } from '../apis/user-story.api';
-import { UseInfiniteQueryOptions, useInfiniteQuery } from 'react-query';
+import {
+	InfiniteData,
+	UseInfiniteQueryOptions,
+	useInfiniteQuery,
+} from '@tanstack/react-query';
+import { getListComment } from '@/modules/comment/apis/comment.api';
+import { ApiError } from 'next/dist/server/api-utils';
 
 export const useInfiniteUserStory = (
 	params?: GetListUserStoryParams,
@@ -12,7 +18,13 @@ export const useInfiniteUserStory = (
 	const queryKey = [QueryKey.INFINITE_USER_STORY];
 
 	return {
-		...useInfiniteQuery({
+		...useInfiniteQuery<
+			Awaited<ReturnType<typeof getListUserStory>>,
+			ApiError,
+			InfiniteData<Awaited<ReturnType<typeof getListUserStory>>>,
+			typeof queryKey,
+			number
+		>({
 			queryKey,
 			queryFn: ({ pageParam }) =>
 				getListUserStory({ ...params, page: pageParam }),
@@ -20,7 +32,7 @@ export const useInfiniteUserStory = (
 				const { currentPage, hasNextPage } = lastPage || {};
 				if (hasNextPage) return currentPage + 1;
 			},
-			keepPreviousData: false,
+			initialPageParam: params?.page || 1,
 		}),
 	};
 };

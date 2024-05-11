@@ -1,5 +1,4 @@
-import React, { ComponentType, MouseEventHandler } from 'react';
-import HomeSvgIcon from '../icon/svg-icon/HomeSvgIcon';
+import { ComponentType, MouseEventHandler } from 'react';
 import { SvgIconProps } from '../../types/svg-icon.type';
 
 type NavbarMorePopoverMenuItemProps = {

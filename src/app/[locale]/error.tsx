@@ -1,6 +1,6 @@
-'use client'
+'use client';
 import React from 'react';
 
-export default function ErrorLoadingPage() {
+export default function ErrorPage() {
 	return <div>ErrorLoadingPage</div>;
 }

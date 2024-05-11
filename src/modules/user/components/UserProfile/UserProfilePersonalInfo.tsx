@@ -55,7 +55,7 @@ export default function UserProfilePersonalInfo({
 
 	return (
 		<div className='p-4 lg:pt-8 lg:px5'>
-			<div className='border-b pb-6 border-separator dark:border-separatorDark'>
+			<div className='border-b pb-6 border-separator'>
 				<div className='flex'>
 					<div className='self-center mr-7 flex-shrink-0 lg:flex-grow-[1] flex items-center justify-center'>
 						<div className='relative w-[77px] lg:w-[150px]  aspect-square rounded-full overflow-hidden'>
@@ -96,24 +96,24 @@ export default function UserProfilePersonalInfo({
 				<p className='mt-5 font-medium text-sm lg:hidden'>{user.fullName}</p>
 
 				<div className='hidden lg:flex ml-11 mt-10 w-fit items-center justify-center flex-col'>
-					<div className='flex items-center justify-center w-[77px] h-[77px] border border-separator dark:border-separatorDark rounded-full cursor-pointer'>
-						<PlusSvgIcon className='text-icon-tertiary dark:text-icon-tertiaryDark' />
+					<div className='flex items-center justify-center w-[77px] h-[77px] border border-separator rounded-full cursor-pointer'>
+						<PlusSvgIcon className='text-icon-tertiary' />
 					</div>
 
 					<span className='text-xs mt-3 first-letter:uppercase'>{t('user.common.new')}</span>
 				</div>
 			</div>
 
-			<UserProfilePersonalInfoStatistic className='border-b border-separator dark:border-separatorDark lg:hidden' />
+			<UserProfilePersonalInfoStatistic className='border-b border-separator lg:hidden' />
 
-			<div className='flex items-center justify-around py-3 border-b border-separator dark:border-separatorDark gap-5 text-text-secondary dark:text-text-secondaryDark text-base lg:text-xs lg:font-semibold lg:tracking-wider lg:justify-center lg:gap-16 lg:border-b-0 lg:pt-0'>
+			<div className='flex items-center justify-around py-3 border-b border-separator gap-5 text-text-secondary text-base lg:text-xs lg:font-semibold lg:tracking-wider lg:justify-center lg:gap-16 lg:border-b-0 lg:pt-0'>
 				{USER_PROFILE_SECTIONS.map((item) => (
 					<Link
 						key={item.labelI18nKey}
 						className={cn(
 							'flex transition items-center py-3 cursor-pointer gap-2 lg:pt-6',
 							{
-								'text-btn-primary lg:text-text-primary dark:text-text-primaryDark lg:border-t border-text-primary  dark:border-text-primaryDark':
+								'text-btn-primary lg:text-text-primary lg:border-t border-text-primary':
 									item.getHref(username) === pathname,
 							}
 						)}

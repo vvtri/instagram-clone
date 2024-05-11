@@ -19,9 +19,7 @@ export const getListUser = async (
 	const userData = users.slice(firstIdx, lastIdx);
 	const lastPage = Math.ceil(userStories.length / size);
 
-	const hasNextPage = lastIdx < userData.length;
-
-	console.log('userData', userData);
+	const hasNextPage = lastIdx < users.length;
 
 	return { data: userData, hasNextPage, currentPage: page, lastPage };
 };

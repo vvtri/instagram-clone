@@ -107,6 +107,12 @@ html {
 	--web-secondary-action: 224, 241, 255;
 	--yellow-5: 253, 203, 92;
 	--outline-btn-text: 56, 81, 133;
+
+  --z-float: 1;
+  --z-navbar: 10;
+  --z-header: 10;
+  --z-modal: 50;
+  --z-loading: 60;
 }
 
 html.dark {

@@ -1,8 +1,9 @@
 'use client';
 import LoadingSpinner from '@/modules/common/components/utility/LoadingSpinner';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 import { useInfinitePost } from '../hooks/use-infinite-post.hook';
 import PostCard, { PostCardSkeleton } from './PostCard';
+import PostDetailModal from './PostDetailModal';
 
 type ListPostProps = {
 	className?: string;
@@ -12,8 +13,9 @@ export default function PostList({ className }: ListPostProps) {
 	const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
 		useInfinitePost({
 			page: 0,
-			size: 20,
+			size: 5,
 		});
+	const containerRef = useRef<HTMLDivElement | null>(null);
 
 	let postCards: ReactNode[] = [];
 
@@ -27,18 +29,32 @@ export default function PostList({ className }: ListPostProps) {
 			.map((item, idx) => <PostCardSkeleton key={idx} />);
 	}
 
+	useEffect(() => {
+		const handler = (e: Event) => {
+			const div = containerRef.current;
+			if (!div) return;
+
+			const shouldFetch =
+				div.scrollHeight - div.scrollTop - div.offsetHeight < 400;
+
+			if (shouldFetch) fetchNextPage();
+		};
+
+		if (!containerRef.current) return;
+
+		document.addEventListener('scroll', handler);
+
+		return () => document?.removeEventListener('scroll', handler);
+	}, [containerRef.current]);
+
 	return (
 		<div className='w-full flex items-center flex-col overflow-hidden'>
-			<div
-				className='w-20 h-20'
-				style={{
-					// background: 'red',
-					background:
-						'linear-gradient(to right, var(--logo-linear-gradient))',
-				}}
-			></div>
+			<PostDetailModal />
 
-			<div className='w-full pb-[4000px] flex-col items-center flex'>
+			<div
+				className='w-full flex-col items-center flex pb-14 lg:pb-2'
+				ref={containerRef}
+			>
 				{postCards}
 			</div>
 

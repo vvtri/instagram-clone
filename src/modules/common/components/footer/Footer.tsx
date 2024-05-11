@@ -15,7 +15,7 @@ const FooterLink = ({ href, children }: FooterLinkProps) => {
 			className='text-text-secondary text-xs transition capitalize group relative'
 		>
 			<div
-				className='absolute inset-x-0 -bottom-1 h-[1px] bg-text-secondary dark:bg-text-secondaryDark opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible'
+				className='absolute inset-x-0 -bottom-1 h-[1px] bg-text-secondary opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible'
 				aria-hidden
 			/>
 			{children}

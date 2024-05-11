@@ -1,9 +1,23 @@
+import { cn } from '@/utilities/tailwind/cn';
 import Image from 'next/image';
 import React from 'react';
 
-export default function LoadingScreen() {
+type LoadingScreenProps = {
+	className?: string;
+	fullScreen?: boolean;
+};
+
+export default function LoadingScreen(props: LoadingScreenProps) {
+	const { className, fullScreen = true } = props;
+
 	return (
-		<main className='w-screen h-screen flex justify-center items-center flex-col fixed inset-0 z-10 bg-white'>
+		<main
+			className={cn(
+				'w-screen h-screen flex justify-center items-center flex-col fixed inset-0 z-loading bg-white',
+				{ 'w-full flex relative': !fullScreen },
+				className
+			)}
+		>
 			<Image
 				width='80'
 				height='80'

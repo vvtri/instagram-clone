@@ -34,7 +34,7 @@ export default function UserStoryDetailWarning(
 			</p>
 
 			<button
-				className='rounded-lg py-3 px-5 font-medium border mt-6 border-text-primary text-text-primary dark:border-text-primaryDark dark:text-text-primaryDark'
+				className='rounded-lg py-3 px-5 font-medium border mt-6 border-text-primary text-text-primary'
 				onClick={onConfirm}
 			>
 				{t('userStory.detailSlider.viewStory')}

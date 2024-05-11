@@ -3,7 +3,11 @@
     "word": {
       "or": "or",
       "switch": "switch",
-      "seeAll": "see all"
+      "seeAll": "see all",
+      "error": "error",
+      "post": "post",
+      "following": "following",
+      "comment": "comment"
     },
     "navbar": {
       "home": "home",
@@ -25,7 +29,13 @@
       "logout": "log out",
       "darkMode": "dark mode"
     },
-    "home": {}
+    "home": {},
+    "error": {
+      "default": "An unknown error has ocurred",
+      "dismiss": "Dismiss",
+      "retry": "Retry",
+      "functionIsNotImplemented": "Function is not implemented."
+    }
   },
   "auth": {
     "common": {
@@ -59,11 +69,12 @@
     }
   },
   "post": {
-    "postCard": {
+    "common": {
       "likeAmount": "{likes, number} likes",
       "viewComment": "View all {comments, number} comments",
       "addComment": "Add comment",
-      "post": "Post"
+      "post": "post",
+      "morePost": "More post from"
     }
   },
   "userStory": {

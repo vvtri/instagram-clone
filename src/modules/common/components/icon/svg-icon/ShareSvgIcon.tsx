@@ -1,14 +1,18 @@
+import { SvgIconProps } from '@/modules/common/types/svg-icon.type';
 import React from 'react';
 
-export default function ShareSvgIcon() {
+export default function ShareSvgIcon(props: SvgIconProps) {
+	const { thickness = 'thin', width = 24, height = 24, ...rest } = props;
+
 	return (
 		<svg
 			aria-label='Chia sẻ bài viết'
 			fill='currentColor'
-			height='24'
 			role='img'
 			viewBox='0 0 24 24'
-			width='24'
+			width={width}
+			height={height}
+			{...rest}
 		>
 			<title>Chia sẻ bài viết</title>
 			<line

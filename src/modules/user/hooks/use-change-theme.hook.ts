@@ -1,4 +1,4 @@
-import { UseMutationOptions, useMutation } from 'react-query';
+import { UseMutationOptions, useMutation } from '@tanstack/react-query';
 import { AsyncReturnType } from 'type-fest';
 import { ChangeThemeParams, changeTheme } from '../apis/user.api';
 
