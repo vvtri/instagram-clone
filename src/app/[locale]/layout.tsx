@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang={params.locale} suppressHydrationWarning className='relative'>
-			<Script src='https://unpkg.com/detect-autofill@1.1.4/dist/detect-autofill.js' />
+			
 
 			<body
 				style={{
