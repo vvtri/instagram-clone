@@ -73,9 +73,7 @@ export default function UserStoryDetailSlider(
 
   useEffect(() => {
     return () => {
-      if (document.fullscreenElement) {
-        document.exitFullscreen();
-      }
+      if (!window.location.href.includes('stories')) document.exitFullscreen();
     };
   }, []);
 

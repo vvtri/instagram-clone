@@ -44,7 +44,7 @@ export default function InterceptedUserStoryDetailPage(
             if (isRedirected.current) return;
 
             isRedirected.current = true;
-            return router.back();
+            return router.push('/');
           }}
           onAllStoriedEnd={() => {
             if (isRedirected.current) return;
