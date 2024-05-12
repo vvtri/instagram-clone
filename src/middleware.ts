@@ -1,31 +1,31 @@
 import createMiddleware from 'next-intl/middleware';
 import { NextRequest, NextResponse } from 'next/server';
 import {
-	CUR_PATH_NAME_HEADER_KEY,
-	MEDIA_FILE_PATH_REGEX,
+  CUR_PATH_NAME_HEADER_KEY,
+  MEDIA_FILE_PATH_REGEX,
 } from './modules/common/constants/index.constant';
 
 export default function (request: NextRequest) {
-	const pathname = request.nextUrl.pathname;
-	request.headers.append(CUR_PATH_NAME_HEADER_KEY, pathname);
+  const pathname = request.nextUrl.pathname;
+  request.headers.append(CUR_PATH_NAME_HEADER_KEY, pathname);
 
-	if (
-		pathname === '/' ||
-		!MEDIA_FILE_PATH_REGEX.test(pathname.split('/').at(-1)!)
-	) {
-		const response = createMiddleware({
-			// A list of all locales that are supported
-			locales: ['en', 'vi'],
+  if (
+    pathname === '/' ||
+    !MEDIA_FILE_PATH_REGEX.test(pathname.split('/').at(-1)!)
+  ) {
+    const response = createMiddleware({
+      // A list of all locales that are supported
+      locales: ['en', 'vi'],
 
-			// Used when no locale matches
-			defaultLocale: 'en',
-			localePrefix: 'never',
-		})(request);
+      // Used when no locale matches
+      defaultLocale: 'en',
+      localePrefix: 'never',
+    })(request);
 
-		return response;
-	}
+    return response;
+  }
 
-	return NextResponse.next();
+  return NextResponse.next();
 }
 
 // export const config = {

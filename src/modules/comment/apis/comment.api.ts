@@ -1,9 +1,8 @@
-import { ApiError } from '@/data/error-code.data';
-import { users } from '@/data/user.data';
 import { comments } from '@/data/comment.data';
+import { users } from '@/data/user.data';
 import { UserModel } from '@/modules/auth/apis/auth.api';
-import { BasePaginationResType } from '@/modules/common/types/base-pagination.res.type';
 import { BasePaginationReqType } from '@/modules/common/types/base-pagination.req.type';
+import { BasePaginationResType } from '@/modules/common/types/base-pagination.res.type';
 
 export type CommentModel = (typeof comments)[number] & {
   user: UserModel;

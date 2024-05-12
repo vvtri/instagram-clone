@@ -1,10 +1,10 @@
 import { QueryKey } from '@/modules/common/constants/query-key.constant';
-import { InfiniteData, useQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
+import { ApiError } from 'next/dist/server/api-utils';
 import {
   GetDetailUserStoryParams,
   getDetailUserStory,
 } from '../apis/user-story.api';
-import { ApiError } from 'next/dist/server/api-utils';
 
 export const useDetailUserStory = (params: GetDetailUserStoryParams) => {
   const queryKey = [QueryKey.DETAIL_USER_STORY, params];

@@ -8,13 +8,13 @@ import { useCurrentUser } from '../../hooks/use-current-user.hook';
 type NotAuthGuardProps = PropsWithChildren<{}>;
 
 export default function NotAuthGuard({ children }: NotAuthGuardProps) {
-	const { data, isLoading } = useCurrentUser();
+  const { data, isLoading } = useCurrentUser();
 
-	if (isLoading) {
-		return <LoadingScreen />;
-	}
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
 
-	if (data) {
-		return redirect('/');
-	} else return children;
+  if (data) {
+    return redirect('/');
+  } else return children;
 }

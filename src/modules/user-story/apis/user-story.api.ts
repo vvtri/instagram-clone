@@ -6,45 +6,45 @@ import { BasePaginationReqType } from '@/modules/common/types/base-pagination.re
 import { BasePaginationResType } from '@/modules/common/types/base-pagination.res.type';
 
 export type UserStoryModel = (typeof userStories)[number] & {
-	user: UserModel;
+  user: UserModel;
 };
 
 export type GetListUserStoryParams = {} & BasePaginationReqType;
 
 export const getListUserStory = async (
-	params: GetListUserStoryParams
+  params: GetListUserStoryParams,
 ): Promise<BasePaginationResType<UserStoryModel>> => {
-	const { page = 1, size = 20 } = params;
+  const { page = 1, size = 20 } = params;
 
-	const firstIdx = (page - 1) * size;
-	const lastIdx = page * size;
+  const firstIdx = (page - 1) * size;
+  const lastIdx = page * size;
 
-	const userStoryData = userStories.slice(firstIdx, lastIdx);
-	const lastPage = Math.ceil(userStories.length / size);
+  const userStoryData = userStories.slice(firstIdx, lastIdx);
+  const lastPage = Math.ceil(userStories.length / size);
 
-	const result = userStoryData.map<UserStoryModel>((item) => ({
-		...item,
-		user: users.find((user) => user.id === item.userId) as UserModel,
-	}));
+  const result = userStoryData.map<UserStoryModel>((item) => ({
+    ...item,
+    user: users.find((user) => user.id === item.userId) as UserModel,
+  }));
 
-	const hasNextPage = lastIdx < userStories.length;
+  const hasNextPage = lastIdx < userStories.length;
 
-	return { data: result, hasNextPage, currentPage: page, lastPage };
+  return { data: result, hasNextPage, currentPage: page, lastPage };
 };
 
 export type GetDetailUserStoryParams = {
-	userStoryId: number;
+  userStoryId: number;
 };
 
 export const getDetailUserStory = async (
-	params: GetDetailUserStoryParams
+  params: GetDetailUserStoryParams,
 ): Promise<UserStoryModel> => {
-	const { userStoryId } = params;
+  const { userStoryId } = params;
 
-	const userStory = userStories.find((item) => item.id === userStoryId);
-	if (!userStory) throw new ApiError('notFound');
+  const userStory = userStories.find((item) => item.id === userStoryId);
+  if (!userStory) throw new ApiError('notFound');
 
-	const user = users.find((item) => item.id === userStory.userId)!;
+  const user = users.find((item) => item.id === userStory.userId)!;
 
-	return { ...userStory, user };
+  return { ...userStory, user };
 };

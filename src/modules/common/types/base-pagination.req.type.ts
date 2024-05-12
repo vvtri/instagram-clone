@@ -1,4 +1,4 @@
 export type BasePaginationReqType = {
-	page?: number;
-	size?: number;
+  page?: number;
+  size?: number;
 };

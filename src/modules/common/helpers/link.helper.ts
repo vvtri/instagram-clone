@@ -1,13 +1,13 @@
-export const getHomeLink = () => '/'
+export const getHomeLink = () => '/';
 
 export const getUserProfileLink = (username: string) => {
-	return `/${username}`;
+  return `/${username}`;
 };
 
 export const getPostDetailLink = (postId: number) => {
-	return `/p/${postId}`;
+  return `/p/${postId}`;
 };
 
 export const getPostCommentLink = (postId: number) => {
-	return `/p/${postId}/comments`;
+  return `/p/${postId}/comments`;
 };

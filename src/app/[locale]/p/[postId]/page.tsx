@@ -5,24 +5,24 @@ import MaxWidthContainer from '@/modules/common/components/utility/MaxWidthConta
 import PostDetail from '@/modules/post/components/PostDetail';
 
 type PostDetailPageProps = {
-	params: {
-		postId: string;
-	};
+  params: {
+    postId: string;
+  };
 };
 
 export default function PostDetailPage(props: PostDetailPageProps) {
-	const { params } = props;
-	const { postId } = params;
+  const { params } = props;
+  const { postId } = params;
 
-	return (
-		<AuthGuard>
-			<Navbar />
-			<MaxWidthContainer>
-				<PostDetail
-					footer={<Footer className='mb-6' />}
-					postId={parseInt(postId)}
-				/>
-			</MaxWidthContainer>
-		</AuthGuard>
-	);
+  return (
+    <AuthGuard>
+      <Navbar />
+      <MaxWidthContainer>
+        <PostDetail
+          footer={<Footer className="mb-6" />}
+          postId={parseInt(postId)}
+        />
+      </MaxWidthContainer>
+    </AuthGuard>
+  );
 }

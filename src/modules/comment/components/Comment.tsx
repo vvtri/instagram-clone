@@ -1,18 +1,15 @@
 'use client';
 
-import VerifySvgIcon from '@/modules/common/components/icon/svg-icon/VerifySvgIcon';
-import React from 'react';
-import { CommentModel } from '../apis/comment.api';
-import { PostModel } from '@/modules/post/apis/post.api';
-import Image from 'next/image';
-import { UserModel } from '@/modules/auth/apis/auth.api';
-import { useFormatter } from 'next-intl';
 import HeartSvgIcon from '@/modules/common/components/icon/svg-icon/HeartSvgIcon';
-import Link from 'next/link';
-import { getUserProfileLink } from '@/modules/common/helpers/link.helper';
+import VerifySvgIcon from '@/modules/common/components/icon/svg-icon/VerifySvgIcon';
 import AvatarSkeleton from '@/modules/common/components/skeleton/AvatarSkeleton';
 import BoxSkeleton from '@/modules/common/components/skeleton/BoxSkeleton';
+import { getUserProfileLink } from '@/modules/common/helpers/link.helper';
 import { genImageSizesProp } from '@/utilities/image/gen-image-sizes-prop';
+import { useFormatter } from 'next-intl';
+import Image from 'next/image';
+import Link from 'next/link';
+import { CommentModel } from '../apis/comment.api';
 
 type CommentProps = {
   comment: CommentModel;

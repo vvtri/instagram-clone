@@ -1,14 +1,14 @@
-import { NestedKeyOf, NestedValueOf } from 'next-intl';
+import { NestedValueOf } from 'next-intl';
 import authEn from './messages/en/auth.json';
-import authVi from './messages/vi/auth.json';
 import clientEn from './messages/en/client.json';
-import clientVi from './messages/vi/client.json';
 import commonEn from './messages/en/common.json';
-import commonVi from './messages/vi/common.json';
-import userEn from './messages/en/user.json';
-import userVi from './messages/vi/user.json';
 import userStoryEn from './messages/en/user-story.json';
+import userEn from './messages/en/user.json';
+import authVi from './messages/vi/auth.json';
+import clientVi from './messages/vi/client.json';
+import commonVi from './messages/vi/common.json';
 import userStoryVi from './messages/vi/user-story.json';
+import userVi from './messages/vi/user.json';
 
 export type MessageCommon = typeof commonEn | typeof commonVi;
 export type MessageAuth = typeof authEn | typeof authVi;

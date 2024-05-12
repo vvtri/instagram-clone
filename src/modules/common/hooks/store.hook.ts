@@ -1,7 +1,7 @@
 import type {
-	AppDispatch,
-	AppStore,
-	RootState,
+  AppDispatch,
+  AppStore,
+  RootState,
 } from '@/modules/common/store/store';
 import { useDispatch, useSelector, useStore } from 'react-redux';
 

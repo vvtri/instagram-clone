@@ -1,36 +1,36 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import React, {
-	PropsWithChildren,
-	createContext,
-	useContext,
-	useEffect,
-	useRef,
-	useState,
+import {
+  PropsWithChildren,
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
 } from 'react';
 
 const OriginContext = createContext(false);
 
 export const useWithinPage = () => {
-	return useContext(OriginContext);
+  return useContext(OriginContext);
 };
 
 export default function OriginProvider({ children }: PropsWithChildren) {
-	const [isWithinPage, setIsWithinPage] = useState(false);
-	const pathname = usePathname();
-	const pathnameRef = useRef(pathname);
+  const [isWithinPage, setIsWithinPage] = useState(false);
+  const pathname = usePathname();
+  const pathnameRef = useRef(pathname);
 
-	useEffect(() => {
-		if (isWithinPage) return;
-		if (pathnameRef.current === pathname) return;
+  useEffect(() => {
+    if (isWithinPage) return;
+    if (pathnameRef.current === pathname) return;
 
-		setIsWithinPage(true);
-	}, [pathname]);
+    setIsWithinPage(true);
+  }, [pathname]);
 
-	return (
-		<OriginContext.Provider value={isWithinPage}>
-			{children}
-		</OriginContext.Provider>
-	);
+  return (
+    <OriginContext.Provider value={isWithinPage}>
+      {children}
+    </OriginContext.Provider>
+  );
 }

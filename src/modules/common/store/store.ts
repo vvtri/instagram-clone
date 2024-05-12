@@ -2,10 +2,10 @@ import { configureStore } from '@reduxjs/toolkit';
 import persistedReducer from './reducer';
 
 export const makeStore = () => {
-	return configureStore({
-		reducer: persistedReducer,
-		devTools: true,
-	});
+  return configureStore({
+    reducer: persistedReducer,
+    devTools: true,
+  });
 };
 
 // Infer the type of makeStore

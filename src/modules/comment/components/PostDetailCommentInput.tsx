@@ -1,16 +1,16 @@
 'use client';
-import InstaButton from '@/modules/common/components/utility/InstaButton';
-import EmojiPicker from '@/modules/common/components/utility/EmojiPicker';
-import { useClickOutSide } from '@/modules/common/hooks/use-click-out-side.hook';
-import { cn } from '@/utilities/tailwind/cn';
-import React, { useRef, useState } from 'react';
-import ReactTextareaAutosize from 'react-textarea-autosize';
-import EmojiSvgIcon from '@/modules/common/components/icon/svg-icon/EmojiSvgIcon';
-import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 import { users } from '@/data/user.data';
+import EmojiSvgIcon from '@/modules/common/components/icon/svg-icon/EmojiSvgIcon';
+import EmojiPicker from '@/modules/common/components/utility/EmojiPicker';
+import InstaButton from '@/modules/common/components/utility/InstaButton';
+import { useClickOutSide } from '@/modules/common/hooks/use-click-out-side.hook';
 import { useToast } from '@/modules/common/hooks/use-toast.hook';
 import { genImageSizesProp } from '@/utilities/image/gen-image-sizes-prop';
+import { cn } from '@/utilities/tailwind/cn';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import { useRef, useState } from 'react';
+import ReactTextareaAutosize from 'react-textarea-autosize';
 
 type PostDetailCommentInputProps = {
   className?: string;

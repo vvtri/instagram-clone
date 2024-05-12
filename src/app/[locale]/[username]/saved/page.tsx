@@ -1,8 +1,5 @@
-import UserBookmarkEmpty from '@/modules/user/components/UserProfile/UserProfileSaveEmpty'
-import React from 'react'
+import UserBookmarkEmpty from '@/modules/user/components/UserProfile/UserProfileSaveEmpty';
 
 export default function UserProfileSavedPage() {
-  return (
-   <UserBookmarkEmpty />
-  )
+  return <UserBookmarkEmpty />;
 }

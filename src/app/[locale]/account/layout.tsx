@@ -1,7 +1,7 @@
 import NotAuthGuard from '@/modules/auth/components/guard/NotAuthGuard';
 import Footer from '@/modules/common/components/footer/Footer';
 import Script from 'next/script';
-import React, { PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 
 export default function AccountLayout({ children }: PropsWithChildren) {
   return (

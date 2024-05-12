@@ -1,12 +1,12 @@
 import ImageWithGradientBorder from '@/modules/common/components/utility/ImageWithGradientBorder';
 import Link from 'next/link';
-import Skeleton from 'react-loading-skeleton';
-import { UserStoryModel } from '../../apis/user-story.api';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import {
   publicApiType,
   VisibilityContext,
 } from 'react-horizontal-scrolling-menu';
+import Skeleton from 'react-loading-skeleton';
+import { UserStoryModel } from '../../apis/user-story.api';
 
 type UserStoryCardProps = {
   itemId: string;

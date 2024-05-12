@@ -6,46 +6,46 @@ import { BasePaginationReqType } from '@/modules/common/types/base-pagination.re
 import { BasePaginationResType } from '@/modules/common/types/base-pagination.res.type';
 
 export type PostModel = (typeof posts)[number] & {
-	user: UserModel;
+  user: UserModel;
 };
 
 export type GetListPostParams = {} & BasePaginationReqType;
 
 export const getListPost = async (
-	params: GetListPostParams
+  params: GetListPostParams,
 ): Promise<BasePaginationResType<PostModel>> => {
-	const { page = 1, size = 20 } = params;
+  const { page = 1, size = 20 } = params;
 
-	const firstIdx = (page - 1) * size;
-	const lastIdx = page * size;
+  const firstIdx = (page - 1) * size;
+  const lastIdx = page * size;
 
-	const postData = posts.slice(firstIdx, lastIdx);
-	const lastPage = Math.ceil(posts.length / size);
+  const postData = posts.slice(firstIdx, lastIdx);
+  const lastPage = Math.ceil(posts.length / size);
 
-	const result = postData.map<PostModel>((item) => ({
-		...item,
-		user: users.find((user) => user.id === item.userId) as UserModel,
-	}));
+  const result = postData.map<PostModel>((item) => ({
+    ...item,
+    user: users.find((user) => user.id === item.userId) as UserModel,
+  }));
 
-	const hasNextPage = lastIdx < posts.length;
+  const hasNextPage = lastIdx < posts.length;
 
-	return { data: result, hasNextPage, lastPage, currentPage: page };
+  return { data: result, hasNextPage, lastPage, currentPage: page };
 };
 
 export type GetDetailPostParams = {
-	postId: number;
+  postId: number;
 };
 
 export const getDetailPost = async (
-	params: GetDetailPostParams
+  params: GetDetailPostParams,
 ): Promise<PostModel> => {
-	const { postId } = params;
+  const { postId } = params;
 
-	const post = posts.find((item) => item.id === postId);
+  const post = posts.find((item) => item.id === postId);
 
-	if (!post) throw new ApiError('notFound');
+  if (!post) throw new ApiError('notFound');
 
-	const user = users.find((item) => item.id === post.userId)!;
+  const user = users.find((item) => item.id === post.userId)!;
 
-	return { ...post, user };
+  return { ...post, user };
 };

@@ -1,14 +1,13 @@
 'use client';
 
 import { useAuth } from '@/modules/auth/hooks/use-auth.hook';
-import Image from 'next/image';
-import React from 'react';
-import InstaButton from '../utility/InstaButton';
-import { useTranslations } from 'next-intl';
 import { upperFirstChar } from '@/utilities/text/upper-first-char';
-import { useToast } from '../../hooks/use-toast.hook';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import Link from 'next/link';
 import { getUserProfileLink } from '../../helpers/link.helper';
+import { useToast } from '../../hooks/use-toast.hook';
+import InstaButton from '../utility/InstaButton';
 
 export default function HomeSwitchAccount() {
   const { user } = useAuth();

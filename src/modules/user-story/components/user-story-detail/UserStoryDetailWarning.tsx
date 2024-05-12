@@ -1,11 +1,9 @@
 'use client';
-import { users } from '@/data/user.data';
 import { useAuth } from '@/modules/auth/hooks/use-auth.hook';
-import Image from 'next/image';
-import React from 'react';
-import { UserStoryModel } from '../../apis/user-story.api';
-import { useTranslations } from 'next-intl';
 import { genImageSizesProp } from '@/utilities/image/gen-image-sizes-prop';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import { UserStoryModel } from '../../apis/user-story.api';
 
 type UserStoryDetailWarningProps = {
   userStory: UserStoryModel;

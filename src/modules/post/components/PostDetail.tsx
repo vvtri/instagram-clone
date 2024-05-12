@@ -9,20 +9,20 @@ import PostDetailLargeScreen from './PostDetailLargeScreen';
 import PostDetailSmallSCreen from './PostDetailSmallScreen';
 
 type PostDetailProps = {
-	footer: ReactNode;
-	postId: number;
+  footer: ReactNode;
+  postId: number;
 };
 
 export default function PostDetail(props: PostDetailProps) {
-	const { footer, postId } = props;
-	const { isMediumDevice } = useResponsive();
-	const { data, isLoading, isFetching, refetch } = useDetailPost(postId);
+  const { footer, postId } = props;
+  const { isMediumDevice } = useResponsive();
+  const { data, isLoading, isFetching, refetch } = useDetailPost(postId);
 
-	if (isLoading || isFetching) return <LoadingScreen fullScreen={false} />;
+  if (isLoading || isFetching) return <LoadingScreen fullScreen={false} />;
 
-	if (!data) return <ErrorModal retry={refetch} />;
+  if (!data) return <ErrorModal retry={refetch} />;
 
-	if (isMediumDevice)
-		return <PostDetailLargeScreen post={data} footer={footer} />;
-	else return <PostDetailSmallSCreen post={data} />;
+  if (isMediumDevice)
+    return <PostDetailLargeScreen post={data} footer={footer} />;
+  else return <PostDetailSmallSCreen post={data} />;
 }

@@ -1,11 +1,11 @@
 type ErrorCode = 'notFound';
 
 export class ApiError extends Error {
-	code: ErrorCode;
+  code: ErrorCode;
 
-	constructor(errorCode: ErrorCode) {
-		super();
+  constructor(errorCode: ErrorCode) {
+    super();
 
-		this.code = errorCode;
-	}
+    this.code = errorCode;
+  }
 }

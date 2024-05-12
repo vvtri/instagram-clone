@@ -6,14 +6,14 @@ import {
   getUserProfileLink,
 } from '@/modules/common/helpers/link.helper';
 import { useResponsive } from '@/modules/common/hooks/use-responsive';
+import { useToast } from '@/modules/common/hooks/use-toast.hook';
+import { genImageSizesProp } from '@/utilities/image/gen-image-sizes-prop';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ReactNode } from 'react';
-import { useInfinitePost } from '../hooks/use-infinite-post.hook';
 import { PostModel } from '../apis/post.api';
-import { useToast } from '@/modules/common/hooks/use-toast.hook';
-import { useTranslations } from 'next-intl';
-import { genImageSizesProp } from '@/utilities/image/gen-image-sizes-prop';
+import { useInfinitePost } from '../hooks/use-infinite-post.hook';
 
 type PostSuggestionProps = {
   post: PostModel;

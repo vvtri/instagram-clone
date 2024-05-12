@@ -1,9 +1,11 @@
 'use client';
 import CommentList from '@/modules/comment/components/CommentList';
+import PostDetailCommentInput from '@/modules/comment/components/PostDetailCommentInput';
 import MoreSvgIcon from '@/modules/common/components/icon/svg-icon/MoreSvgIcon';
 import VerifySvgIcon from '@/modules/common/components/icon/svg-icon/VerifySvgIcon';
 import MotionDiv from '@/modules/common/components/utility/MotionDiv';
 import { getUserProfileLink } from '@/modules/common/helpers/link.helper';
+import { useToast } from '@/modules/common/hooks/use-toast.hook';
 import { genImageSizesProp } from '@/utilities/image/gen-image-sizes-prop';
 import { cn } from '@/utilities/tailwind/cn';
 import { useFormatter, useTranslations } from 'next-intl';
@@ -13,8 +15,6 @@ import Skeleton from 'react-loading-skeleton';
 import Slider from 'react-slick';
 import { PostModel } from '../apis/post.api';
 import PostAction from './PostAction';
-import PostDetailCommentInput from '@/modules/comment/components/PostDetailCommentInput';
-import { useToast } from '@/modules/common/hooks/use-toast.hook';
 
 type PostDetailLargeScreenContentProps = {
   post: PostModel;

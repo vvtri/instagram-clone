@@ -7,60 +7,60 @@ import { SignInFormData, signInSchema } from '../../schema/sign-in.scheme';
 import AuthInput from '../AuthInput';
 
 type SignInFormProps = {
-	i18n: {
-		phoneNumberOrUsernameOrEmail: string;
-		password: string;
-		signInBtn: string;
-	};
-	redirectUrl?: string;
+  i18n: {
+    phoneNumberOrUsernameOrEmail: string;
+    password: string;
+    signInBtn: string;
+  };
+  redirectUrl?: string;
 };
 
 export default function SignInForm(props: SignInFormProps) {
-	const { i18n, redirectUrl } = props;
+  const { i18n, redirectUrl } = props;
 
-	const { mutate, isPending } = useSignIn(redirectUrl);
+  const { mutate, isPending } = useSignIn(redirectUrl);
 
-	const { register, handleSubmit, formState } = useForm<SignInFormData>({
-		resolver: yupResolver(signInSchema),
-		values: {
-			phoneNumberOrUsernameOrEmail: 'kienhoang254',
-			password: 'userpassword',
-		},
-	});
+  const { register, handleSubmit, formState } = useForm<SignInFormData>({
+    resolver: yupResolver(signInSchema),
+    values: {
+      phoneNumberOrUsernameOrEmail: 'kienhoang254',
+      password: 'userpassword',
+    },
+  });
 
-	const getInputValid = (key: keyof typeof formState.errors) => {
-		let error = formState.errors[key];
-		if (error === undefined) return error;
+  const getInputValid = (key: keyof typeof formState.errors) => {
+    let error = formState.errors[key];
+    if (error === undefined) return error;
 
-		return !error;
-	};
+    return !error;
+  };
 
-	const handleSignIn = (data: SignInFormData) => {
-		mutate(data);
-	};
+  const handleSignIn = (data: SignInFormData) => {
+    mutate(data);
+  };
 
-	return (
-		<form
-			className='w-full space-y-2'
-			onSubmit={handleSubmit(handleSignIn)}
-			noValidate
-		>
-			<AuthInput
-				{...register('phoneNumberOrUsernameOrEmail')}
-				type='text'
-				placeholder={i18n.phoneNumberOrUsernameOrEmail}
-				isValid={getInputValid('phoneNumberOrUsernameOrEmail')}
-			/>
-			<AuthInput
-				{...register('password')}
-				type='password'
-				placeholder={i18n.password}
-				isValid={getInputValid('password')}
-			/>
+  return (
+    <form
+      className="w-full space-y-2"
+      onSubmit={handleSubmit(handleSignIn)}
+      noValidate
+    >
+      <AuthInput
+        {...register('phoneNumberOrUsernameOrEmail')}
+        type="text"
+        placeholder={i18n.phoneNumberOrUsernameOrEmail}
+        isValid={getInputValid('phoneNumberOrUsernameOrEmail')}
+      />
+      <AuthInput
+        {...register('password')}
+        type="password"
+        placeholder={i18n.password}
+        isValid={getInputValid('password')}
+      />
 
-			<InstaButton type='submit' className='w-full' disabled={isPending}>
-				{i18n.signInBtn}
-			</InstaButton>
-		</form>
-	);
+      <InstaButton type="submit" className="w-full" disabled={isPending}>
+        {i18n.signInBtn}
+      </InstaButton>
+    </form>
+  );
 }
