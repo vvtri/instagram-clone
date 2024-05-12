@@ -54,7 +54,7 @@ export default function PostList({ className }: ListPostProps) {
   }, [containerRef.current]);
 
   return (
-    <div className="w-full flex items-center flex-col overflow-hidden">
+    <div className="w-full flex items-center flex-col overflow-hidden pb-10">
       <PostDetailModal />
 
       <div

@@ -59,6 +59,7 @@ const config: Config = {
 				header: 'var(--z-header)',
 				modal: 'var(--z-modal)',
 				loading: 'var(--z-loading)',
+        userStoryFloat: '1000'
 			},
 		},
 	},

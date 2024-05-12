@@ -1,13 +1,15 @@
 'use client';
 
+import CloseSvgIcon from '@/modules/common/components/icon/svg-icon/CloseSvgIcon';
+import InstagramLogoTextSvgIcon from '@/modules/common/components/icon/svg-icon/InstagramLogoTextSvgIcon';
+import { useAppSelector } from '@/modules/common/hooks/store.hook';
+import { useResponsive } from '@/modules/common/hooks/use-responsive';
 import { cn } from '@/utilities/tailwind/cn';
-import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
 import { default as ReactSlick, default as Slider } from 'react-slick';
 import { UserStoryModel } from '../../apis/user-story.api';
 import UserStoryDetail from './UserStoryDetail';
-import { useRouter } from 'next/navigation';
-import InstagramLogoTextSvgIcon from '@/modules/common/components/icon/svg-icon/InstagramLogoTextSvgIcon';
-import CloseSvgIcon from '@/modules/common/components/icon/svg-icon/CloseSvgIcon';
 
 type UserStoryDetailSliderProps = {
   userStories: UserStoryModel[];
@@ -25,6 +27,10 @@ export default function UserStoryDetailSlider(
   const router = useRouter();
   const slidesToShow = 3;
   const isLastSlide = activeIdx >= userStories.length - 1;
+  const isUserInteracted = useAppSelector(
+    ({ userStory }) => userStory.isUserInteracted,
+  );
+  const { isSmallDevice } = useResponsive();
 
   const userStoryDetails = userStories.map((item, idx) => (
     <UserStoryDetail
@@ -51,6 +57,28 @@ export default function UserStoryDetailSlider(
     );
   }
 
+  useEffect(() => {
+    if (isSmallDevice || !isUserInteracted) return;
+
+    const doc = document.documentElement;
+
+    if (
+      doc.requestFullscreen &&
+      document.fullscreenEnabled &&
+      !document.fullscreenElement
+    ) {
+      doc.requestFullscreen();
+    }
+  }, [isSmallDevice, isUserInteracted]);
+
+  useEffect(() => {
+    return () => {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      }
+    };
+  }, []);
+
   return (
     <div
       className={cn(
@@ -58,7 +86,7 @@ export default function UserStoryDetailSlider(
         { 'disable-next-user-story-btn': isLastSlide },
       )}
     >
-      <div className="hidden absolute top-4 left-4 right-4 z-float xl:flex justify-between">
+      <div className="hidden absolute top-4 left-4 right-4 z-modal xl:flex justify-between">
         <InstagramLogoTextSvgIcon
           className="cursor-pointer"
           onClick={() => router.push('/')}

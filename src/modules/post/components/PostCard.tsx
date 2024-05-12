@@ -3,16 +3,6 @@ import VerifySvgIcon from '@/modules/common/components/icon/svg-icon/VerifySvgIc
 import AvatarSkeleton from '@/modules/common/components/skeleton/AvatarSkeleton';
 import BoxSkeleton from '@/modules/common/components/skeleton/BoxSkeleton';
 import ImageWithGradientBorder from '@/modules/common/components/utility/ImageWithGradientBorder';
-import { genImageSizesProp } from '@/utilities/image/gen-image-sizes-prop';
-import { cn } from '@/utilities/tailwind/cn';
-import { useFormatter, useTranslations } from 'next-intl';
-import Image from 'next/image';
-import Skeleton from 'react-loading-skeleton';
-import Slider from 'react-slick';
-import { PostModel } from '../apis/post.api';
-import PostAction from './PostAction';
-import PostCardCommentInput from '../../comment/components/PostCardCommentInput';
-import Link from 'next/link';
 import {
   getPostCommentLink,
   getPostDetailLink,
@@ -20,11 +10,19 @@ import {
 } from '@/modules/common/helpers/link.helper';
 import { useAppDispatch } from '@/modules/common/hooks/store.hook';
 import { useResponsive } from '@/modules/common/hooks/use-responsive';
-import { setShowPostModal } from '../slices/post.slice';
-import { useRouter } from 'next/navigation';
-import { useRef } from 'react';
 import { useToast } from '@/modules/common/hooks/use-toast.hook';
-import { useInView } from 'framer-motion';
+import { genImageSizesProp } from '@/utilities/image/gen-image-sizes-prop';
+import { cn } from '@/utilities/tailwind/cn';
+import { useFormatter, useTranslations } from 'next-intl';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import Skeleton from 'react-loading-skeleton';
+import Slider from 'react-slick';
+import PostCardCommentInput from '../../comment/components/PostCardCommentInput';
+import { PostModel } from '../apis/post.api';
+import { setShowPostModal } from '../slices/post.slice';
+import PostAction from './PostAction';
 
 type PostCardProps = {
   className?: string;
@@ -42,9 +40,10 @@ export default function PostCard(props: PostCardProps) {
   const { warning } = useToast();
 
   const onViewAllComments = () => {
-    if (isLargeDevice)
+    if (isLargeDevice) {
       dispatch(setShowPostModal({ isShow: true, postId: post.id }));
-    else router.push(getPostCommentLink(post.id));
+      window.history.pushState(null, '', getPostDetailLink(post.id));
+    } else router.push(getPostCommentLink(post.id));
   };
 
   return (
@@ -136,12 +135,12 @@ export default function PostCard(props: PostCardProps) {
           </div>
         </div>
 
-        <p
-          className="text-sm text-text-secondary mt-1 cursor-pointer"
+        <button
+          className="text-sm text-text-secondary mt-1 cursor-pointer py-1"
           onClick={onViewAllComments}
         >
           {t('post.common.viewComment', { comments: post.commentAmount })}
-        </p>
+        </button>
 
         <PostCardCommentInput />
       </div>

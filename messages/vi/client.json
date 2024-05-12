@@ -27,7 +27,8 @@
       "reportAProblem": "báo cáo sự cố",
       "switchAccounts": "chuyển tài khoản",
       "logout": "đăng xuất",
-      "darkMode": "chế độ tối"
+      "darkMode": "chế độ tối",
+      "changeLanguage": "đổi ngôn ngữ"
     },
     "home": {},
     "error": {
@@ -75,6 +76,10 @@
       "addComment": "Thêm bình luận",
       "post": "đăng",
       "morePost": "Thêm các bài viết từ"
+    },
+    "commentPage": {
+      "noComment": "Chưa có bình luận nào",
+      "encourageComment": "Bắt đầu trò chuyện nào"
     }
   },
   "userStory": {

@@ -27,7 +27,8 @@
       "reportAProblem": "report a problem",
       "switchAccounts": "switch accounts",
       "logout": "log out",
-      "darkMode": "dark mode"
+      "darkMode": "dark mode",
+      "changeLanguage": "change language"
     },
     "home": {},
     "error": {
@@ -75,6 +76,10 @@
       "addComment": "Add comment",
       "post": "post",
       "morePost": "More post from"
+    },
+    "commentPage": {
+      "noComment": "Chưa có bình luận nào",
+      "encourageComment": "Bắt đầu trò chuyện nào"
     }
   },
   "userStory": {

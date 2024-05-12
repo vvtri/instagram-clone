@@ -1,23 +1,15 @@
+import VerifySvgIcon from '@/modules/common/components/icon/svg-icon/VerifySvgIcon';
+import LoadingSpinner from '@/modules/common/components/utility/LoadingSpinner';
+import { getUserProfileLink } from '@/modules/common/helpers/link.helper';
 import { PostModel } from '@/modules/post/apis/post.api';
+import { genImageSizesProp } from '@/utilities/image/gen-image-sizes-prop';
 import { cn } from '@/utilities/tailwind/cn';
-import {
-  EventHandler,
-  MouseEventHandler,
-  ReactNode,
-  WheelEventHandler,
-  useEffect,
-  useRef,
-} from 'react';
+import { useFormatter, useTranslations } from 'next-intl';
+import Image from 'next/image';
+import Link from 'next/link';
+import { ReactNode, useEffect, useRef } from 'react';
 import { useInfiniteComment } from '../hooks/use-infinite-comment.hook';
 import Comment, { CommentSkeleton } from './Comment';
-import VerifySvgIcon from '@/modules/common/components/icon/svg-icon/VerifySvgIcon';
-import { getUserProfileLink } from '@/modules/common/helpers/link.helper';
-import Link from 'next/link';
-import { format } from 'path';
-import { useFormatter } from 'next-intl';
-import Image from 'next/image';
-import LoadingSpinner from '@/modules/common/components/utility/LoadingSpinner';
-import { genImageSizesProp } from '@/utilities/image/gen-image-sizes-prop';
 
 type CommentListProps = {
   post: PostModel;
@@ -28,6 +20,7 @@ export default function CommentList(props: CommentListProps) {
   const { className, post } = props;
   const ref = useRef<HTMLDivElement | null>(null);
   const format = useFormatter();
+  const t = useTranslations('Client');
 
   const { data, isLoading, isFetchingNextPage, fetchNextPage, hasNextPage } =
     useInfiniteComment({
@@ -63,6 +56,7 @@ export default function CommentList(props: CommentListProps) {
       .fill(0)
       .map((item, idx) => <CommentSkeleton key={`skeleton-${idx}`} />);
   }
+  const hasComment = Boolean(data?.pages?.[0]?.data?.length);
 
   return (
     <div
@@ -108,7 +102,15 @@ export default function CommentList(props: CommentListProps) {
 
       <div className="w-full border-t border-separator my-3 lg:hidden" />
 
-      {commentComps}
+      {!hasComment && (
+        <div className="flex flex-col items-center pt-6">
+          <h4 className="text-2xl font-bold pb-3 tracking-wide">
+            {t('post.commentPage.noComment')}
+          </h4>
+          <p className="text-sm">{t('post.commentPage.encourageComment')}</p>
+        </div>
+      )}
+      {hasComment && commentComps}
 
       {isFetchingNextPage && (
         <div className="flex items-center justify-center w-full py-4">

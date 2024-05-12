@@ -1,38 +1,57 @@
 'use client';
 import { LANGUAGES, LANGUAGE_COOKIE_KEY } from '@/constants/i18n.constant';
-import React, { ChangeEvent, useState } from 'react';
-import { changeLanguageAction } from '../../actions/change-language.action';
-import { useRouter } from 'next/navigation';
+import { ACCESS_TOKEN_COOKIE_KEY } from '@/modules/auth/constants/auth.constant';
+import { useAuth } from '@/modules/auth/hooks/use-auth.hook';
+import { useChangeLanguage } from '@/modules/user/hooks/use-change-language.hook';
+import { cn } from '@/utilities/tailwind/cn';
 import { useCookies } from 'next-client-cookies';
+import { useRouter } from 'next/navigation';
+import { ChangeEvent, useState } from 'react';
 
-export default function FooterLanguageSelect() {
-	const router = useRouter();
-	const cookies = useCookies();
+type FooterLanguageSelectProps = {
+  className?: string;
+};
 
-	const [currentLang, setCurrentLang] = useState(
-		(cookies.get(LANGUAGE_COOKIE_KEY) ||
-			'en') as (typeof LANGUAGES)[number]['value']
-	);
+export default function FooterLanguageSelect({
+  className,
+}: FooterLanguageSelectProps) {
+  const router = useRouter();
+  const cookies = useCookies();
+  const { user } = useAuth();
+  const { mutateAsync, isPending } = useChangeLanguage();
 
-	const handleChangeLanguage = (e: ChangeEvent<HTMLSelectElement>) => {
-		const lang = e.target.value as (typeof LANGUAGES)[number]['value'];
-		changeLanguageAction(lang);
+  const [currentLang, setCurrentLang] = useState(
+    (cookies.get(LANGUAGE_COOKIE_KEY) ||
+      'en') as (typeof LANGUAGES)[number]['value'],
+  );
 
-		setCurrentLang(lang);
-		router.refresh();
-	};
+  const handleChangeLanguage = async (e: ChangeEvent<HTMLSelectElement>) => {
+    const lang = e.target.value as (typeof LANGUAGES)[number]['value'];
+    // changeLanguageAction(lang);
+    setCurrentLang(lang);
 
-	return (
-		<select
-			className='focus:outline-text-secondary'
-			onChange={handleChangeLanguage}
-			value={currentLang}
-		>
-			{LANGUAGES.map((lang) => (
-				<option key={`${lang.label}${lang.value}`} value={lang.value}>
-					{lang.label}
-				</option>
-			))}
-		</select>
-	);
+    if (user) {
+      await mutateAsync({ token: cookies.get(ACCESS_TOKEN_COOKIE_KEY)!, lang });
+    }
+    cookies.set(LANGUAGE_COOKIE_KEY, lang);
+    router.refresh();
+  };
+
+  return (
+    <select
+      className={cn(
+        'focus:outline-text-secondary cursor-pointer border-separator border',
+        className,
+      )}
+      onChange={handleChangeLanguage}
+      value={currentLang}
+      disabled={isPending}
+    >
+      {LANGUAGES.map((lang) => (
+        <option key={`${lang.label}${lang.value}`} value={lang.value}>
+          {lang.label}
+        </option>
+      ))}
+    </select>
+  );
 }

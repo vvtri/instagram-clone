@@ -1,5 +1,6 @@
 'use client';
 
+import CloseSvgIcon from '@/modules/common/components/icon/svg-icon/CloseSvgIcon';
 import DirectSvgIcon from '@/modules/common/components/icon/svg-icon/DirectSvgIcon';
 import HeartSvgIcon from '@/modules/common/components/icon/svg-icon/HeartSvgIcon';
 import MoreSvgIcon from '@/modules/common/components/icon/svg-icon/MoreSvgIcon';
@@ -8,18 +9,17 @@ import {
   useAppDispatch,
   useAppSelector,
 } from '@/modules/common/hooks/store.hook';
+import { genImageSizesProp } from '@/utilities/image/gen-image-sizes-prop';
 import { cn } from '@/utilities/tailwind/cn';
+import { useFormatter, useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { ReactElement, useEffect, useState } from 'react';
+import { ReactElement, useMemo, useState } from 'react';
 import ReactInstaStories from 'react-insta-stories';
+import ReactTextareaAutosize from 'react-textarea-autosize';
 import { UserStoryModel } from '../../apis/user-story.api';
-import { getFirstImageFromUserStory } from '../../helpers/get-first-image-from-user-story';
+import { getPreviewImageFromUserStory } from '../../helpers/get-preview-image-from-user-story';
 import { setIsUserInteracted } from '../../slices/user-story.slice';
 import UserStoryDetailWarning from './UserStoryDetailWarning';
-import CloseSvgIcon from '@/modules/common/components/icon/svg-icon/CloseSvgIcon';
-import { useFormatter, useTranslations } from 'next-intl';
-import ReactTextareaAutosize from 'react-textarea-autosize';
-import { genImageSizesProp } from '@/utilities/image/gen-image-sizes-prop';
 
 type UserStoryDetailProps = {
   userStory: UserStoryModel;
@@ -39,7 +39,6 @@ export default function UserStoryDetail(
     goToSlide,
     onExitClicked,
   } = props;
-  const [previewImage, setPreviewImage] = useState('');
   const dispatch = useAppDispatch();
   const isUserInteracted = useAppSelector(
     ({ userStory }) => userStory.isUserInteracted,
@@ -47,13 +46,10 @@ export default function UserStoryDetail(
   const format = useFormatter();
   const t = useTranslations('Client');
   const [message, setMessage] = useState('');
-
-  useEffect(() => {
-    (async () => {
-      const imageUrl = await getFirstImageFromUserStory(userStory.media);
-      setPreviewImage(imageUrl);
-    })();
-  }, []);
+  const previewImage = useMemo(
+    () => getPreviewImageFromUserStory(userStory),
+    [userStory.media],
+  );
 
   return (
     <div className={cn('h-full w-full flex items-center justify-center ')}>
@@ -66,7 +62,7 @@ export default function UserStoryDetail(
       >
         {/* header */}
         <div
-          className="absolute top-0 p-5 inset-x-0 w-full z-float"
+          className="absolute top-0 p-5 inset-x-0 w-full z-userStoryFloat"
           onClick={(e) => isActive && e.stopPropagation()}
         >
           <div className="flex items-center justify-between">
